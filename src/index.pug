@@ -9,7 +9,179 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      header.header
+        .container
+          .header__logo
+            img.logo(src='https://via.placeholder.com/50x35', width='50', height='35', alt='Логотип')
+          .header__nav
+            nav.nav.nav--header
+              ul.nav__list
+                li.nav__item
+                  a.nav__link(href='#main') Главная
+                li.nav__item
+                  a.nav__link(href='#about') Обо мне
+                li.nav__item
+                  a.nav__link(href='#skills') Навыки
+                li.nav__item
+                  a.nav__link(href='#portfolio') Работы
+                li.nav__item
+                  a.nav__link(href='#reviews') Отзывы
+                li.nav__item
+                  a.nav__link(href='#contacts') Связаться
+          .header__socials
+            ul.socials.socials--header
+              li.socials__item
+                a.socials__link(href='#')
+              li.socials__item
+                a.socials__link(href='#')
+              li.socials__item
+                a.socials__link(href='#')
+      section#main
+        h1.main__heading Личный сайт веб-разработчика
+        p.main__name Елена Ходанович
+      section#about
+        h2.visually-hidden Обо мне
+        .about__info
+          p Привет, меня зовут
+          p Елена Ходанович
+          p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        .about__pic
+          img.about__img(src='https://via.placeholder.com/200x200', width='200', height='200', alt='Мое фото')
+        .about__data
+          table
+            tbody
+              tr
+                td Проживаю:
+                td Ярославль
+              tr
+                td Возраст:
+                td 46 лет
+              tr
+                td Родилась:
+                td 23 октября 1973
+      section#skills
+        h2.heading Чем я могу быть полезен вам
+        .skills__intro
+          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        .skills__diagrams.diagrams
+          .diagrams__frontend
+            h3.diagrams__heading Front-end
+            ul.diagrams__frontend-list
+              li.diagrams__frontend-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='HTML5')
+              li.diagrams__frontend-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='CSS3')
+              li.diagrams__frontend-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Javascript')
+              li.diagrams__frontend-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Vue.js')
+          .diagrams__workflow
+            h3.diagrams__heading Workflow
+            ul.diagrams__workflow-list
+              li.diagrams__workflow-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='GIT')
+              li.diagrams__workflow-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Terminal')
+              li.diagrams__workflow-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Gulp')
+              li.diagrams__workflow-item
+                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Webpack')
+      section#portfolio
+        h2.heading Мои работы
+        .portfolio__slider
+          div
+            img.portfolio__preview-big(src='https://via.placeholder.com/600x350', width='600', height='350', alt='Превью работы')
+          ul.portfolio__list-img
+            li.portfolio__item-img
+              a(href='')
+                img.portfolio__preview-small(src='https://via.placeholder.com/70x30', width='70', height='30', alt='Превью работы')
+            li.portfolio__item-img
+              a(href='')
+                img.portfolio__preview-small(src='https://via.placeholder.com/70x30', width='70', height='30', alt='Превью работы')
+            li.portfolio__item-img
+              a(href='')
+                img.portfolio__preview-small(src='https://via.placeholder.com/70x30', width='70', height='30', alt='Превью работы')
+          ul.portfolio__arrows
+            li
+              button.portfolio__arrows-up(type='button', aria-label='Вверх')
+            li
+              button.portfolio__arrows-down(type='button', aria-label='Вниз')
+        .portfolio__text
+          ul.portfolio__buttons
+            li.portfolio__button
+              button(type='button') HTML
+            li.portfolio__button
+              button(type='button') CSS
+            li.portfolio__button
+              button(type='button') Javascript
+          p Сайт школы образования
+          p Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
+          a(href='#') Посмотреть сайт
+      section#reviews
+        h2.heading Что обо мне говорят
+        .reviews__wrapper
+          ul.reviews__arrows
+            li
+              button.reviews__arrows-left(type='button', aria-label='Назад')
+            li
+              button.reviews__arrows-right(type='button', aria-label='Вперед')
+          ul.reviews__list
+            li.reviews__item
+              p Елена проходила обучение веб-разработке не где-то, а в LoftSchool! Сколько только самых тяжелых испытаний и бессонных ночей!
+              img.reviews__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Дмитрия')
+              p Ковальчук Дмитрий
+              p Основатель Loftschool
+            li.reviews__item
+              p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+              img.reviews__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Владимира')
+              p Владимир Сабанцев
+              p Преподаватель
+      section#contacts
+        h2.heading Связаться со мной
+        form.form
+          .form__name
+            label(for='name') Введите ваше имя
+            br
+            input#name(type='text', name='username', value='', placeholder='Имя Фамилия', required='')
+          .form__email
+            label(for='email') Введите ваш email
+            br
+            input#email(type='email', name='useremail', value='', placeholder='email@example.com', required='')
+          .form__text
+            label(for='message') Сообщение
+            br
+            textarea#message(name='message', rows='5', placeholder='В свободной форме', required='')
+          button.button(type='submit') Отправить
+      footer.footer
+        .copyright
+          p © 2019
+          p Елена Ходанович
+          p Личный сайт веб-разработчика
+        .footer__nav
+          nav.nav.nav--footer
+            ul.nav__list
+              li.nav__item
+                a.nav__link(href='#main') Главная
+              li.nav__item
+                a.nav__link(href='#about') Обо мне
+              li.nav__item
+                a.nav__link(href='#skills') Навыки
+              li.nav__item
+                a.nav__link(href='#portfolio') Работы
+              li.nav__item
+                a.nav__link(href='#reviews') Отзывы
+              li.nav__item
+                a.nav__link(href='#contacts') Связаться
+        .footer__intro
+          p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+          ul.socials.socials--footer
+            li.socials__item
+              a.socials__link(href='#')
+            li.socials__item
+              a.socials__link(href='#')
+            li.socials__item
+              a.socials__link(href='#')
+        .footer__quote
+          p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+          p Martin Golding
