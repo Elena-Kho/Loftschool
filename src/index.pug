@@ -9,85 +9,99 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      header.header
-        .container
-          .header__logo
-            img.logo(src='https://via.placeholder.com/50x35', width='50', height='35', alt='Логотип')
-          .header__nav
-            nav.nav.nav--header
-              ul.nav__list
-                li.nav__item
-                  a.nav__link(href='#main') Главная
-                li.nav__item
-                  a.nav__link(href='#about') Обо мне
-                li.nav__item
-                  a.nav__link(href='#skills') Навыки
-                li.nav__item
-                  a.nav__link(href='#portfolio') Работы
-                li.nav__item
-                  a.nav__link(href='#reviews') Отзывы
-                li.nav__item
-                  a.nav__link(href='#contacts') Связаться
-          .header__socials
-            ul.socials.socials--header
-              li.socials__item
-                a.socials__link(href='#')
-              li.socials__item
-                a.socials__link(href='#')
-              li.socials__item
-                a.socials__link(href='#')
-      section#main
-        h1.main__heading Личный сайт веб-разработчика
-        p.main__name Елена Ходанович
-      section#about
-        h2.visually-hidden Обо мне
-        .about__info
-          p Привет, меня зовут
-          p Елена Ходанович
-          p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-        .about__pic
-          img.about__img(src='https://via.placeholder.com/200x200', width='200', height='200', alt='Мое фото')
-        .about__data
-          table
-            tbody
-              tr
-                td Проживаю:
-                td Ярославль
-              tr
-                td Возраст:
-                td 46 лет
-              tr
-                td Родилась:
-                td 23 октября 1973
-      section#skills
-        h2.heading Чем я могу быть полезен вам
-        .skills__intro
-          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-        .skills__diagrams.diagrams
-          .diagrams__frontend
-            h3.diagrams__heading Front-end
-            ul.diagrams__frontend-list
-              li.diagrams__frontend-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='HTML5')
-              li.diagrams__frontend-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='CSS3')
-              li.diagrams__frontend-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Javascript')
-              li.diagrams__frontend-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Vue.js')
-          .diagrams__workflow
-            h3.diagrams__heading Workflow
-            ul.diagrams__workflow-list
-              li.diagrams__workflow-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='GIT')
-              li.diagrams__workflow-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Terminal')
-              li.diagrams__workflow-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Gulp')
-              li.diagrams__workflow-item
-                img.diagrams__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Webpack')
-      section#portfolio
+      .welcome-section
+        section.intro
+          header.header.container
+            .header__logo
+              .logo ЕХ
+            .header__nav
+              nav.nav.nav--header
+                - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                ul.nav__list
+                  each item in items
+                    li.nav__item
+                      a.nav__link #{item}
+            .header__socials
+              - var icons = ["insta", "vk", "github"];
+              ul.socials.socials--header
+                each item in icons
+                  li.socials__item
+                    a(href='').socials__link
+                      +icon(item, socials__item)
+          .intro__main.main.container
+            .main__intro
+              h1.main__heading
+                | Личный сайт
+                br
+                |  веб-разработчика
+            .main__name
+              p
+                | Елена
+                br
+                |  Ходанович
+          .intro__scroll.scroll
+            a(href='#').scroll__button Скролл
+        section#about-section
+          .about.container
+            h2.visually-hidden Обо мне
+            .about__user.user-card
+              .user-card__avatar.avatar
+                +image('content/user.jpg', 'avatar__img')
+              .user-card__data
+                table
+                  tbody
+                    tr
+                      td.user-card__column.user-card__column--one Проживаю:
+                      td.user-card__column.user-card__column--two Ярославль
+                    tr
+                      td.user-card__column.user-card__column--one Возраст:
+                      td.user-card__column.user-card__column--two 46 лет
+                    tr
+                      td.user-card__column.user-card__column--one Родилась:
+                      td.user-card__column.user-card__column--two 23 октября 1973
+            .about__text
+              .about__hello Привет, меня зовут
+              .about__name Елена Ходанович
+              .about__prof
+                p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+              .about__school
+                p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+      .skills-section
+        .polygon
+        section#skills.container
+          h2.skills__heading Чем я могу быть полезен вам
+          .skills__intro
+            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          .skills__diagrams.diagrams
+            .diagrams__frontend
+              h3.diagrams__heading Front-end
+              -var schems = [{title: 'HTML5', perc:'75'}, {title: 'CSS3', perc:'90'}, {title: 'Javascript', perc:'25'}, {title: 'Vue.js', perc:'75'}]
+              ul.diagrams__list
+                each item in schems
+                  li.diagrams__item
+                    .diagrams__title #{item.title}
+                    svg(width="150" height="150").circle
+                      circle(cx='75' cy='75' r='65' fill='transparent' stroke='#e9e9e9').circle__icon.circle__icon--under
+                      circle(cx='75' cy='75' r='65' fill='transparent' stroke='url(#grad)' stroke-dashoffset=`${item.perc}%`).circle__icon.circle__icon--above
+                      defs
+                        linearGradient(id='grad')
+                          stop(offset="0%" stop-color="#bb00ff")
+                          stop(offset="100%" stop-color="#5900ff")
+            .diagrams__workflow
+              h3.diagrams__heading Workflow
+              -var schems = [{title: 'GIT', perc:'75'}, {title: 'Terminal', perc:'90'}, {title: 'Galp', perc:'25'}, {title: 'Webpack', perc:'75'}]
+              ul.diagrams__list
+                each item in schems
+                  li.diagrams__item
+                    .diagrams__title #{item.title}
+                    svg(width="150" height="150").circle
+                      circle(cx='75' cy='75' r='65' fill='transparent' stroke='#e9e9e9').circle__icon.circle__icon--under
+                      circle(cx='75' cy='75' r='65' fill='transparent' stroke='url(#grad)' stroke-dashoffset=`${item.perc}%`).circle__icon.circle__icon--above
+                      defs
+                        linearGradient(id='grad')
+                          stop(offset="0%" stop-color="#bb00ff")
+                          stop(offset="100%" stop-color="#5900ff")
+      section#portfolio.container
         h2.heading Мои работы
         .portfolio__slider
           div
@@ -118,7 +132,7 @@ html(lang="en")
           p Сайт школы образования
           p Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
           a(href='#') Посмотреть сайт
-      section#reviews
+      section#reviews.container
         h2.heading Что обо мне говорят
         .reviews__wrapper
           ul.reviews__arrows
@@ -137,7 +151,7 @@ html(lang="en")
               img.reviews__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Владимира')
               p Владимир Сабанцев
               p Преподаватель
-      section#contacts
+      section#contacts.container
         h2.heading Связаться со мной
         form.form
           .form__name
@@ -153,7 +167,7 @@ html(lang="en")
             br
             textarea#message(name='message', rows='5', placeholder='В свободной форме', required='')
           button.button(type='submit') Отправить
-      footer.footer
+      footer.footer.container
         .copyright
           p © 2019
           p Елена Ходанович
