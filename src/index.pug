@@ -30,15 +30,8 @@ html(lang="en")
                       +icon(item, socials__item)
           .intro__main.main.container
             .main__intro
-              h1.main__heading
-                | Личный сайт
-                br
-                |  веб-разработчика
-            .main__name
-              p
-                | Елена
-                br
-                |  Ходанович
+              p.main__text Личный сайт веб-разработчика
+              h1.main__heading Елена Ходанович
           .intro__scroll.scroll
             a(href='#').scroll__button Скролл
         section#about-section
@@ -66,9 +59,8 @@ html(lang="en")
                 p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
               .about__school
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-      .skills-section
-        .polygon.polygon--grey
-        section#skills.container
+      section.skills-section
+        #skills.container
           h2.skills__heading Чем я могу быть полезен вам
           .skills__intro
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
@@ -101,26 +93,26 @@ html(lang="en")
                         linearGradient(id='grad')
                           stop(offset="0%" stop-color="#bb00ff")
                           stop(offset="100%" stop-color="#5900ff")
-      .portfolio-section
-        section#portfolio.container
+      section.portfolio-section
+        #portfolio.container
           h2.portfolio__heading.heading Мои работы
           .portfolio__wrapper
             .portfolio__slider
               .portfolio__big-img
-                img.portfolio__preview-big(src='images/content/preview_big-desktopHd.jpg', width='977', height='549', alt='Превью работы')
+                +image('content/preview_big-desktopHd.jpg', 'portfolio__preview-big')
               ul.portfolio__list-img
                 li.portfolio__item-img
                   a(href='')
-                    img.portfolio__preview-small(src='https://via.placeholder.com/180x100', width='180', height='100', alt='Превью работы')
+                    +image('content/preview_small_1-desktopHd.jpg', 'portfolio__preview-big')
                 li.portfolio__item-img
                   a(href='')
-                    img.portfolio__preview-small(src='https://via.placeholder.com/180x100', width='180', height='100', alt='Превью работы')
+                    +image('content/preview_small_2-desktopHd.jpg', 'portfolio__preview-big')
                 li.portfolio__item-img
                   a(href='')
-                    img.portfolio__preview-small(src='https://via.placeholder.com/180x100', width='180', height='100', alt='Превью работы')
+                    +image('content/preview_small_3-desktopHd.jpg', 'portfolio__preview-big')
                 li.portfolio__item-img
                   a(href='')
-                    img.portfolio__preview-small(src='https://via.placeholder.com/180x100', width='180', height='100', alt='Превью работы')
+                    +image('content/preview_small_4-desktopHd.jpg', 'portfolio__preview-big')
               ul.portfolio__arrows-list
                 li.portfolio__arrows-item
                   button.portfolio__arrows-btn(type='button', aria-label='Вверх')
@@ -138,9 +130,8 @@ html(lang="en")
               p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
               a.portfolio__text-link(href='#') Посмотреть сайт
       .two-sections
-        .reviews-section
-          .polygon.polygon--white
-          section#reviews.container
+        section.reviews-section
+          #reviews.container
             .reviews-wrapper
               h2.reviews__heading.heading Что обо мне говорят
               ul.reviews__arrows-list
@@ -152,33 +143,30 @@ html(lang="en")
               li.reviews__item
                 .reviews__intro Елена проходила обучение веб-разработке не где-то, а в LoftSchool! Сколько только самых тяжелых испытаний и бессонных ночей!
                 .reviews__avatar.avatar
-                  img.reviews__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Дмитрия')
+                  img.avatar__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Дмитрия')
                 .reviews__pers
-                  p Ковальчук Дмитрий
-                  p Основатель Loftschool
+                  .reviews__pers-name Ковальчук Дмитрий
+                  .reviews__pers-pos Основатель Loftschool
               li.reviews__item
                 .reviews__intro Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
                 .reviews__avatar.avatar
-                  img.reviews__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Владимира')
+                  img.avatar__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Владимира')
                 .reviews__pers
-                  p.reviews__pers-name Владимир Сабанцев
-                  p.reviews__pers-pos Преподаватель
-        .contacts-section
-          section#contacts.container
-            h2.heading Связаться со мной
-            form.form
-              .form__name
-                label(for='name') Введите ваше имя
-                br
-                input#name(type='text', name='username', value='', placeholder='Имя Фамилия', required='')
-              .form__email
-                label(for='email') Введите ваш email
-                br
-                input#email(type='email', name='useremail', value='', placeholder='email@example.com', required='')
-              .form__text
-                label(for='message') Сообщение
-                br
-                textarea#message(name='message', rows='5', placeholder='В свободной форме', required='')
+                  .reviews__pers-name Владимир Сабанцев
+                  .reviews__pers-pos Преподаватель
+        section.contacts-section
+          #contacts.container
+            h2.contacts__heading.heading Связаться со мной
+            form.contacts__form
+              .contacts__info.form-input
+                label.form-input__label(for='name') Введите ваше имя
+                input#name.form-input__input(type='text', name='username', value='', placeholder='Имя Фамилия', required='')
+              .contacts__info.form-input
+                label.form-input__label(for='email') Введите ваш email
+                input#name.form-input__input(type='email', name='useremail', value='', placeholder='email@example.com', required='')
+              .contacts__info.form-input.form-input--message
+                label.form-input__label(for='message') Сообщение
+                textarea#message.form-input__message(name='message', rows='5', placeholder='В свободной форме', required='')
               button.button(type='submit') Отправить
       .footer-section
         footer.footer.container
