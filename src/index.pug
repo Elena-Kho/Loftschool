@@ -25,7 +25,7 @@ html(lang="en")
               - var icons = ["insta", "vk", "github"];
               ul.socials.socials--header
                 each item in icons
-                  li.socials__item
+                  li.socials__item.socials__item--header
                     a(href='').socials__link
                       +icon(item, socials__item)
           .intro__main.main.container
@@ -54,24 +54,24 @@ html(lang="en")
                       td.user-card__column.user-card__column--two 23 октября 1973
             .about__text
               .about__hello Привет, меня зовут
-              .about__name Елена Ходанович
+              h3.about__name Елена Ходанович
               .about__prof
                 p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
               .about__school
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
       section.skills-section
-        #skills.container
+        #skills.skills.container
           h2.skills__heading Чем я могу быть полезен вам
           .skills__intro
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-          .skills__diagrams.diagrams
-            .diagrams__frontend
+          ul.skills__diagrams.diagrams
+            li.diagrams__row
               h3.diagrams__heading Front-end
               -var schems = [{title: 'HTML5', perc:'75'}, {title: 'CSS3', perc:'90'}, {title: 'Javascript', perc:'25'}, {title: 'Vue.js', perc:'75'}]
               ul.diagrams__list
                 each item in schems
                   li.diagrams__item
-                    .diagrams__title #{item.title}
+                    h4.diagrams__title #{item.title}
                     svg(width="150" height="150").circle
                       circle(cx='75' cy='75' r='65' fill='transparent' stroke='#e9e9e9').circle__icon.circle__icon--under
                       circle(cx='75' cy='75' r='65' fill='transparent' stroke='url(#grad)' stroke-dashoffset=`${item.perc}%`).circle__icon.circle__icon--above
@@ -79,13 +79,13 @@ html(lang="en")
                         linearGradient(id='grad')
                           stop(offset="0%" stop-color="#bb00ff")
                           stop(offset="100%" stop-color="#5900ff")
-            .diagrams__workflow
+            li.diagrams__row
               h3.diagrams__heading Workflow
               -var schems = [{title: 'GIT', perc:'75'}, {title: 'Terminal', perc:'90'}, {title: 'Galp', perc:'25'}, {title: 'Webpack', perc:'75'}]
               ul.diagrams__list
                 each item in schems
                   li.diagrams__item
-                    .diagrams__title #{item.title}
+                    h4.diagrams__title #{item.title}
                     svg(width="150" height="150").circle
                       circle(cx='75' cy='75' r='65' fill='transparent' stroke='#e9e9e9').circle__icon.circle__icon--under
                       circle(cx='75' cy='75' r='65' fill='transparent' stroke='url(#grad)' stroke-dashoffset=`${item.perc}%`).circle__icon.circle__icon--above
@@ -94,7 +94,7 @@ html(lang="en")
                           stop(offset="0%" stop-color="#bb00ff")
                           stop(offset="100%" stop-color="#5900ff")
       section.portfolio-section
-        #portfolio.container
+        #portfolio.portfolio.container
           h2.portfolio__heading.heading Мои работы
           .portfolio__wrapper
             .portfolio__slider
@@ -119,19 +119,16 @@ html(lang="en")
                 li.portfolio__arrows-item
                   button.portfolio__arrows-btn(type='button', aria-label='Вниз')
             .portfolio__text
-              ul.portfolio__buttons
-                li.portfolio__btn
-                  button(type='button') HTML
-                li.portfolio__btn
-                  button(type='button') CSS
-                li.portfolio__btn
-                  button(type='button') Javascript
+              ul.portfolio__tags
+                li.portfolio__tag HTML
+                li.portfolio__tag CSS
+                li.portfolio__tag Javascript
               h3.portfolio__text-heading Сайт школы образования
               p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
               a.portfolio__text-link(href='#') Посмотреть сайт
       .two-sections
         section.reviews-section
-          #reviews.container
+          #reviews.reviews.container
             .reviews-wrapper
               h2.reviews__heading.heading Что обо мне говорят
               ul.reviews__arrows-list
@@ -139,23 +136,23 @@ html(lang="en")
                   button.reviews__arrow(type='button', aria-label='Назад')
                 li.reviews__arrows-item
                   button.reviews__arrow(type='button', aria-label='Вперед')
-            ul.reviews__list
-              li.reviews__item
-                .reviews__intro Елена проходила обучение веб-разработке не где-то, а в LoftSchool! Сколько только самых тяжелых испытаний и бессонных ночей!
-                .reviews__avatar.avatar
-                  img.avatar__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Дмитрия')
-                .reviews__pers
-                  .reviews__pers-name Ковальчук Дмитрий
-                  .reviews__pers-pos Основатель Loftschool
-              li.reviews__item
-                .reviews__intro Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                .reviews__avatar.avatar
-                  img.avatar__img(src='https://via.placeholder.com/50x50', width='50', height='50', alt='Фото Владимира')
-                .reviews__pers
-                  .reviews__pers-name Владимир Сабанцев
-                  .reviews__pers-pos Преподаватель
+              ul.reviews__list
+                li.reviews__item
+                  .reviews__intro Елена проходила обучение веб-разработке не где-то, а в LoftSchool! Сколько только самых тяжелых испытаний и бессонных ночей!
+                  .reviews__avatar.avatar
+                    +image('content/avatar1.jpg', 'avatar__img')
+                  .reviews__pers
+                    .reviews__pers-name Ковальчук Дмитрий
+                    .reviews__pers-pos Основатель Loftschool
+                li.reviews__item
+                  .reviews__intro Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                  .reviews__avatar.avatar
+                    +image('content/avatar2.jpg', 'avatar__img')
+                  .reviews__pers
+                    .reviews__pers-name Владимир Сабанцев
+                    .reviews__pers-pos Преподаватель
         section.contacts-section
-          #contacts.container
+          #contacts.contacts.container
             h2.contacts__heading.heading Связаться со мной
             form.contacts__form
               .contacts__info.form-input
@@ -164,40 +161,34 @@ html(lang="en")
               .contacts__info.form-input
                 label.form-input__label(for='email') Введите ваш email
                 input#name.form-input__input(type='email', name='useremail', value='', placeholder='email@example.com', required='')
-              .contacts__info.form-input.form-input--message
+              .contacts__info.form-input.form-input--textarea
                 label.form-input__label(for='message') Сообщение
                 textarea#message.form-input__message(name='message', rows='5', placeholder='В свободной форме', required='')
-              button.button(type='submit') Отправить
+              button.contacts__button.button(type='submit') Отправить
       .footer-section
         footer.footer.container
-          .copyright
-            p © 2019
-            p Елена Ходанович
-            p Личный сайт веб-разработчика
-          .footer__nav
-            nav.nav.nav--footer
-              ul.nav__list
-                li.nav__item
-                  a.nav__link(href='#main') Главная
-                li.nav__item
-                  a.nav__link(href='#about') Обо мне
-                li.nav__item
-                  a.nav__link(href='#skills') Навыки
-                li.nav__item
-                  a.nav__link(href='#portfolio') Работы
-                li.nav__item
-                  a.nav__link(href='#reviews') Отзывы
-                li.nav__item
-                  a.nav__link(href='#contacts') Связаться
-          .footer__intro
-            p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-            ul.socials.socials--footer
-              li.socials__item
-                a.socials__link(href='#')
-              li.socials__item
-                a.socials__link(href='#')
-              li.socials__item
-                a.socials__link(href='#')
-          .footer__quote
-            p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-            p Martin Golding
+          .footer__copyright.copyright
+            .copyright__year © 2019
+            .copyright__info
+              .copyright__name Елена Ходанович
+              .copyright__site Личный сайт веб-разработчика
+          .footer__content
+            .footer__nav
+              nav.nav.nav--footer
+                - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                ul.nav__list
+                  each item in items
+                    li.nav__item
+                      a.nav__link #{item}
+            .footer__intro
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+              .footer__intro-socials
+                - var icons = ["insta", "vk", "github"];
+                ul.socials.socials--footer
+                  each item in icons
+                    li.socials__item.socials__item--footer
+                      a(href='').socials__link
+                        +icon(item, socials__item)
+            .footer__quote
+              p.footer__quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+              p.footer__quote-name Martin Golding
