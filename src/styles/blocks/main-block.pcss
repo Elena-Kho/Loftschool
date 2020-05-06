@@ -12,8 +12,8 @@
 }
 
 .main__text {
-
-  width: 45%;
+  flex-shrink: 0;
+  width: 170px;
   padding-bottom: 10px;
   font-size: 18px;
   font-weight: 700;
@@ -29,4 +29,19 @@
   font-weight: 900;
   text-align: center;
   outline: 1px solid pink;
+}
+
+@media (max-width: 1200px) {
+  .main__intro {
+    flex-direction: row;
+  }
+
+  .main__heading{
+    text-align: left;
+  }
+
+  .main__text {
+    margin-right: 5vw;
+    text-align: right;
+  }
 }

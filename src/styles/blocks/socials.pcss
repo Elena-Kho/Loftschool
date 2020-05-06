@@ -1,6 +1,5 @@
 .socials {
   display: flex;
-  flex-wrap: wrap;
 
   outline: 1px solid pink;
 
@@ -12,7 +11,7 @@
 .socials__item--header {
   width: 25px;
   height: auto;
-  margin-left: 45px;
+  margin-left: 2.5vw;
 
   &:first-child {
     margin-left: 0;
@@ -54,5 +53,11 @@
     &:hover {
       fill: #ff9a00;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .socials__item--header {
+    margin-left: 2.5vw;
   }
 }
