@@ -10,25 +10,31 @@
 }
 
 .portfolio__slider {
-  position: relative;
-  width: 66%;
+  width: 977px;
 
   outline: 1px solid pink;
+}
+
+.portfolio__big-img {
+  position: relative;
 }
 
 .portfolio__list-img {
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   right: 0;
-
-  outline: 1px solid lime;
 }
 
 .portfolio__item-img:hover,
 .portfolio__item-img:active {
   border: 2px solid #ff9a00;
+}
+
+.portfolio__preview-small {
+  width: 178px;
+  height: 100px;
 }
 
 .portfolio__arrows-list {
@@ -71,7 +77,9 @@
 
 .portfolio__text {
   display: flex;
-  width: 34%;
+  width: 503px;
+
+  outline: 1px solid lime;
 }
 
 .portfolio__num {
@@ -131,6 +139,20 @@
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@media (max-width: 1200px) {
+  .portfolio__slider {
+    width: 623px;
+  }
+
+  .portfolio__item-img:first-child {
+    display: none;
+  }
+
+  .portfolio__text {
+    width: 457px;
   }
 }
 
