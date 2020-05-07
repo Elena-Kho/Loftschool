@@ -11,7 +11,7 @@ html(lang="en")
   body
     .wrapper
       .welcome-wrapper
-        section.intro
+        section.welcome-wrapper__intro.intro
           header.header.container
             .header__logo
               .logo ЕХ
@@ -35,7 +35,7 @@ html(lang="en")
               h1.main__heading Елена Ходанович
           .intro__scroll.scroll
             a(href='#').scroll__button Скролл
-        section.about#about.container
+        section.welcome-wrapper__about.about#about.container
           h2.visually-hidden Обо мне
           .about__user.user-card
             .user-card__avatar.avatar
@@ -59,8 +59,8 @@ html(lang="en")
               p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
             .about__school
               p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-      .skills-wrapper#skills
-        section.skills.container
+      section.skills#skills
+        .skills__wrapper.container
           h2.skills__heading Чем я могу быть полезен вам
           .skills__intro
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
@@ -119,15 +119,18 @@ html(lang="en")
                 li.portfolio__arrows-item
                   button.portfolio__arrows-btn(type='button', aria-label='Вниз')
             .portfolio__text
-              ul.portfolio__tags
-                li.portfolio__tag HTML
-                li.portfolio__tag CSS
-                li.portfolio__tag Javascript
-              h3.portfolio__text-heading Сайт школы образования
-              p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
-              a.portfolio__text-link(href='#') Посмотреть сайт
+              .portfolio__num
+                p 4
+              .portfolio__info
+                ul.portfolio__tags
+                  li.portfolio__tag HTML
+                  li.portfolio__tag CSS
+                  li.portfolio__tag Javascript
+                h3.portfolio__text-heading Сайт школы образования
+                p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
+                a.portfolio__text-link(href='#') Посмотреть сайт
       .final-wrapper
-        section.reviews#reviews.container
+        section.final-wrapper__reviews.reviews#reviews.container
           h2.reviews__heading.heading Что обо мне говорят
           ul.reviews__arrows-list
             li.reviews__arrows-item
@@ -149,7 +152,7 @@ html(lang="en")
               .reviews__pers
                 .reviews__pers-name Владимир Сабанцев
                 .reviews__pers-pos Преподаватель
-        section.contacts#contacts.container
+        section.final-wrapper__contacts.contacts#contacts.container
           h2.contacts__heading.heading Связаться со мной
           form.contacts__form
             .contacts__info.form-input
@@ -162,8 +165,8 @@ html(lang="en")
               label.form-input__label(for='message') Сообщение
               textarea#message.form-input__message(name='message', rows='5', placeholder='В свободной форме', required='')
             button.contacts__button.button(type='submit') Отправить
-      .footer-wrapper
-        footer.footer.container
+      footer.footer
+        .footer__wrapper.container
           .footer__copyright.copyright
             .copyright__year © 2019
             .copyright__info
