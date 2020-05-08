@@ -1,7 +1,7 @@
 html {
-  @include desktop {
+  /*@include desktop {
     font-size: 15px;
-  }
+  }*/
   @include tablets {
     font-size: 14px;
   }
@@ -32,6 +32,10 @@ body {
     width: 95%;*/
   width: 1480px;
   outline: 1px solid lime;
+
+  @include desktop {
+    width: 1080px;
+  }
 
   @include phones {
     width: 85%;
@@ -87,12 +91,6 @@ img {
   display: block;
   max-width: 100%;
   max-height: 100%;
-}
-
-@media (max-width: 1200px) {
-  .container {
-    width: 1080px;
-  }
 }
 
 

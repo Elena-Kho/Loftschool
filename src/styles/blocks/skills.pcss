@@ -1,18 +1,19 @@
 .skills {
-  background: url("../images/content/bg-backpack-desktopHd.jpg") no-repeat 0 100%;
+  background: url("../images/content/bg-backpack-desktopHd.jpg") no-repeat 20px 90%;
+
+  outline: 1px solid lime;
 }
 
 .skills__wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 140px;
-  margin-bottom: 120px;
   min-height: 750px;
 
-  outline: 1px solid pink;
+  outline: 1px solid pink
 }
 
-.skills__heading{
+.skills__heading {
+  margin-top: 145px;
   font-size: 30px;
   font-weight: 700;
 }
@@ -39,9 +40,13 @@
   outline: 1px solid lime;
 }
 
-@media (max-width: 1200px) {
+@include desktop {
   .skills {
     background-position: -250px 100%;
+  }
+
+  .skills__heading {
+    margin-top: 160px;
   }
 
   .skills__diagrams {

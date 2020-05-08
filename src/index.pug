@@ -30,9 +30,8 @@ html(lang="en")
                     a(href='').socials__link
                       +icon(item, socials__item)
           .intro__main.main.container
-            .main__intro
-              p.main__text Личный сайт веб-разработчика
-              h1.main__heading Елена Ходанович
+            p.main__text Личный сайт веб-разработчика
+            h1.main__heading Елена Ходанович
           .intro__scroll.scroll
             a(href='#').scroll__button Скролл
         section.welcome-wrapper__about.about#about.container
@@ -93,10 +92,10 @@ html(lang="en")
                         linearGradient(id='grad')
                           stop(offset="0%" stop-color="#bb00ff")
                           stop(offset="100%" stop-color="#5900ff")
-      .portfolio-wrapper#portfolio
-        section.portfolio.container
+      section.portfolio#portfolio
+        .portfolio__wrapper.container
           h2.portfolio__heading.heading Мои работы
-          .portfolio__wrapper
+          .portfolio__content
             .portfolio__slider
               .portfolio__big-img
                 +image('content/preview_big-desktopHd.jpg', 'portfolio__preview-big')

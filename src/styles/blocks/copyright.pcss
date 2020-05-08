@@ -27,7 +27,13 @@
   text-transform: uppercase;
 }
 
-.footer__quote-name {
-  margin-top: 15px;
-  font-style: italic;
+@include desktop {
+  .copyright {
+    flex-direction: column;
+  }
+
+  .copyright__info {
+    margin: 0;
+    padding: 0;
+  }
 }

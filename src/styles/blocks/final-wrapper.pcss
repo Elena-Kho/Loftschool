@@ -1,7 +1,7 @@
 .final-wrapper {
-  margin-top: 135px;
+  margin-top: 125px;
   padding-top: 90px;
-  padding-bottom: 130px;
+  padding-bottom: 135px;
   background: url("../images/content/budda-desktopHD.jpg") no-repeat 50% 100%;
   background-size: cover;
   clip-path: polygon(0 0, 50% 7%, 100% 0, 100% 100%, 0 100%);
@@ -13,4 +13,16 @@
 
 .final-wrapper__contacts {
   margin-top: 200px;
+}
+
+@include desktop {
+  .final-wrapper {
+    margin-top: 80px;
+    padding-bottom: 160px;
+    clip-path: polygon(0 0, 50% 4%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .final-wrapper__reviews {
+    margin-top: 105px;
+  }
 }
