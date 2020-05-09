@@ -38,10 +38,24 @@
 
   .final-wrapper__reviews {
     margin-top: 180px;
-    font-size: 14px;
   }
 
   .final-wrapper__contacts {
     margin-top: 115px;
+  }
+}
+
+@include phones {
+  .final-wrapper {
+    margin-top: 100px;
+    clip-path: polygon(0 0, 50% 1%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .final-wrapper__reviews {
+    margin-top: 80px;
+  }
+
+  .final-wrapper__contacts {
+    margin-top: 140px;
   }
 }

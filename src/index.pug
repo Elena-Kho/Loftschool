@@ -145,7 +145,7 @@ html(lang="en")
               .reviews__pers
                 .reviews__pers-name Ковальчук Дмитрий
                 .reviews__pers-pos Основатель Loftschool
-            li.reviews__item
+            li.reviews__item.reviews__item--none
               .reviews__intro Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
               .reviews__avatar.avatar
                 +image('content/avatar2.jpg', 'avatar__img')
@@ -176,7 +176,7 @@ html(lang="en")
             .footer__nav
               nav.nav.nav--footer
                 - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                ul.nav__list
+                ul.nav__list.nav__list--footer
                   each item in items
                     li.nav__item
                       a.nav__link #{item}

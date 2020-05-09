@@ -1,7 +1,6 @@
 .intro {
-  height: 100vh;
   position: relative;
-  min-height: 650px;
+  min-height: 745px;
   outline: 1px solid pink;
 }
 
@@ -28,3 +27,15 @@
     margin-top: 170px;
   }
 }
+
+@include phones {
+  .intro {
+    min-height: 550px;
+  }
+
+  .intro__main {
+    margin-top: 110px;
+  }
+}
+
+

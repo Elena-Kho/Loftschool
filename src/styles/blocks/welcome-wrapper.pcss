@@ -6,7 +6,7 @@
 }
 
 .welcome-wrapper__about {
-  margin-top: 250px;
+  margin-top: 390px;
   margin-bottom: 100px;
 }
 
@@ -23,6 +23,17 @@
     clip-path: polygon(0 0, 100% 0, 100% 96%, 50% 100%, 0 96%);
   }
   .welcome-wrapper__about {
-    margin-top: 60px;
+    margin-top: 200px;
+  }
+}
+
+@include phones {
+  .welcome-wrapper {
+    padding-bottom: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 50% 100%, 0 98%);
+  }
+
+  .welcome-wrapper__about {
+    margin-top: 90px;
   }
 }
