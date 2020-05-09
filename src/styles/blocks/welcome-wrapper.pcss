@@ -16,3 +16,13 @@
     clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
   }
 }
+
+@include tablets {
+  .welcome-wrapper {
+    padding-bottom: 45px;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 50% 100%, 0 96%);
+  }
+  .welcome-wrapper__about {
+    margin-top: 60px;
+  }
+}

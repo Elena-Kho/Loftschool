@@ -123,3 +123,26 @@
     align-items: flex-end;
   }
 }
+
+@include tablets {
+  .reviews__heading {
+    margin-bottom: 60px;
+  }
+
+  .reviews__arrows-list {
+    margin-left: 30px;
+  }
+
+  .reviews__item {
+    padding-left: 40px;
+
+    &::before {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .reviews__intro {
+    margin-bottom: 010px;
+  }
+}

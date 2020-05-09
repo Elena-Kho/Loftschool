@@ -16,6 +16,7 @@
 
 .nav__list {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   outline: 1px solid pink;
 }
@@ -32,8 +33,23 @@
   text-decoration: none;
 }
 
-@media (max-width: 1200px) {
+@include desktop {
   .nav__item {
     margin-right: 5.4vw;
   }
 }
+
+@include tablets {
+  .nav {
+    font-size: 14px;
+  }
+
+  .nav__item {
+    padding-top: 5px;
+    padding-bottom: 20px;
+  }
+}
+
+
+
+

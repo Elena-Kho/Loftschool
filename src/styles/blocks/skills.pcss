@@ -21,6 +21,7 @@
 .skills__intro {
   margin-top: 45px;
   line-height: 1.9;
+  color: #818181;
 }
 
 .skills__intro,
@@ -52,5 +53,37 @@
   .skills__diagrams {
     width: 690px;
     margin-right: 30px;
+  }
+}
+
+@include tablets {
+  .skills {
+    padding-bottom: 340px;
+    background-position: 50% 100%;
+    background-size: 40%;
+  }
+
+  .skills__heading {
+    width: 300px;
+    margin-top: 110px;
+    margin-left: 0;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .skills__intro {
+    margin-top: 20px;
+    margin-left: 0;
+    width: 440px;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .skills__diagrams {
+    width: 590px;
+    margin-top: 50px;
+    margin-right: 0;
+    align-self: center;
   }
 }

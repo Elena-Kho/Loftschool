@@ -9,6 +9,7 @@
 
 .final-wrapper__reviews {
   margin-top: 160px;
+  color: #818181;
 }
 
 .final-wrapper__contacts {
@@ -24,5 +25,23 @@
 
   .final-wrapper__reviews {
     margin-top: 105px;
+  }
+}
+
+@include tablets {
+  .final-wrapper {
+    margin-top: 55px;
+    padding-top: 10px;
+    padding-bottom: 110px;
+    clip-path: polygon(0 0, 50% 2.5%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .final-wrapper__reviews {
+    margin-top: 180px;
+    font-size: 14px;
+  }
+
+  .final-wrapper__contacts {
+    margin-top: 115px;
   }
 }

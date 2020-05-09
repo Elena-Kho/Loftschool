@@ -17,8 +17,25 @@
   margin-left: auto;
 }
 
+.header__toggle {
+  display: none;
+}
+
 @include desktop {
   .header__nav {
     margin-left: 7.5vw;
   }
+}
+
+@include tablets {
+  .header__nav {
+    display: none;
+  }
+
+  .header__toggle {
+    display: block;
+    margin-top: 50px;
+    margin-left: 100px;
+  }
+
 }
