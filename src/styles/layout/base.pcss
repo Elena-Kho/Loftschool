@@ -26,6 +26,18 @@ body {
   position: relative;
 }
 
+.wrapper {
+  margin-top: -1800px;
+
+  @include desktop {
+    margin-top: -1750px;
+  }
+
+  @include tablets {
+    margin-top: -1400px;
+  }
+}
+
 .container {
   margin: 0 auto;
   /*max-width: 1480px;

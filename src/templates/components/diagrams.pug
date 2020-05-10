@@ -1,0 +1,35 @@
+script(type='text/x-template')#diagrams-list
+  .skills__diagrams
+    ul.diagrams
+      li.diagrams__item
+        .diagrams-row
+          h3.diagrams-row__heading Front-end
+          -var schems = [{title: 'HTML5', perc:'75'}, {title: 'CSS3', perc:'90'}, {title: 'Javascript', perc:'25'}, {title: 'Vue.js', perc:'75'}]
+          ul.diagrams-row__list
+            each item in schems
+              li.diagrams-row__item
+                .diagram
+                  h4.diagram__title #{item.title}
+                  svg(width="150" height="150").diagram__circle
+                    circle(cx='75' cy='75' r='65' fill='transparent' stroke='#e9e9e9').diagram__icon.diagram__icon--under
+                    circle(cx='75' cy='75' r='65' fill='transparent' stroke='url(#grad)' stroke-dashoffset=`${item.perc}%`).diagram__icon.diagram__icon--above
+                    defs
+                      linearGradient(id='grad')
+                        stop(offset="0%" stop-color="#bb00ff")
+                        stop(offset="100%" stop-color="#5900ff")
+      li.diagrams__item
+        .diagrams-row
+          h3.diagrams-row__heading Workflow
+          -var schems = [{title: 'GIT', perc:'75'}, {title: 'Terminal', perc:'90'}, {title: 'Galp', perc:'25'}, {title: 'Webpack', perc:'75'}]
+          ul.diagrams-row__list
+            each item in schems
+              li.diagrams-row__item
+                .diagram
+                  h4.diagram__title #{item.title}
+                  svg(width="150" height="150").diagram__circle
+                    circle(cx='75' cy='75' r='65' fill='transparent' stroke='#e9e9e9').diagram__icon.diagram__icon--under
+                    circle(cx='75' cy='75' r='65' fill='transparent' stroke='url(#grad)' stroke-dashoffset=`${item.perc}%`).diagram__icon.diagram__icon--above
+                    defs
+                      linearGradient(id='grad')
+                        stop(offset="0%" stop-color="#bb00ff")
+                        stop(offset="100%" stop-color="#5900ff")
