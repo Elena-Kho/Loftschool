@@ -119,28 +119,8 @@ html(lang="en")
                 p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
                 a.portfolio__text-link(href='#') Посмотреть сайт
       .final-wrapper
-        section.final-wrapper__reviews.reviews#reviews.container
-          h2.reviews__heading.heading Что обо мне говорят
-          ul.reviews__arrows-list
-            li.reviews__arrows-item
-              button.reviews__arrow(type='button', aria-label='Назад')
-            li.reviews__arrows-item
-              button.reviews__arrow(type='button', aria-label='Вперед')
-          ul.reviews__list
-            li.reviews__item
-              .reviews__intro Елена проходила обучение веб-разработке не где-то, а в LoftSchool! Сколько только самых тяжелых испытаний и бессонных ночей!
-              .reviews__avatar.avatar
-                +image('content/avatar1.jpg', 'avatar__img')
-              .reviews__pers
-                .reviews__pers-name Ковальчук Дмитрий
-                .reviews__pers-pos Основатель Loftschool
-            li.reviews__item.reviews__item--none
-              .reviews__intro Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-              .reviews__avatar.avatar
-                +image('content/avatar2.jpg', 'avatar__img')
-              .reviews__pers
-                .reviews__pers-name Владимир Сабанцев
-                .reviews__pers-pos Преподаватель
+        section.final-wrapper__reviews.container
+          #reviews
         section.final-wrapper__contacts.contacts#contacts.container
           h2.contacts__heading.heading Связаться со мной
           form.contacts__form

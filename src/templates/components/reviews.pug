@@ -1,0 +1,28 @@
+script(type='text/x-template')#reviews-main
+  .reviews#reviews
+    .reviews__header
+      h2.reviews__heading.heading Что обо мне говорят
+      arrowsComp
+
+    .reviews__slider
+      reviewsSlider(:slidesInfo='slidesInfo')
+
+script(type='text/x-template')#reviews-arrows
+  ul.reviews__arrows-list
+    li.reviews__arrows-item
+      button.reviews__arrow(type='button', aria-label='Назад')
+    li.reviews__arrows-item
+      button.reviews__arrow(type='button', aria-label='Вперед')
+
+script(type='text/x-template')#reviews-slider
+  ul.reviews__list
+    li.reviews__item(v-for='slide in slidesInfo')
+      reviewsSlide(:slideInfo='slide')
+
+script(type='text/x-template')#reviews-slide
+  .reviews__intro {{slideInfo.text}}
+  .reviews__avatar.avatar
+    +image('content/avatar2.jpg', 'avatar__img')
+  .reviews__pers
+    .reviews__pers-name {{slideInfo.name}}
+    .reviews__pers-pos {{slideInfo.position}}
