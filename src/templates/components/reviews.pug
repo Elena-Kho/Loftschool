@@ -2,27 +2,30 @@ script(type='text/x-template')#reviews-main
   .reviews#reviews
     .reviews__header
       h2.reviews__heading.heading Что обо мне говорят
-      arrowsComp
+      arrowsComp(@slide='checkBtn')
 
-    .reviews__slider
-      reviewsSlider(:slidesInfo='slidesInfo')
+    .reviews__slider(ref='sliderBlock')
+      reviewsSlider(:slides='slides' @slide='checkBtn')
 
 script(type='text/x-template')#reviews-arrows
   ul.reviews__arrows-list
     li.reviews__arrows-item
-      button.reviews__arrow(type='button', aria-label='Назад')
+      button.reviews__arrow.reviews__arrow(type='button', aria-label='Назад',
+      @:click.prevent='$emit("slide", "next")')
     li.reviews__arrows-item
-      button.reviews__arrow(type='button', aria-label='Вперед')
+      button.reviews__arrow.reviews__arrow(type='button', aria-label='Вперед',
+      @:click.prevent='$emit("slide", "prev")')
 
 script(type='text/x-template')#reviews-slider
-  ul.reviews__list
-    li.reviews__item(v-for='slide in slidesInfo')
-      reviewsSlide(:slideInfo='slide')
+  ul.reviews__list(ref='moveSlider')
+    li.reviews__item(v-for='slide in slides' :key='slide.id')
+      reviewsSlide(:slide='slide')
 
 script(type='text/x-template')#reviews-slide
-  .reviews__intro {{slideInfo.text}}
-  .reviews__avatar.avatar
-    +image('content/avatar2.jpg', 'avatar__img')
-  .reviews__pers
-    .reviews__pers-name {{slideInfo.name}}
-    .reviews__pers-pos {{slideInfo.position}}
+  .reviews__slide-item
+    .reviews__intro {{slide.text}}
+    .reviews__avatar
+      image(:src='imgUrl+slide.img').reviews__img
+    .reviews__pers
+      .reviews__pers-name {{slide.name}}
+      .reviews__pers-pos {{slide.position}}

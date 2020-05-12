@@ -4,12 +4,10 @@ const reviewsSlide = {
   template: '#reviews-slide',
   data() {
     return {
-      slideInfo: []
+      imgUrl: 'https://github.com/Elena-Kho/Loftschool/tree/master/src/images/content/'
     }
   },
-  props: {
-    slideInfo: Object
-  }
+  props: ['slide']
 };
 
 const reviewsSlider = {
@@ -17,9 +15,7 @@ const reviewsSlider = {
   components: {
     reviewsSlide
   },
-  props: {
-    slidesInfo: Array
-  }
+  props: ['slides']
 };
 
 const arrowsComp = {
@@ -35,14 +31,63 @@ new Vue({
   },
   data() {
     return {
-      slidesInfo: [],
-      currentSlide: [],
+      slides: [],
       slidesIndex: 0
     }
   },
 
   created() {
     const data = require('../data/reviews.json');
-    this.slidesInfo = data;
+    this.slides = data;
+  },
+
+  methods: {
+    checkBtn(dir) {
+      console.log('root', 'dir');
+
+      let currentIndex = this.slidesIndex;
+      let screenSlides = 0;
+      let sumSlidesWidth = 0;
+      let numberToMove = 0;
+
+      const defineSlider = this.$children[1].$refs.moveSlider
+      const sliderBlock = this.$refs.sliderBlock;
+      let slideArr = this.$children[1].$refs.moveSlider.children;
+
+      let sliderBlockWidth =
+      parseInt(window.getComputedStyle(sliderBlock).width);
+
+      for (let slide of slideArr) {
+        let slideWidth =
+        parseInt(window.getComputedStyle(slide).width);
+        sumSlidesWidth += slideWidth;
+      }
+
+      screenSlides = Math.ceil(sumSlidesWidth / sliderBlockWidth);
+
+      if (dir === 'next') {
+        currentIndex++;
+        indexTest();
+        this.slidesIndex = currentIndex;
+      }
+
+      if (dir === 'prev') {
+        currentIndex--;
+        indexTest();
+        this.slidesIndex = currentIndex;
+      }
+
+      function indexTest() {
+        if (currentIndex >= screenSlides) {
+          currentIndex = screenSlides - 1
+        }
+        if (currentIndex < screenSlides) {
+          currentIndex = 0
+        }
+
+        numberToMove = 100 * currentIndex + '%';
+        defineSlider.style.transform = `translateX(-${numberToMove})`;
+      }
+    }
   }
 });

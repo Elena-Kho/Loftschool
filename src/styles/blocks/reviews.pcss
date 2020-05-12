@@ -5,6 +5,10 @@
   outline: 1px solid pink;
 }
 
+.reviews__header {
+  display: flex;
+}
+
 .reviews__heading {
   margin-bottom: 90px;
 }
@@ -21,6 +25,7 @@
   height: 50px;
   border-radius: 50%;
   border: 1px solid grey;
+  cursor: pointer;
 
   outline: 1px solid pink;
 
@@ -46,18 +51,21 @@
   }
 }
 
+.reviews__slider {
+  width: 67%;
+}
+
 .reviews__list {
   display: flex;
   justify-content: space-between;
-  width: 67%;
+  width: 100%;
+  overflow: hidden;
 
   outline: 1px solid lime;
 }
 
 .reviews__item {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
   width: 50%;
   flex-shrink: 0;
   padding-left: 100px;
@@ -77,15 +85,34 @@
   }
 }
 
+.reviews__slide-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-shrink: 0;
+}
+
 .reviews__intro {
   margin-bottom: 50px;
-  line-height: 1.85;
+  line-height: 2;
   font-weight: 700;
 }
 
 .reviews__avatar {
   flex-shrink: 0;
   width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  outline: 1px solid pink;
+}
+
+.reviews__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .reviews__pers {
