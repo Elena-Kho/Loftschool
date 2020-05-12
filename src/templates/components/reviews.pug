@@ -10,11 +10,11 @@ script(type='text/x-template')#reviews-main
 script(type='text/x-template')#reviews-arrows
   ul.reviews__arrows-list
     li.reviews__arrows-item
-      button.reviews__arrow.reviews__arrow(type='button', aria-label='Назад',
-      @:click.prevent='$emit("slide", "next")')
+      button.reviews__arrow(type='button', aria-label='Назад',
+      @click.prevent='$emit("slide", "prev")')
     li.reviews__arrows-item
-      button.reviews__arrow.reviews__arrow(type='button', aria-label='Вперед',
-      @:click.prevent='$emit("slide", "prev")')
+      button.reviews__arrow(type='button', aria-label='Вперед',
+      @click.prevent='$emit("slide", "next")')
 
 script(type='text/x-template')#reviews-slider
   ul.reviews__list(ref='moveSlider')

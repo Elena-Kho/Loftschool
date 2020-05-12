@@ -43,8 +43,6 @@ new Vue({
 
   methods: {
     checkBtn(dir) {
-      console.log('root', 'dir');
-
       let currentIndex = this.slidesIndex;
       let screenSlides = 0;
       let sumSlidesWidth = 0;
@@ -54,38 +52,35 @@ new Vue({
       const sliderBlock = this.$refs.sliderBlock;
       let slideArr = this.$children[1].$refs.moveSlider.children;
 
-      let sliderBlockWidth =
-      parseInt(window.getComputedStyle(sliderBlock).width);
+
+      let sliderBlockWidth = parseInt(window.getComputedStyle(sliderBlock).width);
+
 
       for (let slide of slideArr) {
-        let slideWidth =
-        parseInt(window.getComputedStyle(slide).width);
+        let slideWidth = parseInt(window.getComputedStyle(slide).width);
         sumSlidesWidth += slideWidth;
       }
 
       screenSlides = Math.ceil(sumSlidesWidth / sliderBlockWidth);
 
-      if (dir === 'next') {
+      if (dir === "next") {
         currentIndex++;
         indexTest();
+        console.log(currentIndex);
         this.slidesIndex = currentIndex;
       }
 
-      if (dir === 'prev') {
+      if (dir === "prev") {
         currentIndex--;
         indexTest();
+        console.log(currentIndex);
         this.slidesIndex = currentIndex;
       }
 
       function indexTest() {
-        if (currentIndex >= screenSlides) {
-          currentIndex = screenSlides - 1
-        }
-        if (currentIndex < screenSlides) {
-          currentIndex = 0
-        }
 
         numberToMove = 100 * currentIndex + '%';
+        console.log(numberToMove);
         defineSlider.style.transform = `translateX(-${numberToMove})`;
       }
     }
