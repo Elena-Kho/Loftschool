@@ -83,7 +83,7 @@ html(lang="en")
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
           #diagrams-component
       section.portfolio#portfolio
-        .portfolio__wrapper.container
+        .portfolio__wrapper.container.fullscreen
           h2.portfolio__heading.heading Мои работы
           .portfolio__content
             .portfolio__slider
@@ -107,17 +107,15 @@ html(lang="en")
                   button.portfolio__arrows-btn(type='button', aria-label='Вверх')
                 li.portfolio__arrows-item
                   button.portfolio__arrows-btn(type='button', aria-label='Вниз')
+            .portfolio__num 4
             .portfolio__text
-              .portfolio__num
-                p
-              .portfolio__info
-                ul.portfolio__tags
-                  li.portfolio__tag HTML
-                  li.portfolio__tag CSS
-                  li.portfolio__tag Javascript
-                h3.portfolio__text-heading Сайт школы образования
-                p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
-                a.portfolio__text-link(href='#') Посмотреть сайт
+              ul.portfolio__tags
+                li.portfolio__tag HTML
+                li.portfolio__tag CSS
+                li.portfolio__tag Javascript
+              h3.portfolio__text-heading Сайт школы образования
+              p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
+              a.portfolio__text-link(href='#') Посмотреть сайт
       .final-wrapper
         section.final-wrapper__reviews.container
           #reviews

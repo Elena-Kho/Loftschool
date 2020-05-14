@@ -7,8 +7,6 @@
   font-size: 48px;
   font-weight: 600;
   color: #818181;
-
-  outline: 1px solid pink;
 }
 
 .copyright__info {
@@ -16,8 +14,6 @@
   padding-top: 20px;
   padding-left: 10px;
   color: #ffffff;
-
-  outline: 1px solid pink;
 }
 
 .copyright__name {
@@ -35,6 +31,13 @@
   .copyright__info {
     margin: 0;
     padding: 0;
+  }
+}
+
+@include tablets {
+  .copyright__name {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 

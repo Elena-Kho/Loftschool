@@ -10,7 +10,7 @@
 }
 
 .header__nav {
-  margin-left: 19.5vw;
+  margin-left: 17.5vw;
 }
 
 .header__socials {
@@ -21,9 +21,21 @@
   display: none;
 }
 
+@include 1300 {
+  .header__nav {
+    margin-left: 5.5vw;
+  }
+}
+
 @include desktop {
   .header__nav {
-    margin-left: 7.5vw;
+    margin-left: 5.5vw;
+  }
+}
+
+@include 1080 {
+  .header__nav {
+    margin-left: 3vw;
   }
 }
 

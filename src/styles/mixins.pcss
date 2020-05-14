@@ -4,8 +4,20 @@
   }
 }
 
+@mixin 1300() {
+  @media screen and (max-width: $bp-1300) {
+    @content;
+  }
+}
+
 @mixin desktop() {
   @media screen and (max-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin 1080() {
+  @media screen and (max-width: $bp-1080) {
     @content;
   }
 }

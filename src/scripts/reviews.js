@@ -4,7 +4,7 @@ const reviewsSlide = {
   template: '#reviews-slide',
   data() {
     return {
-      imgUrl: 'https://github.com/Elena-Kho/Loftschool/tree/master/src/images/content/'
+      imgUrl: 'https://raw.githubusercontent.com/Elena-Kho/Loftschool/master/src/images/content/'
     }
   },
   props: ['slide']
@@ -78,6 +78,12 @@ new Vue({
       }
 
       function indexTest() {
+        if (currentIndex >= screenSlides) {
+          currentIndex = screenSlides - 1;
+        }
+        if (currentIndex < 0) {
+          currentIndex = 0;
+        }
 
         numberToMove = 100 * currentIndex + '%';
         console.log(numberToMove);

@@ -3,9 +3,6 @@
   display: flex;
   flex-wrap: wrap;
   flex-shrink: 0;
-  border-bottom: 1px solid grey;
-
-  outline: 1px solid pink;
 
   &--textarea {
     margin-top: 35px;
@@ -19,10 +16,9 @@
   padding-left: 50px;
   padding-bottom: 20px;
   border: none;
+  border-bottom: 1px solid grey;
   font-weight: 700;
   background-color: transparent;
-
-  outline: 1px solid pink;
 
   &--user {
     background: svg-load('user.svg', width: 30, height: 30, fill: #c9cbd3) no-repeat 0 25px;
@@ -30,6 +26,20 @@
 
   &--email {
     background: svg-load('envelope.svg', width: 30, height: 30, fill: #c9cbd3) no-repeat 0 25px;
+  }
+}
+
+.form-input__input:focus {
+  .form-input__input {
+    border-bottom: 1px solid #5900ff;
+
+    &--user {
+      background: svg-load('user.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 25px;
+    }
+
+    &--email {
+      background: svg-load('envelope.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 25px;
+    }
   }
 }
 
@@ -45,16 +55,13 @@
   font-size: 18px;
   font-weight: 700;
   border: none;
+  border-bottom: 1px solid grey;
   background-color: transparent;
   background: svg-load('message.svg', width: 30, height: 30, fill: #c9cbd3) no-repeat 0 0;
-
-  outline: 1px solid pink;
 }
 
 .form-input__label {
   padding-left: 50px;
   color: #818181;
-
-  outline: 1px solid pink;
 }
 
