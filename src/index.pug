@@ -87,35 +87,36 @@ html(lang="en")
           h2.portfolio__heading.heading Мои работы
           .portfolio__content
             .portfolio__slider
-              .portfolio__big-img
-                +image('content/preview_big-desktopHd.jpg', 'portfolio__preview-big')
-                ul.portfolio__list-img
-                  li.portfolio__item-img
-                    a(href='')
-                      +image('content/preview_small_1-desktopHd.jpg', 'portfolio__preview-small')
-                  li.portfolio__item-img
-                    a(href='')
-                      +image('content/preview_small_2-desktopHd.jpg', 'portfolio__preview-small')
-                  li.portfolio__item-img
-                    a(href='')
-                      +image('content/preview_small_3-desktopHd.jpg', 'portfolio__preview-small')
-                  li.portfolio__item-img
-                    a(href='')
-                      +image('content/preview_small_4-desktopHd.jpg', 'portfolio__preview-small')
-              ul.portfolio__arrows-list
-                li.portfolio__arrows-item
-                  button.portfolio__arrows-btn(type='button', aria-label='Вверх')
-                li.portfolio__arrows-item
-                  button.portfolio__arrows-btn(type='button', aria-label='Вниз')
-            .portfolio__num 4
-            .portfolio__text
-              ul.portfolio__tags
-                li.portfolio__tag HTML
-                li.portfolio__tag CSS
-                li.portfolio__tag Javascript
-              h3.portfolio__text-heading Сайт школы образования
-              p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
-              a.portfolio__text-link(href='#') Посмотреть сайт
+              .portfolio__slider-img(data-slider="1")
+                .portfolio__big-img
+                  +image('content/preview_big-desktopHd.jpg', 'portfolio__preview-big')
+                  ul.portfolio__list-img
+                    li.portfolio__item-img
+                      a(href='')
+                        +image('content/preview_small_1-desktopHd.jpg', 'portfolio__preview-small')
+                    li.portfolio__item-img
+                      a(href='')
+                        +image('content/preview_small_2-desktopHd.jpg', 'portfolio__preview-small')
+                    li.portfolio__item-img
+                      a(href='')
+                        +image('content/preview_small_3-desktopHd.jpg', 'portfolio__preview-small')
+                    li.portfolio__item-img
+                      a(href='')
+                        +image('content/preview_small_4-desktopHd.jpg', 'portfolio__preview-small')
+                  ul.portfolio__arrows-list
+                    li.portfolio__arrows-item
+                      button.portfolio__arrows-btn(type='button', aria-label='Вверх')
+                    li.portfolio__arrows-item
+                      button.portfolio__arrows-btn(type='button', aria-label='Вниз')
+              .portfolio__num 4
+              .portfolio__text
+                ul.portfolio__tags
+                  li.portfolio__tag HTML
+                  li.portfolio__tag CSS
+                  li.portfolio__tag Javascript
+                h3.portfolio__text-heading Сайт школы образования
+                p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
+                a.portfolio__text-link(href='#') Посмотреть сайт
       .final-wrapper
         section.final-wrapper__reviews.container
           #reviews
