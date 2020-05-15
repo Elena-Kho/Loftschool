@@ -1,0 +1,52 @@
+script(type='text/x-template')#portfolio-container
+  .portfolio__slider
+    display
+    num
+    info
+
+script(type='text/x-template')#portfolio-display
+  .portfolio__slider-img(data-slider="1")
+    .portfolio__big-img
+      +image('content/preview_big-desktopHd.jpg', 'portfolio__preview-big')
+      thumbs
+      btns
+
+script(type='text/x-template')#portfolio-thumbs
+  ul.portfolio__list-img
+    li.portfolio__item-img
+      a(href='')
+        +image('content/preview_small_1-desktopHd.jpg', 'portfolio__preview-small')
+    li.portfolio__item-img
+      a(href='')
+        +image('content/preview_small_2-desktopHd.jpg', 'portfolio__preview-small')
+    li.portfolio__item-img
+      a(href='')
+        +image('content/preview_small_3-desktopHd.jpg', 'portfolio__preview-small')
+    li.portfolio__item-img
+      a(href='')
+        +image('content/preview_small_4-desktopHd.jpg', 'portfolio__preview-small')
+
+script(type='text/x-template')#portfolio-btns
+  ul.portfolio__arrows-list
+    li.portfolio__arrows-item
+      button.portfolio__arrows-btn(type='button', aria-label='Вверх')
+    li.portfolio__arrows-item
+      button.portfolio__arrows-btn(type='button', aria-label='Вниз')
+
+script(type='text/x-template')#portfolio-num
+  .portfolio__num 4
+
+script(type='text/x-template')#portfolio-info
+  .portfolio__text
+    tags
+    h3.portfolio__text-heading Сайт школы образования
+    p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
+    a.portfolio__text-link(href='#') Посмотреть сайт
+
+script(type='text/x-template')#portfolio-tags
+  ul.portfolio__tags
+    li.portfolio__tag HTML
+    li.portfolio__tag CSS
+    li.portfolio__tag Javascript
+
+
