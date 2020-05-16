@@ -1,20 +1,5 @@
 import Vue from 'vue';
 
-const display = {
-  template: '#portfolio-display',
-  components: {
-    thumbs,
-    btns
-  },
-};
-
-const info = {
-  template: '#portfolio-info',
-  components: {
-    tags
-  },
-};
-
 const num = {
   template: '#portfolio-num',
 };
@@ -31,6 +16,21 @@ const tags = {
   template: '#portfolio-tags',
 };
 
+
+const display = {
+  template: '#portfolio-display',
+  components: {
+    thumbs,
+    btns
+  },
+};
+
+const info = {
+  template: '#portfolio-info',
+  components: {
+    tags
+  },
+};
 
 
 new Vue({
