@@ -1,52 +1,57 @@
 script(type='text/x-template')#portfolio-container
   .portfolio__slider
-    display
-    num
-    info
+    display(
+      :currentWork='currentWork'
+      :works='works'
+      @slide='handleSlide'
+    )
+    num(
+      :currentWork='currentWork'
+    )
+    info(
+      :currentWork='currentWork'
+    )
 
 script(type='text/x-template')#portfolio-display
   .portfolio__slider-img(data-slider="1")
     .portfolio__big-img
-      +image('content/preview_big-desktopHd.jpg', 'portfolio__preview-big')
-      thumbs
-      btns
+      img(:src='currentWork.img').portfolio__preview-big
+      thumbs(
+        :works='works'
+        :currentWork='currentWork'
+      )
+      btns(
+        @slide='$emit("slide", $event)'
+      )
+
 
 script(type='text/x-template')#portfolio-thumbs
   ul.portfolio__list-img
-    li.portfolio__item-img
+    li.portfolio__item-img(v-for='work in works' :key='work.id')
       a(href='')
-        +image('content/preview_small_1-desktopHd.jpg', 'portfolio__preview-small')
-    li.portfolio__item-img
-      a(href='')
-        +image('content/preview_small_2-desktopHd.jpg', 'portfolio__preview-small')
-    li.portfolio__item-img
-      a(href='')
-        +image('content/preview_small_3-desktopHd.jpg', 'portfolio__preview-small')
-    li.portfolio__item-img
-      a(href='')
-        +image('content/preview_small_4-desktopHd.jpg', 'portfolio__preview-small')
+        img(:src='work.img').portfolio__preview-small
+
 
 script(type='text/x-template')#portfolio-btns
-  ul.portfolio__arrows-list
-    li.portfolio__arrows-item
-      button.portfolio__arrows-btn(type='button', aria-label='Вверх')
-    li.portfolio__arrows-item
-      button.portfolio__arrows-btn(type='button', aria-label='Вниз')
+  .portfolio__arrows-list
+    button(@click.prevent='$emit("slide", "next")').portfolio__arrows-item(type='button', aria-label='Вверх')
+    button(@click.prevent='$emit("slide", "prev")').portfolio__arrows-item(type='button', aria-label='Вниз')
 
 script(type='text/x-template')#portfolio-num
   .portfolio__num 4
 
 script(type='text/x-template')#portfolio-info
   .portfolio__text
-    tags
-    h3.portfolio__text-heading Сайт школы образования
-    p.portfolio__text-intro Где я только не проходила обучение веб-разработке... Сколько самых тяжелых испытаний и бессонных ночей!
-    a.portfolio__text-link(href='#') Посмотреть сайт
+    tags(
+      :tags='tagsArray'
+    )
+    h3.portfolio__text-heading {{currentWork.title}}
+    p.portfolio__text-intro {{currentWork.desc}}
+    a(:href='currentWork.link').portfolio__text-link Посмотреть сайт
 
 script(type='text/x-template')#portfolio-tags
   ul.portfolio__tags
-    li.portfolio__tag HTML
-    li.portfolio__tag CSS
-    li.portfolio__tag Javascript
+    li.portfolio__tag(v-for='tag in tags' :key='tag') {{tag}}
+
 
 

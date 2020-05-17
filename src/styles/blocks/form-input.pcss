@@ -32,14 +32,14 @@
 .form-input__input {
   &:focus {
     border-bottom: 1px solid #5900ff;
+  }
 
-    &--user:focus {
-      background: svg-load('user.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 25px;
-    }
+  &--user:focus {
+    background: svg-load('user.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 25px;
+  }
 
-    &--email:focus {
-      background: svg-load('envelope.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 25px;
-    }
+  &--email:focus {
+    background: svg-load('envelope.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 25px;
   }
 }
 
@@ -58,6 +58,10 @@
   border-bottom: 1px solid grey;
   background-color: transparent;
   background: svg-load('message.svg', width: 30, height: 30, fill: #c9cbd3) no-repeat 0 0;
+
+  &:focus {
+    background: svg-load('message.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 0;
+  }
 }
 
 .form-input__label {
