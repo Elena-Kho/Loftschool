@@ -2,15 +2,17 @@ import Vue from 'vue';
 
 const num = {
   template: '#portfolio-num',
+  props: ['currentWork'],
 };
 
 const btns = {
   template: '#portfolio-btns',
+  props: ['works', 'currentWork'],
 };
 
 const thumbs = {
   template: '#portfolio-thumbs',
-  props: ['works']
+  props: ['works', 'currentWork'],
 };
 
 const tags = {
@@ -26,6 +28,12 @@ const display = {
     btns
   },
   props: ['currentWork', 'works'],
+  computed: {
+    reversedWorks() {
+      const works = [...this.works];
+      return works.reverse();
+    }
+  }
 };
 
 const info = {
@@ -56,10 +64,19 @@ new Vue({
   computed: {
     currentWork() {
       return this.works[this.currentIndex];
-      console.log(currentWork)
+    }
+  },
+  watch: {
+    currentIndex(value) {
+      this.toCheckSlidesNum(value);
     }
   },
   methods: {
+    toCheckSlidesNum(value) {
+      const worksSlidesNum = this.works.length - 1;
+      if ( value > worksSlidesNum) this.currentIndex = worksSlidesNum;
+      if ( value < 0) this.currentIndex = 0;
+    },
     handleSlide(dir) {
       switch(dir) {
         case 'next':
