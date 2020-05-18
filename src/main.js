@@ -8,3 +8,4 @@ import "./scripts/parallax";
 import "./scripts/diagrams";
 import "./scripts/reviews";
 import "./scripts/portfolio";
+import "./scripts/modal";

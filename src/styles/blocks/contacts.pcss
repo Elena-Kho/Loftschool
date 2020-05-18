@@ -1,62 +1,11 @@
-.contacts__form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 58%;
-}
-
-.contacts__info {
-  width: 45%;
-  margin-top: 75px;
-}
-
-.contacts__button {
-  margin-top: 60px;
-}
-
-@include desktop {
-  .contacts__form {
-    width: 76%;
-  }
-
-  .contacts__info {
-    width: 365px;
-  }
-}
-
 @include tablets {
   .contacts__heading {
     text-align: center;
-  }
-
-  .contacts__form {
-    width: 100%;
-  }
-
-  .contacts__info {
-    width: 334px;
-    margin-top: 40px;
-    font-size: 14px;
-  }
-
-  .contacts__button {
-    margin: 0 auto;
-    margin-top: 10px;
   }
 }
 
 @include phones {
   .contacts__heading {
     text-align: left;
-  }
-
-  .contacts__form,
-  .contacts__info {
-    width: 100%;
-  }
-
-  .contacts__button {
-    margin: 0 auto;
-    margin-top: 30px;
   }
 }

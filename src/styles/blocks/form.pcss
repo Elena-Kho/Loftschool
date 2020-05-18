@@ -1,0 +1,55 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 58%;
+}
+
+.form__info {
+  width: 45%;
+  margin-top: 75px;
+}
+
+.form__button {
+  margin-top: 60px;
+}
+
+@include desktop {
+  .form {
+    width: 76%;
+  }
+
+  .form__info {
+    width: 365px;
+  }
+}
+
+@include tablets {
+  .form {
+    width: 100%;
+  }
+
+  .form__info {
+    width: 334px;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+
+  .form__button {
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+}
+
+@include phones {
+  .form,
+  .form__info {
+    width: 100%;
+  }
+
+  .form__button {
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}

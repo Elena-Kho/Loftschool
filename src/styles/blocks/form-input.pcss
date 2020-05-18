@@ -43,6 +43,18 @@
   }
 }
 
+.form-input__input.error {
+  border-bottom: 1px solid red;
+}
+
+.form-input__input--user.error {
+  background: svg-load('user.svg', width: 30, height: 30, fill: red) no-repeat 0 25px;
+}
+
+.form-input__input--email.error {
+  background: svg-load('envelope.svg', width: 30, height: 30, fill: red) no-repeat 0 25px;
+}
+
 .form-input__message {
   box-sizing: border-box;
   width: 100%;
@@ -62,6 +74,11 @@
   &:focus {
     background: svg-load('message.svg', width: 30, height: 30, fill: #5900ff) no-repeat 0 0;
   }
+}
+
+.form-input__message.error {
+  border-bottom: 1px solid red;
+  background: svg-load('message.svg', width: 30, height: 30, fill: red) no-repeat 0 0;
 }
 
 .form-input__label {

@@ -66,14 +66,12 @@ new Vue({
       if (dir === "next") {
         currentIndex++;
         indexTest();
-        console.log(currentIndex);
         this.slidesIndex = currentIndex;
       }
 
       if (dir === "prev") {
         currentIndex--;
         indexTest();
-        console.log(currentIndex);
         this.slidesIndex = currentIndex;
       }
 
@@ -86,7 +84,6 @@ new Vue({
         }
 
         numberToMove = 100 * currentIndex + '%';
-        console.log(numberToMove);
         defineSlider.style.transform = `translateX(-${numberToMove})`;
       }
     }

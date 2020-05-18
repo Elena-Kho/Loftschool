@@ -46,7 +46,7 @@ html(lang="en")
                   li.socials__item.socials__item--header
                     a(href='').socials__link
                       +icon(item, socials__item)
-            <button class="header__toggle" type="button" aria-label="Развернуть меню">X</button>
+            button.header__toggle(type='button' aria-label='Развернуть меню') X
           .intro__main.main.container
             p.main__text Личный сайт веб-разработчика
             h1.main__heading Елена Ходанович
@@ -92,17 +92,17 @@ html(lang="en")
           #reviews
         section.final-wrapper__contacts.contacts#contacts.container
           h2.contacts__heading.heading Связаться со мной
-          form.contacts__form
-            .contacts__info.form-input
-              label.form-input__label(for='name') Введите ваше имя
-              input#name.form-input__input.form-input__input--user(type='text', name='username', value='', placeholder='Имя Фамилия', required='')
-            .contacts__info.form-input
-              label.form-input__label(for='email') Введите ваш email
-              input#name.form-input__input.form-input__input--email(type='email', name='useremail', value='', placeholder='email@example.com', required='')
-            .contacts__info.form-input.form-input--textarea
+          form.contacts__form.form
+            .form__info.form-input
+              label.form-input__label(for='username') Введите ваше имя
+              input#username.form-input__input.form-input__input--user(type='text', name='username', value='', placeholder='Имя Фамилия', required='')
+            .form__info.form-input
+              label.form-input__label(for='useremail') Введите ваш email
+              input#useremail.form-input__input.form-input__input--email(type='email', name='useremail', value='', placeholder='email@example.com', required='')
+            .form__info.form-input.form-input--textarea
               label.form-input__label(for='message') Сообщение
               textarea#message.form-input__message(name='message', rows='5', placeholder='В свободной форме', required='')
-            button.contacts__button.button(type='submit') Отправить
+            button.form__button.button(type='submit') Отправить
       footer.footer
         .footer__wrapper.container
           .footer__copyright.copyright
@@ -130,3 +130,11 @@ html(lang="en")
             .footer__quote
               p.footer__quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
               p.footer__quote-name Martin Golding
+      section.modal.modal-sent
+        .container
+            h2.modal__heading Письмо отправлено
+            button.modal__button.button(type='button') Закрыть
+      section.modal.modal-error
+        .container
+            h2.modal__heading Не все поля заполнены
+            button.modal__button.button(type='button') Закрыть
