@@ -7,5 +7,6 @@
   "bp-1080": "1080px",
   "bp-tablets": "768px",
   "bp-phones": "480px",
-  "nav-color": "#464d62"
+  "nav-color": "#464d62",
+  "nodesktop": "767px"
 }

@@ -32,21 +32,22 @@ html(lang="en")
           header.header.container
             .header__logo
               .logo ЕХ
-            .header__nav
-              nav.nav.nav--header
-                - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                ul.nav__list
-                  each item in items
-                    li.nav__item
-                      a.nav__link #{item}
-            .header__socials
-              - var icons = ["insta", "vk", "github"];
-              ul.socials.socials--header
-                each item in icons
-                  li.socials__item.socials__item--header
-                    a(href='').socials__link
-                      +icon(item, socials__item)
-            button.header__toggle(type='button' aria-label='Развернуть меню') X
+            .header__menu.header__menu--header-closed.header__menu--no-js
+              button.header__toggle(type='button' aria-label='Развернуть меню')
+              .header__nav.header__nav--header
+                nav.nav.nav--header
+                  - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                  ul.nav__list
+                    each item in items
+                      li.nav__item
+                        a.nav__link #{item}
+              .header__socials.header__socials--header
+                - var icons = ["insta", "vk", "github"];
+                ul.socials.socials--header
+                  each item in icons
+                    li.socials__item.socials__item--header
+                      a(href='').socials__link
+                        +icon(item, socials__item)
           .intro__main.main.container
             p.main__text Личный сайт веб-разработчика
             h1.main__heading Елена Ходанович
@@ -99,7 +100,7 @@ html(lang="en")
             .form__info.form-input
               label.form-input__label(for='useremail') Введите ваш email
               input#useremail.form-input__input.form-input__input--email(type='email', name='useremail', value='', placeholder='email@example.com', required='')
-            .form__info.form-input.form-input--textarea
+            .form__info.form__info--textarea.form-input.form-input--textarea
               label.form-input__label(for='message') Сообщение
               textarea#message.form-input__message(name='message', rows='5', placeholder='В свободной форме', required='')
             button.form__button.button(type='submit') Отправить
