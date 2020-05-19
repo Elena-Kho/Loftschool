@@ -24,62 +24,59 @@
         .container
           .about__header.section__header
             h2.about__title.section__title Блок Обо мне
-            .about__add Добавить группу
+            .about__add
+              button.about__btn(type='button') +
+              p.about__btn-txt Добавить группу
           .skills.section-main
             ul.skills__list.section__list
               li.skills__item.new-skill.section__item
                 .new-skill__header.section__item-header.container--skill
-                  h3.new-skill__header-title.section__item-title Название новой группы
+                  input.new-skill__header-title.section__item-title(type='text', name='newgroup', value='', placeholder='Название новой группы', required='')
                   .new-skill__header-btns
-                    button.new-skill__header-btn(type='button')
-                    button.new-skill__header-btn(type='button')
+                    button.new-skill__header-btn.section__item-btn.section__item-btn--tick(type='button')
+                    button.new-skill__header-btn.section__item-btn.section__item-btn--remove(type='button')
                 .new-skill__main.container--skill
                   .new-skill__main-table
-                .new-skill__footer.container--skill
-                  table.new-skill__footer-table
-                    tbody
-                      tr.new-skill__footer-tr
-                        td.new-skill__footer-td1 Новый навык
-                        td.new-skill__footer-td2 100 %
+                .new-skill__footer
+                  input.new-skill__footer-skill.section__footer-item(type='text', name='newskill', value='', placeholder='Новый навык', required='')
+                  input.new-skill__footer-percent.section__footer-percent(type='text', name='percent', value='', placeholder='100 %', required='')
+                  button.new-skill__footer-btn.section__footer-btn +
               li.skills__item.new-skill.section__item
                 .new-skill__header.container--skill.section__item-header
-                  h3.new-skill__header-title.section__item-title Workflow
+                  input.new-skill__header-title.section__item-title(type='text', name='newgroup', value='', placeholder='Workflow', required='')
                   .new-skill__header-btns
-                    button.new-skill__header-btn(type='button')
-                    button.new-skill__header-btn(type='button')
+                    button.new-skill__header-btn.section__item-btn.section__item-btn--tick(type='button')
+                    button.new-skill__header-btn.section__item-btn.section__item-btn--remove(type='button')
                 .new-skill__main.container--skill
-                  table.new-skill__main-table
-                    tbody
-                      tr.new-skill__main-tr
-                        td.new-skill__main-td1 Git
-                        td.new-skill__main-td2 100 %
-                        td.new-skill__main-td3
-                          button.new-skill__header-btn(type='button')
-                          button.new-skill__header-btn(type='button')
-                      tr.new-skill__main-tr
-                        td.new-skill__main-td1 Terminal
-                        td.new-skill__main-td2 100 %
-                        td.new-skill__main-td3
-                          button.new-skill__header-btn(type='button')
-                          button.new-skill__header-btn(type='button')
-                      tr.new-skill__main-tr
-                        td.new-skill__main-td1 Gulp
-                        td.new-skill__main-td2 100 %
-                        td.new-skill__main-td3
-                          button.new-skill__header-btn(type='button')
-                          button.new-skill__header-btn(type='button')
-                      tr.new-skill__main-tr
-                        td.new-skill__main-td1 Webpack
-                        td.new-skill__main-td2 100 %
-                        td.new-skill__main-td3
-                          button.new-skill__header-btn(type='button')
-                          button.new-skill__header-btn(type='button')
-                .new-skill__footer.container--skill
-                  table.new-skill__footer-table
-                    tbody
-                      tr.new-skill__footer-tr
-                        td.new-skill__footer-td1 Новый навык
-                        td.new-skill__footer-td2 100 %
+                  .new-skill__main-table
+                    .new-skill__main-row
+                      input.new-skill__main-skill.section__main-item(type='text', name='newskill', value='', placeholder='GIT', required='')
+                      input.new-skill__main-percent.section__main-percent(type='text', name='percent', value='', placeholder='100 %', required='')
+                      .new-skill__main-btns
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--pencil(type='button')
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--trash(type='button')
+                    .new-skill__main-row
+                      input.new-skill__main-skill.section__main-item(type='text', name='newskill', value='', placeholder='Terminal', required='')
+                      input.new-skill__main-percent.section__main-percent(type='text', name='percent', value='', placeholder='100 %', required='')
+                      .new-skill__main-btns
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--pencil(type='button')
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--trash(type='button')
+                    .new-skill__main-row
+                      input.new-skill__main-skill.section__main-item(type='text', name='newskill', value='', placeholder='GULP', required='')
+                      input.new-skill__main-percent.section__main-percent(type='text', name='percent', value='', placeholder='100 %', required='')
+                      .new-skill__main-btns
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--pencil(type='button')
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--trash(type='button')
+                    .new-skill__main-row
+                      input.new-skill__main-skill.section__main-item(type='text', name='newskill', value='', placeholder='Webpack', required='')
+                      input.new-skill__main-percent.section__main-percent(type='text', name='percent', value='', placeholder='100 %', required='')
+                      .new-skill__main-btns
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--pencil(type='button')
+                        button.new-skill__main-btn.section__item-btn.section__item-btn--trash(type='button')
+                .new-skill__footer
+                  input.new-skill__footer-skill.section__footer-item(type='text', name='newskill', value='', placeholder='Новый навык', required='')
+                  input.new-skill__footer-percent.section__footer-percent(type='text', name='percent', value='', placeholder='100 %', required='')
+                  button.new-skill__footer-btn.section__footer-btn +
       section.portfolio.section
         .portfolio.section-main
           .container
@@ -193,10 +190,144 @@
     font-size: 16px;
     color: #414c63;
   }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  input {
+    font: inherit;
+    border: none;
+  }
+
+  .button {
+    padding: 18px 50px;
+    background-color: #1d52dd;
+    text-transform: uppercase;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+  }
+
   .container {
     width: 90%;
     margin: 0 auto;
   }
+
+  .container--skill {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .container--item {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .section {
+    background-color: #f6f9fe;
+    padding-bottom: 60px;
+  }
+  .section__header{
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .section__title {
+    display: block;
+    width: 17%;
+    margin: 0;
+    padding: 0;
+    margin-top: 60px;
+    font-size: 21px;
+    font-weight: 900;
+  }
+  .section__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .section__item {
+    display: flex;
+    flex-direction: column;
+    width: 48.6%;
+    padding-bottom: 35px;
+    background-color: #ffffff;
+    box-shadow: 3px 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .section__item-header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid grey;
+  }
+  .section__item-title {
+    font-size: 18px;
+    font-weight: 900;
+  }
+  .section__item-btn {
+    width: 15px;
+    height: 15px;
+    margin-left: 20px;
+
+    &--tick {
+      background: svg-load('tick.svg', width: 15, height: 15, fill: lime) no-repeat 0 0;
+    }
+
+    &--remove {
+      background: svg-load('remove.svg', width: 12, height: 12, fill: red) no-repeat 0 0;
+    }
+
+    &--pencil {
+      background: svg-load('pencil.svg', width: 15, height: 15, fill: grey) no-repeat 0 0;
+    }
+
+    &--trash {
+      background: svg-load('trash.svg', width: 15, height: 15, fill: grey) no-repeat 0 0;
+    }
+  }
+
+  .section__footer-item,
+  .section__footer-percent {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    border-bottom: 1px solid grey;
+  }
+
+  .section__footer-item {
+    width: 50%;
+  }
+
+  .section__footer-percent {
+    width: 15%;
+  }
+
+  .section__footer-btn {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    margin-left: 50px;
+    font-size: 26px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    background-color: #383bcf;
+  }
+
   .header__wrapper {
     min-height: 80px;
     background-color: #414164;
@@ -247,124 +378,73 @@
     text-decoration: none;
   }
 
-  .section {
-    background-color: #f6f9fe;
-    padding-bottom: 60px;
-  }
-  .section__header{
+  .about__add {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 60px;
-    margin-bottom: 60px;
-  }
-  .section__title {
-    display: block;
-    width: 17%;
-    margin: 0;
-    padding: 0;
-    margin-top: 60px;
-    font-size: 21px;
-    font-weight: 900;
   }
 
-  .about__add {
-    display: block;
-    width: 17%;
+  .about__btn {
+    width: 20px;
+    height: 20px;
     margin: 0;
     padding: 0;
-    margin-top: 60px;
-    margin-left: 30px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    background-color: #383bcf;
+  }
+
+  .about__btn-txt {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
     vertical-align: middle;
     font-size: 16px;
     color: #383bcf;
   }
 
-  .section__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .container--skill {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .container--item {
-    width: 95%;
-    margin: 0 auto;
-  }
-  .button {
-    padding: 18px 50px;
-    background-color: #1d52dd;
-    text-transform: uppercase;
-    color: #ffffff;
-    border: none;
-    border-radius: 25px;
-  }
-
-  .section__item {
-    display: flex;
-    flex-direction: column;
-    width: 48.6%;
-    padding-bottom: 35px;
-    background-color: #ffffff;
-    box-shadow: 3px 4px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  .section__item-header {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid grey;
-  }
-  .section__item-title {
-    font-size: 18px;
-    font-weight: 900;
-  }
   .new-skill__header-title.section__item-title {
     display: block;
+    width: 80%;
+    font: inherit;
     font-size: 18px;
     font-weight: 300;
+    border: none;
   }
-  .new-skill__footer {
-    align-self: flex-end;
-    width: 55%;
-    margin-top: auto;
-    margin-right: 100px;
-  }
-  .new-skill__footer-table {
-    border: 0;
-    border-spacing: 10px;
-  }
-  .new-skill__footer-td1 {
-    border: 0;
-  }
-  .new-skill__footer-td1 {
-    margin-right: 10px;
-    padding: 10px 100px 10px 20px;
-    border-bottom: 1px solid grey;
-  }
-  .new-skill__footer-td2 {
-    padding: 10px 20px;
-    border-bottom: 1px solid grey;
-  }
+
   .new-skill__main-table {
+    margin-bottom: 30px;
+  }
+
+  .new-skill__main-row {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
   }
-  .new-skill__main-td1 {
-    width: 70%;
-    padding-top: 15px;
-    padding-bottom: 15px;
+
+  .new-skill__main-skill {
+    width: 80%;
+    padding-top: 25px;
   }
-  .new-skill__main-td2 {
-    width: 20%;
-  }
-  .new-skill__main-td3 {
+
+  .new-skill__main-percent {
     width: 10%;
+    padding-top: 25px;
+  }
+
+  .new-skill__main-btns {
+    width: 10%;
+    padding-top: 25px;
+  }
+
+  .new-skill__footer {
+    align-self: flex-end;
+    width: 60%;
+    margin-top: auto;
+
+    outline: 1px solid lime;
   }
 
   .portfolio__item {
