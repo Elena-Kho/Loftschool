@@ -1,5 +1,6 @@
 let form = document.querySelector(".form");
 let sendButton = document.querySelector(".form__button");
+let errorText = document.querySelector(".modal__heading--error");
 let userName = form.querySelector("[name=username]");
 let userEmail = form.querySelector("[name=useremail]");
 let message = form.querySelector("[name=message]");
@@ -12,13 +13,30 @@ let requiredEmail = form.querySelector("#useremail");
 let requiredMessage = form.querySelector("#message");
 
 sendButton.addEventListener("click", function (evt) {
+
   evt.preventDefault();
-  if (userName.value && userEmail.value && message.value) {
+
+  if (validateForm(form)) {
     popupSent.classList.add("modal--show");
     requiredName.classList.remove("error");
     requiredEmail.classList.remove("error");
     requiredMessage.classList.remove("error");
-  } else {
+
+    const data = new FormData();
+      data.append("name", userName.value);
+      data.append("phone", userEmail.value);
+      data.append("comment", message.value);
+      data.append("to", "111@mail.ru");
+
+    console.log(data);
+
+    fetch('https://webdev-api.loftschool.com/sendmail', {
+      method: 'POST',
+      body: data
+    })
+  }
+
+  else {
       popupError.classList.add("modal--show");
       if (!userName.value) {
         requiredName.classList.add("error");
@@ -37,6 +55,20 @@ sendButton.addEventListener("click", function (evt) {
         }
     }
 });
+
+function validateForm(form) {
+  let valid = false;
+
+  if (validateField(userName) && validateField(userEmail) && validateField(message)) {
+    valid = true;
+  }
+  return valid;
+};
+
+function validateField(field) {
+  errorText.textContent = field.validationMessage;
+  return field.checkValidity();
+};
 
 closeSent.addEventListener("click", function (evt) {
   evt.preventDefault();

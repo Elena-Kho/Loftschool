@@ -85,9 +85,11 @@
                 .portfolio__item-header.section__item-header.container--item
                   h3.portfolio__item-title.section__item-title Редактирование работы
                 .portfolio__item-main.container--item
-                  .portfolio__upload
+                  form.portfolio__upload(action='#', method='post', enctype='multipart/form-data')
                     p.portfolio__upload-text Перетащите или загрузите для загрузки изображения
-                    button.portfolio__upload-btn.button(type='button') Загрузить
+                    .portfolio__upload-wrapper
+                      label.portfolio__upload-label.button(for='img') Загрузить
+                      input(type='file', name='img', value='', placeholder='')
                   .portfolio__desc
                     form.portfolio__form.form(action='#', method='post')
                       p.form__input
@@ -107,11 +109,14 @@
                         br
                         input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required='')
                       .form__tags
-                        button.form__tags-btn(type='button') HTML
-                        button.form__tags-btn(type='button') CSS
-                        button.form__tags-btn(type='button') Javascript
+                        .button.form__tag HTML
+                          button.form__tag-btn(type='button')
+                        .button.form__tag CSS
+                          button.form__tag-btn(type='button')
+                        .button.form__tag Javascript
+                          button.form__tag-btn(type='button')
                       .form__btns
-                        button.form__btn.form__btn--no(type='submit') Отмена
+                        button.form__btn.form__btn--no(type='reset') Отмена
                         button.form__btn.button(type='submit') Сохранить
           .container
             ul.portfolio__new-list
@@ -130,7 +135,7 @@
                     h3.portfolio__new-info-title Сайт школы образования
                     p.portfolio__new-info-text
                       | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                    p.portfolio__new-info-link http://loftschool.ru
+                    a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
                     .portfolio__new-btns
                       button.portfolio__new-btn(type='button') Править
                       button.portfolio__new-btn(type='button') Удалить
@@ -142,9 +147,10 @@
                 .reviews__item-header.section__item-header.container--item
                   h3.reviews__item-title.section__item-title Новый отзыв
                 .reviews__item-main.container--item
-                  .reviews__upload
-                    .reviews__upload-img
-                    button.reviews__upload-btn(type='button') Добавить фото
+                  form.reviews__upload(action='#', method='post', enctype='multipart/form-data')
+                    .reviews__upload-wrapper
+                      label.reviews__upload-label(for='ava') Добавить фото
+                      input(type='file', name='ava', value='', placeholder='')
                   .reviews__desc
                     form.reviews__form.form.form--rev(action='#', method='post')
                       p.form__input.form__input--rev
@@ -160,7 +166,7 @@
                         br
                         textarea#message.form__input-text(name='message', rows='5', placeholder='Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!', required='')
                       .form__btns.form__btns--rev
-                        button.form__btn.form__btn--no(type='submit') Отмена
+                        button.form__btn.form__btn--no(type='reset') Отмена
                         button.form__btn.button(type='submit') Сохранить
           .container
             ul.reviews__new-list
@@ -172,7 +178,7 @@
                   .reviews__new-img
                     img.reviews__new-pic(src='')
                   .reviews__new-pers
-                    p.reviews__new-name Владимир Сабанцев
+                    h3.reviews__new-name Владимир Сабанцев
                     p.reviews__new-pos Преподаватель
                 .reviews__new-info.container
                   h3.reviews__new-info-title Сайт школы образования
@@ -181,7 +187,6 @@
                   .reviews__new-btns
                     button.reviews__new-btn(type='button') Править
                     button.reviews__new-btn(type='button') Удалить
-    footer
 </template>
 
 <style lang='pcss'>
@@ -200,6 +205,12 @@
   input {
     font: inherit;
     border: none;
+  }
+
+  input[type="file" i] {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
   }
 
   .button {
@@ -319,7 +330,7 @@
     height: 40px;
     margin: 0;
     padding: 0;
-    margin-left: 50px;
+    margin-left: 60px;
     font-size: 26px;
     font-weight: 500;
     color: white;
@@ -467,8 +478,10 @@
   }
 
   .portfolio__upload-text {
+    width: 50%;
+    margin: 0 auto;
     margin-top: 85px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .portfolio__desc {
@@ -498,13 +511,24 @@
   .form__btns {
     display: flex;
   }
-  .form__tags-btn {
+
+  .form__tag {
     margin-right: 10px;
-    padding: 5px 30px 5px 10px;
+    padding: 5px 10px;
     background-color: #f4f4f4;
     border: none;
     border-radius: 20px;
+    text-transform: none;
+    color: #414c63;
   }
+
+  .form__tag-btn {
+    width: 12px;
+    height: 12px;
+    margin-left: 20px;
+    background: svg-load('remove.svg', width: 10, height: 10, fill: grey) no-repeat 0 0;
+  }
+
   .form__btns {
     align-self: flex-end;
   }
@@ -609,8 +633,12 @@
     color: #818181;
   }
   .portfolio__new-info-link {
+    display: block;
+    margin: 0;
+    padding: 0;
     margin: 30px 0;
     color: #1d52dd;
+    text-decoration: none;
   }
   .reviews__item {
     width: 100%;
@@ -672,5 +700,23 @@
   }
   .reviews__new-name {
     font-weight: 900;
+  }
+
+  .reviews__upload-wrapper {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #dee4ed svg-load('man-user.svg', width: 110, height: 145, fill: white) no-repeat 50% 50%;
+  }
+
+  .reviews__upload-label {
+    display: block;
+    width: 200px;
+    height: 200px;
+    padding-top: 230px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d52dd;
   }
 </style>
