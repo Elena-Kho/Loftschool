@@ -1,8 +1,11 @@
 <template lang="pug">
   section.reviews.section
-    .reviews.section-main
-      reviewsEditComp
-      reviewsAddComp
+    .container
+      .reviews__header.section__header.container--block
+          h2.reviews__title.section__title Блок Отзывы
+      .reviews.section-main
+        reviewsEditComp
+        reviewsAddComp
 </template>
 
 

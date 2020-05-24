@@ -22,8 +22,9 @@
 
 <style lang='pcss' scoped>
   .new-skill__footer {
+    display: flex;
+    justify-content: flex-end;
     margin-top: auto;
-    text-align: right;
 
     outline: 1px solid lime;
   }

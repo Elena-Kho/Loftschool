@@ -44,8 +44,36 @@
 
   .new-skill__main-btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 15%;
     padding-top: 25px;
+  }
+
+  @media screen and (max-width: 1199px) {
+    .new-skill__main-skill {
+      width: 55%;
+    }
+
+    .new-skill__main-percent {
+      width: 20%;
+    }
+
+    .new-skill__main-btns {
+      width: 25%;
+    }
+  }
+
+  @media screen and (max-width: 479px) {
+    .new-skill__main-skill {
+      width: 50%;
+    }
+
+    .new-skill__main-percent {
+      width: 20%;
+    }
+
+    .new-skill__main-btns {
+      width: 30%;
+    }
   }
 </style>

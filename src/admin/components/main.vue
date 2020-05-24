@@ -42,7 +42,6 @@
   .nav__list {
     display: flex;
     padding: 0;
-    margin: 0;
     list-style: none;
   }
 
@@ -54,5 +53,10 @@
     font-size: 16px;
     color: #414c63;
     text-decoration: none;
+  }
+  @media screen and (max-width: 479px) {
+    .nav__item {
+      padding: 30px 14px;
+    }
   }
 </style>

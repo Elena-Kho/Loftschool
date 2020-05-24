@@ -1,43 +1,42 @@
 <template lang="pug">
-  .container
-    ul.portfolio__list.section__list.container
-      li.portfolio__item.section__item
-        .portfolio__item-header.section__item-header.container--item
-          h3.portfolio__item-title.section__item-title Редактирование работы
-        .portfolio__item-main.container--item
-          form.portfolio__upload(action='#', method='post', enctype='multipart/form-data')
-            p.portfolio__upload-text Перетащите или загрузите для загрузки изображения
-            .portfolio__upload-wrapper
-              label.portfolio__upload-label.button(for='img') Загрузить
-              input(type='file', name='img', value='', placeholder='')
-          .portfolio__desc
-            form.portfolio__form.form(action='#', method='post')
-              p.form__input
-                label.form__input-label(for='name') Название
-                br
-                input#name.form__input-input(type='text', name='sitename', value='', placeholder='Дизайн сайта для автосалона Porsche', required='')
-              p.form__input
-                label.form__input-label(for='link') Ссылка
-                br
-                input#link.form__input-input(type='text', name='sitelink', value='', placeholder='https://www.porsche-pulkovo.ru', required='')
-              p.form__input
-                label.form__input-label(for='message') Описание
-                br
-                textarea#message.form__input-text(name='message', rows='5', placeholder='Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей', required='')
-              p.form__input
-                label.form__input-label(for='tags') Добавление тега
-                br
-                input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required='')
-              .form__tags
-                .button.form__tag HTML
-                  button.form__tag-btn(type='button')
-                .button.form__tag CSS
-                  button.form__tag-btn(type='button')
-                .button.form__tag Javascript
-                  button.form__tag-btn(type='button')
-              .form__btns
-                button.form__btn.form__btn--no(type='reset') Отмена
-                button.form__btn.button(type='submit') Сохранить
+  ul.portfolio__list.section__list.container
+    li.portfolio__item.section__item
+      .portfolio__item-header.section__item-header.container--header
+        h3.portfolio__item-title.section__item-title Редактирование работы
+      .portfolio__item-main.container--item
+        form.portfolio__upload(action='#', method='post', enctype='multipart/form-data')
+          p.portfolio__upload-text Перетащите или загрузите для загрузки изображения
+          .portfolio__upload-wrapper
+            label.portfolio__upload-label.button(for='img') Загрузить
+            input(type='file', name='img', value='', placeholder='')
+        .portfolio__desc
+          form.portfolio__form.form(action='#', method='post')
+            p.form__input
+              label.form__input-label(for='name') Название
+              br
+              input#name.form__input-input(type='text', name='sitename', value='', placeholder='Дизайн сайта для автосалона Porsche', required='')
+            p.form__input
+              label.form__input-label(for='link') Ссылка
+              br
+              input#link.form__input-input(type='text', name='sitelink', value='', placeholder='https://www.porsche-pulkovo.ru', required='')
+            p.form__input
+              label.form__input-label(for='message') Описание
+              br
+              textarea#message.form__input-text(name='message', rows='5', placeholder='Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей', required='')
+            p.form__input
+              label.form__input-label(for='tags') Добавление тега
+              br
+              input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required='')
+            .form__tags
+              .button.form__tag HTML
+                button.form__tag-btn(type='button')
+              .button.form__tag CSS
+                button.form__tag-btn(type='button')
+              .button.form__tag Javascript
+                button.form__tag-btn(type='button')
+            .form__btns
+              button.form__btn.form__btn--no(type='reset') Отмена
+              button.form__btn.button(type='submit') Сохранить
 </template>
 
 
@@ -84,5 +83,22 @@
 
   .portfolio__desc {
     width: 50%;
+  }
+
+  @media screen and (max-width: 1199px)  {
+    .portfolio__item-main {
+      flex-direction: column;
+      align-items: center;
+    }
+    .portfolio__upload {
+      width: 100%;
+    }
+    .portfolio__desc {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 767px){
+
   }
 </style>

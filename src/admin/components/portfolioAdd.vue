@@ -1,57 +1,56 @@
 <template lang="pug">
-  .container
-    ul.portfolio__new-list.section__new-list
-      li.portfolio__add-item.section__add-item
-        button.portfolio__add-btn.section__add-btn(type='button') +
-        p.portfolio__add-note.section__add-note Добавить работу
-      li.portfolio__new-item.section__new-item
-        .portfolio__new-preview
-          .portfolio__new-img
-            img.portfolio__new-pic(src='')
-          ul.portfolio__new-tags
-            li.portfolio__new-tag HTML
-            li.portfolio__new-tag CSS
-            li.portfolio__new-tag Javascript
-          .portfolio__new-info.container
-            h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
-            p.portfolio__new-info-text.section__new-info-text
-              | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-            a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
-            .portfolio__new-btns.section__new-btns
-              button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-              button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
-      li.portfolio__new-item.section__new-item
-        .portfolio__new-preview
-          .portfolio__new-img
-            img.portfolio__new-pic(src='')
-          ul.portfolio__new-tags
-            li.portfolio__new-tag HTML
-            li.portfolio__new-tag CSS
-            li.portfolio__new-tag Javascript
-          .portfolio__new-info.container
-            h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
-            p.portfolio__new-info-text.section__new-info-text
-              | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-            a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
-            .portfolio__new-btns.section__new-btns
-              button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-              button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
-      li.portfolio__new-item.section__new-item
-        .portfolio__new-preview
-          .portfolio__new-img
-            img.portfolio__new-pic(src='')
-          ul.portfolio__new-tags
-            li.portfolio__new-tag HTML
-            li.portfolio__new-tag CSS
-            li.portfolio__new-tag Javascript
-          .portfolio__new-info.container
-            h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
-            p.portfolio__new-info-text.section__new-info-text
-              | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-            a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
-            .portfolio__new-btns.section__new-btns
-              button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-              button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
+  ul.portfolio__new-list.section__new-list
+    li.portfolio__add-item.section__add-item
+      button.portfolio__add-btn.section__add-btn(type='button') +
+      p.portfolio__add-note.section__add-note Добавить работу
+    li.portfolio__new-item.section__new-item
+      .portfolio__new-preview
+        .portfolio__new-img
+          img.portfolio__new-pic(src='')
+        ul.portfolio__new-tags
+          li.portfolio__new-tag HTML
+          li.portfolio__new-tag CSS
+          li.portfolio__new-tag Javascript
+        .portfolio__new-info.container--skill
+          h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
+          p.portfolio__new-info-text.section__new-info-text
+            | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+          a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
+          .portfolio__new-btns.section__new-btns
+            button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
+            button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
+    li.portfolio__new-item.section__new-item
+      .portfolio__new-preview
+        .portfolio__new-img
+          img.portfolio__new-pic(src='')
+        ul.portfolio__new-tags
+          li.portfolio__new-tag HTML
+          li.portfolio__new-tag CSS
+          li.portfolio__new-tag Javascript
+        .portfolio__new-info.container--skill
+          h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
+          p.portfolio__new-info-text.section__new-info-text
+            | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+          a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
+          .portfolio__new-btns.section__new-btns
+            button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
+            button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
+    li.portfolio__new-item.section__new-item
+      .portfolio__new-preview
+        .portfolio__new-img
+          img.portfolio__new-pic(src='')
+        ul.portfolio__new-tags
+          li.portfolio__new-tag HTML
+          li.portfolio__new-tag CSS
+          li.portfolio__new-tag Javascript
+        .portfolio__new-info.container--skill
+          h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
+          p.portfolio__new-info-text.section__new-info-text
+            | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+          a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
+          .portfolio__new-btns.section__new-btns
+            button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
+            button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
 </template>
 
 

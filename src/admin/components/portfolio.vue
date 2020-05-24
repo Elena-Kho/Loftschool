@@ -1,8 +1,11 @@
 <template lang="pug">
   section.portfolio.section
-    .portfolio.section-main
-      portfolioEditComp
-      portfolioAddComp
+    .container
+      .portfolio__header.section__header.container--block
+          h2.portfolio__title.section__title Блок Работы
+      .portfolio.section-main
+        portfolioEditComp
+        portfolioAddComp
 </template>
 
 

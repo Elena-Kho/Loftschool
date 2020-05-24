@@ -55,8 +55,24 @@
     color: #ffffff;
   }
   .header__login-btn {
+    display: block;
     color: #ffffff;
     background-color: transparent;
     border: none;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 767px) {
+    .header__user {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .header__panel {
+      display: none;
+    }
+    .header__login-btn {
+      margin-left: 40px;
+      margin-top: -20px;
+    }
   }
 </style>

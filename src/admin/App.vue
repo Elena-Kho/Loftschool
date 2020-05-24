@@ -74,11 +74,15 @@
     width: 90%;
     margin: 0 auto;
   }
-
+  .container--block {
+    width: 100%;
+    margin: 0 auto;
+  }
   .container--skill {
     width: 90%;
     margin: 0 auto;
   }
+  .container--header,
   .container--item {
     width: 95%;
     margin: 0 auto;
@@ -94,10 +98,9 @@
   }
   .section__title {
     display: block;
-    width: 17%;
-    margin: 0;
     padding: 0;
     margin-top: 60px;
+    margin-right: 60px;
     font-size: 21px;
     font-weight: 900;
   }
@@ -340,5 +343,55 @@
 
   .form__btns--rev {
     margin-left: auto;
+  }
+
+  @media screen and (max-width: 1199px) {
+    .container--item {
+      width: 75%;
+    }
+    .section__add-item,
+    .section__new-item {
+      width: 48%;
+    }
+
+    .form__btns {
+      align-self: center;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .section__header {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .section__item {
+      width: 100%;
+    }
+    .container {
+      width: 100%;
+    }
+    .container--block {
+      width: 90%;
+    }
+    .container--item {
+      width: 90%;
+    }
+    .section__add-item,
+    .section__new-item {
+      width: 100%;
+    }
+    .form__input--rev {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 479px) {
+    .section__footer-item {
+      width: 45%;
+    }
+
+    .section__footer-percent {
+      width: 20%;
+    }
   }
 </style>
