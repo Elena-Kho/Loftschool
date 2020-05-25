@@ -46,11 +46,11 @@ html(lang="en")
               button.header__toggle(type='button' aria-label='Развернуть меню')
               .header__nav.header__nav--header
                 nav.nav.nav--header
-                  - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                  - var items = [{title:'Главная', href:'#main'}, {title:'Обо мне', href:'#about'}, {title:'Навыки', href:'#skills'}, {title:'Работы', href:'#portfolio'}, {title:'Отзывы', href:'#reviews'}, {title:'Связаться', href:'#contacts'}];
                   ul.nav__list
                     each item in items
                       li.nav__item
-                        a(href='').nav__link #{item}
+                        a.nav__link(href=`${item.href}`) #{item.title}
               .header__socials.header__socials--header
                 - var icons = ["insta", "vk", "github"];
                 ul.socials.socials--header

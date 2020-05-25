@@ -1,50 +1,29 @@
 <template lang="pug">
-  ul.reviews__new-list.section__new-list
-    li.reviews__add-item.section__add-item
-      button.reviews__add-btn.section__add-btn(type='button') +
-      p.reviews__add-note.section__add-note Добавить отзыв
-    li.reviews__new-item.section__new-item
-      .reviews__new-header
-        .reviews__new-img
-          img.reviews__new-pic(src='')
-        .reviews__new-pers
-          h3.reviews__new-name Владимир Сабанцев
-          p.reviews__new-pos Преподаватель
-      .reviews__new-info.container--skill
-        h3.reviews__new-info-title.section__new-info-title Сайт школы образования
-        p.reviews__new-info-text.section__new-info-text
-          | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-        .reviews__new-btns.section__new-btns
-          button.reviews__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-          button.reviews__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
-    li.reviews__new-item.section__new-item
-      .reviews__new-header
-        .reviews__new-img
-          img.reviews__new-pic(src='')
-        .reviews__new-pers
-          h3.reviews__new-name Владимир Сабанцев
-          p.reviews__new-pos Преподаватель
-      .reviews__new-info.container--skill
-        h3.reviews__new-info-title.section__new-info-title Сайт школы образования
-        p.reviews__new-info-text.section__new-info-text
-          | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-        .reviews__new-btns.section__new-btns
-          button.reviews__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-          button.reviews__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
-    li.reviews__new-item.section__new-item
-      .reviews__new-header
-        .reviews__new-img
-          img.reviews__new-pic(src='')
-        .reviews__new-pers
-          h3.reviews__new-name Владимир Сабанцев
-          p.reviews__new-pos Преподаватель
-      .reviews__new-info.container--skill
-        h3.reviews__new-info-title.section__new-info-title Сайт школы образования
-        p.reviews__new-info-text.section__new-info-text
-          | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-        .reviews__new-btns.section__new-btns
-          button.reviews__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-          button.reviews__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
+  .section__item-wrapper
+    .reviews__item-header.section__item-header.container--skill
+      h3.reviews__item-title.section__item-title Новый отзыв
+    .reviews__item-main.container--skill
+      form.reviews__upload(action='#', method='post', enctype='multipart/form-data')
+        .reviews__upload-wrapper
+          label.reviews__upload-label(for='ava') Добавить фото
+          input(type='file', name='ava', value='', placeholder='')
+      .reviews__desc
+        form.reviews__form.form.form--rev(action='#', method='post')
+          p.form__input.form__input--rev
+            label.form__input-label(for='name') Имя автора
+            br
+            input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required='')
+          p.form__input.form__input--rev
+            label.form__input-label(for='title') Титул автора
+            br
+            input#title.form__input-input(type='text', name='sitelink', value='', placeholder='', required='')
+          p.form__input.form__input--area
+            label.form__input-label(for='message') Отзыв
+            br
+            textarea#message.form__input-text(name='message', rows='5', placeholder='', required='')
+          .form__btns.form__btns--rev
+            button.form__btn.form__btn--no(type='reset') Отмена
+            button.form__btn.button(type='submit') Сохранить
 </template>
 
 
@@ -63,24 +42,65 @@
 
 
 <style lang='pcss' scoped>
-  .reviews__new-header {
+  .reviews__item {
+    width: 100%;
+  }
+  .reviews__item-main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 50px;
   }
-  .reviews__new-img {
-    width: 20%;
+  .reviews__upload {
+    width: 25%;
+    text-align: center;
+    background-color: #ffffff;
   }
-  .reviews__new-pic {
+  .reviews__desc {
+    width: 60%;
+    margin-left: 30px;
+    margin-right: auto;
+  }
+  .reviews__upload-wrapper {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
+    background: #dee4ed svg-load('man-user.svg', width: 110, height: 145, fill: white) no-repeat 50% 50%;
   }
-  .reviews__new-pers {
-    width: 80%;
-    margin-left: 20px;
+  .reviews__upload-label {
+    display: block;
+    width: 200px;
+    height: 200px;
+    padding-top: 230px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d52dd;
   }
-  .reviews__new-name {
-    font-weight: 900;
+  @media screen and (max-width: 1199px) {
+    .reviews__upload {
+      width: 25%;
+    }
+    .reviews__desc {
+      width: 65%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .reviews__item-main {
+      flex-direction: column;
+      align-items: center;
+    }
+    .reviews__upload {
+      width: 80%;
+    }
+    .reviews__desc {
+      width: 100%;
+      margin-top: 60px;
+    }
+    .reviews__upload-wrapper {
+      margin: 0 auto;
+    }
   }
 </style>

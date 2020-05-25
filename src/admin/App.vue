@@ -99,6 +99,7 @@
   .section__title {
     display: block;
     padding: 0;
+    margin-bottom: 0;
     margin-top: 60px;
     margin-right: 60px;
     font-size: 21px;
@@ -116,9 +117,13 @@
   }
 
   .section__item {
+    width: 48.6%;
+  }
+
+  .section__item-wrapper {
     display: flex;
     flex-direction: column;
-    width: 48.6%;
+    width: 100%;
     margin-bottom: 30px;
     padding-bottom: 35px;
     background-color: #ffffff;
@@ -188,6 +193,7 @@
     border: none;
     border-radius: 50%;
     background-color: #383bcf;
+    cursor: pointer;
   }
   .section__new-list {
     display: flex;
@@ -235,7 +241,7 @@
   }
   .section__new-btn {
     display: block;
-    width: 33%;
+    width: 34%;
     font: inherit;
     font-size: 16px;
     font-weight: 300;

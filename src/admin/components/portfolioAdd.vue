@@ -1,56 +1,41 @@
 <template lang="pug">
-  ul.portfolio__new-list.section__new-list
-    li.portfolio__add-item.section__add-item
-      button.portfolio__add-btn.section__add-btn(type='button') +
-      p.portfolio__add-note.section__add-note Добавить работу
-    li.portfolio__new-item.section__new-item
-      .portfolio__new-preview
-        .portfolio__new-img
-          img.portfolio__new-pic(src='')
-        ul.portfolio__new-tags
-          li.portfolio__new-tag HTML
-          li.portfolio__new-tag CSS
-          li.portfolio__new-tag Javascript
-        .portfolio__new-info.container--skill
-          h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
-          p.portfolio__new-info-text.section__new-info-text
-            | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-          a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
-          .portfolio__new-btns.section__new-btns
-            button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-            button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
-    li.portfolio__new-item.section__new-item
-      .portfolio__new-preview
-        .portfolio__new-img
-          img.portfolio__new-pic(src='')
-        ul.portfolio__new-tags
-          li.portfolio__new-tag HTML
-          li.portfolio__new-tag CSS
-          li.portfolio__new-tag Javascript
-        .portfolio__new-info.container--skill
-          h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
-          p.portfolio__new-info-text.section__new-info-text
-            | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-          a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
-          .portfolio__new-btns.section__new-btns
-            button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-            button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
-    li.portfolio__new-item.section__new-item
-      .portfolio__new-preview
-        .portfolio__new-img
-          img.portfolio__new-pic(src='')
-        ul.portfolio__new-tags
-          li.portfolio__new-tag HTML
-          li.portfolio__new-tag CSS
-          li.portfolio__new-tag Javascript
-        .portfolio__new-info.container--skill
-          h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
-          p.portfolio__new-info-text.section__new-info-text
-            | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-          a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
-          .portfolio__new-btns.section__new-btns
-            button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-            button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
+  .section__item-wrapper
+    .portfolio__item-header.section__item-header.container--header
+      h3.portfolio__item-title.section__item-title Добавление работы
+    .portfolio__item-main.container--item
+      form.portfolio__upload(action='#', method='post', enctype='multipart/form-data')
+        p.portfolio__upload-text Перетащите или загрузите для загрузки изображения
+        .portfolio__upload-wrapper
+          label.portfolio__upload-label.button(for='img') Загрузить
+          input(type='file', name='img', value='', placeholder='')
+      .portfolio__desc
+        form.portfolio__form.form(action='#', method='post')
+          p.form__input
+            label.form__input-label(for='name') Название
+            br
+            input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required='')
+          p.form__input
+            label.form__input-label(for='link') Ссылка
+            br
+            input#link.form__input-input(type='text', name='sitelink', value='', placeholder='', required='')
+          p.form__input
+            label.form__input-label(for='message') Описание
+            br
+            textarea#message.form__input-text(name='message', rows='5', placeholder='', required='')
+          p.form__input
+            label.form__input-label(for='tags') Добавление тега
+            br
+            input#tags.form__input-input(type='text', name='tags', value='', placeholder='', required='')
+          .form__tags
+            .button.form__tag HTML
+              button.form__tag-btn(type='button')
+            .button.form__tag CSS
+              button.form__tag-btn(type='button')
+            .button.form__tag Javascript
+              button.form__tag-btn(type='button')
+          .form__btns
+            button.form__btn.form__btn--no(type='reset') Отмена
+            button.form__btn.button(type='submit') Сохранить
 </template>
 
 
@@ -69,34 +54,42 @@
 
 
 <style lang='pcss' scoped>
-  .portfolio__new-preview {
+  .portfolio__item {
     width: 100%;
+    background-color: white;
   }
-
-  .portfolio__new-img {
-    width: 100%;
-    min-height: 190px;
-    background-color: lightgrey;
-  }
-  .portfolio__new-tags {
+  .portfolio__item-main {
     display: flex;
-    justify-content: flex-end;
-    padding: 0;
-    margin-top: -50px;
-    list-style: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
   }
-  .portfolio__new-tag {
-    margin-right: 10px;
-    padding: 7px 12px;
-    background-color: #ffffff;
-    border-radius: 20px;
+  .portfolio__upload {
+    width: 40%;
+    height: 275px;
+    text-align: center;
+    background-color: #dee4ed;
+    border: 1px dashed grey;
   }
-  .portfolio__new-info-link {
-    display: block;
-    margin: 0;
-    padding: 0;
-    margin-top: 30px;
-    color: #1d52dd;
-    text-decoration: none;
+  .portfolio__upload-text {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 85px;
+    margin-bottom: 50px;
+  }
+  .portfolio__desc {
+    width: 50%;
+  }
+  @media screen and (max-width: 1199px)  {
+    .portfolio__item-main {
+      flex-direction: column;
+      align-items: center;
+    }
+    .portfolio__upload {
+      width: 100%;
+    }
+    .portfolio__desc {
+      width: 100%;
+    }
   }
 </style>
