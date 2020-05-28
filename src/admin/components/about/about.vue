@@ -1,21 +1,32 @@
 <template lang="pug">
   section.about.section
     .container
+      pre {{categories}}
       .about__header.section__header.container--block
         h2.about__title.section__title Блок Обо мне
         .about__add
           button(type='button' @click.prevent='toggleShow' v-if='!ShowAddBlock').about__btn Добавить группу
       ul.skills__list.section__list
         li.skills__item.new-skill.section__item(v-if='ShowAddBlock')
-          aboutAddComp(@toggleShow='toggleShow')
-        li.skills__item.new-skill.section__item
-          aboutItemComp
+          aboutAddComp(
+            @toggleShow='toggleShow'
+            @addCategory='addCategory'
+          )
+        li.skills__item.new-skill.section__item(v-for='category in categories' :key='category.id' )
+          aboutItemComp(
+            :category='category'
+          )
 </template>
 
 
 <script>
+  import axios from 'axios'
   import aboutAddComp from './aboutAdd'
   import aboutItemComp from './aboutItem'
+
+  const baseUrl = 'https://webdev-api.loftschool.com';
+  const token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA2ODU4MzMsImV4cCI6MTU5MDcwMzgzMywibmJmIjoxNTkwNjg1ODMzLCJqdGkiOiJCc0l3MDdDSzJKb3VoSzNlIn0.-1-wi4bLpbdhHGEyX5eNapgZTXLXlRJsa_dE02oqpSs'
+
   export default {
     components: {
       aboutAddComp,
@@ -23,12 +34,19 @@
     },
     data() {
       return {
-        ShowAddBlock: false
+        ShowAddBlock: false,
+        categories: []
       }
     },
     methods: {
       toggleShow() {
         this.ShowAddBlock = !this.ShowAddBlock
+      },
+      addCategory(category) {
+        axios.post(baseUrl +'/login', {title: category.title}).then(response => {
+          console.log(response.data)
+          })
+        this.ShowAddBlock = false
       }
     }
   }

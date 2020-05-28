@@ -3,9 +3,9 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import aboutComp from './components/about.vue'
-import portfolioComp from './components/portfolio.vue'
-import reviewsComp from './components/reviews.vue'
+import aboutComp from './components/about/about.vue'
+import portfolioComp from './components/portfolio/portfolio.vue'
+import reviewsComp from './components/reviews/reviews.vue'
 
 const routes = [
   {

@@ -8,19 +8,24 @@
           input.form-login__input.form-login__input--log(type='text' placeholder='Введите логин' required v-model='user.name')
         label.form-login__label
           span.form-login__input-text Пароль
-          input.form-login__input.form-login__input--pass(type='text' placeholder='Введите пароль' required v-model='user.password')
+          input.form-login__input.form-login__input--pass(type='password' placeholder='Введите пароль' required v-model='user.password')
         button.form-login__button(type='submit') Авторизоваться
 </template>
 
 
 <script>
+  import axios from 'axios'
+
+  const baseUrl = 'https://webdev-api.loftschool.com';
+  const token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA2ODU4MzMsImV4cCI6MTU5MDcwMzgzMywibmJmIjoxNTkwNjg1ODMzLCJqdGkiOiJCc0l3MDdDSzJKb3VoSzNlIn0.-1-wi4bLpbdhHGEyX5eNapgZTXLXlRJsa_dE02oqpSs'
+
   export default {
     components: {
 
     },
     data() {
       return {
-        activeForm: true,
+        activeForm: false,
         user: {
           name: '',
           password: ''
@@ -29,7 +34,11 @@
     },
     methods: {
       login() {
-        console.log(user)
+        axios.post(baseUrl +'/login', this.user).then(response => {
+          console.log(response.data)
+        }).catch(error => {
+            console.log(error.response.data)
+          })
       }
     }
   }

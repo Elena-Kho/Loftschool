@@ -2,15 +2,19 @@
   .section__item-wrapper
     .new-skill__header-wrapper
       .new-skill__header.section__item-header.container--skill(v-if='groupEditBtn')
-        input.new-skill__header-title.section__item-title(type='text', name='newgroup', value='', placeholder='Название новой группы', required='')
+        input.new-skill__header-title.section__item-title(type='text', name='newgroup', value='', placeholder='Название новой группы', required)
         .new-skill__header-btns.section__header-btns
           button.new-skill__header-btn.section__item-btn.section__item-btn--tick(type='button')
-          button.new-skill__header-btn.section__item-btn.section__item-btn--remove(type='button' @click.prevent='$emit("toggleShow")')
+          button.new-skill__header-btn.section__item-btn.section__item-btn--remove(type='button' @click.prevent='groupEditBtn = false')
       .new-skill__header.section__item-header.container--skill(v-else)
-        input.new-skill__header-title.section__item-title(type='text', name='newgroup', value='', placeholder='', disabled)
+        input.new-skill__header-title.section__item-title(type='text', name='newgroup', value='', :placeholder='category.title', disabled)
         .new-skill__header-btns.section__header-btns
           button.new-skill__header-btn.section__item-btn.section__item-btn--pencil(type='button' @click.prevent='groupEditBtn = true')
           button.new-skill__header-btn.section__item-btn.section__item-btn--trash(type='button')
+    .new-skill__main.container--skill
+      ul.new-skill__main-list
+        li.new-skill__main-item
+          aboutItemRowComp
     .new-skill__footer.container--skill
       input.new-skill__footer-skill.section__footer-item(type='text', name='newskill', value='', placeholder='Новый навык', required='')
       input.new-skill__footer-percent.section__footer-percent(type='text', name='percent', value='', placeholder='100 %', required='')
@@ -19,9 +23,13 @@
 
 
 <script>
+  import aboutItemRowComp from './aboutItemRow'
   export default {
+    props: {
+      category: Object
+    },
     components: {
-
+      aboutItemRowComp
     },
     data() {
       return {
@@ -33,6 +41,9 @@
 
 
 <style lang='pcss' scoped>
+  .new-skill__main-list {
+    margin-bottom: 30px;
+  }
   .new-skill__header-title.section__item-title {
     display: block;
     width: 85%;
