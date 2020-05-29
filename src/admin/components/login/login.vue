@@ -17,7 +17,10 @@
   import axios from 'axios'
 
   const baseUrl = 'https://webdev-api.loftschool.com';
-  const token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA2ODU4MzMsImV4cCI6MTU5MDcwMzgzMywibmJmIjoxNTkwNjg1ODMzLCJqdGkiOiJCc0l3MDdDSzJKb3VoSzNlIn0.-1-wi4bLpbdhHGEyX5eNapgZTXLXlRJsa_dE02oqpSs'
+  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3MzgyMTAsImV4cCI6MTU5MDc1NjIxMCwibmJmIjoxNTkwNzM4MjEwLCJqdGkiOiJNeGJib3ROc1ZaZFhUUW4wIn0.RyDxf-D2HzTUvIfeCUlJHykJ-jIzi18klxw_xLnN-4g"
+
+  axios.defaults.baseUrl = baseUrl
+  axios.defaults.headers['Authorization'] = `Bearer ${token}`
 
   export default {
     components: {

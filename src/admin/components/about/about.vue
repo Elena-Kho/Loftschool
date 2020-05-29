@@ -1,7 +1,6 @@
 <template lang="pug">
   section.about.section
     .container
-      pre {{categories}}
       .about__header.section__header.container--block
         h2.about__title.section__title Блок Обо мне
         .about__add
@@ -15,9 +14,9 @@
         li.skills__item.new-skill.section__item(v-for='category in categories' :key='category.id' )
           aboutItemComp(
             :category='category'
+            @addSkill='addSkill'
           )
 </template>
-
 
 <script>
   import axios from 'axios'
@@ -25,7 +24,10 @@
   import aboutItemComp from './aboutItem'
 
   const baseUrl = 'https://webdev-api.loftschool.com';
-  const token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA2ODU4MzMsImV4cCI6MTU5MDcwMzgzMywibmJmIjoxNTkwNjg1ODMzLCJqdGkiOiJCc0l3MDdDSzJKb3VoSzNlIn0.-1-wi4bLpbdhHGEyX5eNapgZTXLXlRJsa_dE02oqpSs'
+  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3MzgyMTAsImV4cCI6MTU5MDc1NjIxMCwibmJmIjoxNTkwNzM4MjEwLCJqdGkiOiJNeGJib3ROc1ZaZFhUUW4wIn0.RyDxf-D2HzTUvIfeCUlJHykJ-jIzi18klxw_xLnN-4g"
+
+  axios.defaults.baseUrl = baseUrl;
+  axios.defaults.headers['Authorization'] = `Bearer ${token}`;
 
   export default {
     components: {
@@ -38,15 +40,28 @@
         categories: []
       }
     },
+    created() {
+      this.getCategories();
+    },
     methods: {
       toggleShow() {
         this.ShowAddBlock = !this.ShowAddBlock
       },
       addCategory(category) {
-        axios.post(baseUrl +'/login', {title: category.title}).then(response => {
-          console.log(response.data)
-          })
+        axios.post(baseUrl + '/categories', category).then(response => {
+          this.categories.unshift(response.data)
+        })
         this.ShowAddBlock = false
+      },
+      getCategories() {
+        axios.get(baseUrl + '/categories/339').then(response => {
+          this.categories = response.data
+        })
+      },
+      addSkill(skill) {
+        axios.post(baseUrl + '/skills', skill).then(response => {
+          console.log(skill)
+        })
       }
     }
   }
