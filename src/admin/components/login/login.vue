@@ -15,16 +15,12 @@
 
 <script>
   import axios from 'axios'
-
   const baseUrl = 'https://webdev-api.loftschool.com';
-  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3MzgyMTAsImV4cCI6MTU5MDc1NjIxMCwibmJmIjoxNTkwNzM4MjEwLCJqdGkiOiJNeGJib3ROc1ZaZFhUUW4wIn0.RyDxf-D2HzTUvIfeCUlJHykJ-jIzi18klxw_xLnN-4g"
-
+  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3Njc0NTQsImV4cCI6MTU5MDc2NzUxNCwibmJmIjoxNTkwNzY3NDU0LCJqdGkiOiJpQ1k3NjdqTFI3RjJ4R3FwIn0.4t58RS1kSfp53EcNUB4dUC9YgCDXXPX2AWYQ2AHWQrI"
   axios.defaults.baseUrl = baseUrl
   axios.defaults.headers['Authorization'] = `Bearer ${token}`
-
   export default {
     components: {
-
     },
     data() {
       return {
@@ -94,11 +90,9 @@
     border-bottom: 1px solid grey;
     padding-left: 50px;
     text-align: left;
-
     &--log {
       background: svg-load('user.svg', width: 25, height: 25, fill: #c9cbd3) no-repeat 0 0;
     }
-
     &--pass {
       background: svg-load('key.svg', width: 25, height: 25, fill: #c9cbd3) no-repeat 0 0;
     }
@@ -112,10 +106,8 @@
     font-weight: 700;
     color: #ffffff;
     background: linear-gradient(to right, #bb00ff, #5900ff);
-
     &:hover {
       background: linear-gradient(to right, #5900ff, #bb00ff);
     }
   }
-
 </style>

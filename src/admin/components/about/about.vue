@@ -22,13 +22,10 @@
   import axios from 'axios'
   import aboutAddComp from './aboutAdd'
   import aboutItemComp from './aboutItem'
-
   const baseUrl = 'https://webdev-api.loftschool.com';
-  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3MzgyMTAsImV4cCI6MTU5MDc1NjIxMCwibmJmIjoxNTkwNzM4MjEwLCJqdGkiOiJNeGJib3ROc1ZaZFhUUW4wIn0.RyDxf-D2HzTUvIfeCUlJHykJ-jIzi18klxw_xLnN-4g"
-
+  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3Njc0NTQsImV4cCI6MTU5MDc2NzUxNCwibmJmIjoxNTkwNzY3NDU0LCJqdGkiOiJpQ1k3NjdqTFI3RjJ4R3FwIn0.4t58RS1kSfp53EcNUB4dUC9YgCDXXPX2AWYQ2AHWQrI"
   axios.defaults.baseUrl = baseUrl;
   axios.defaults.headers['Authorization'] = `Bearer ${token}`;
-
   export default {
     components: {
       aboutAddComp,
@@ -74,7 +71,6 @@
     align-items: flex-end;
     margin-top: 60px;
   }
-
   .about__btn {
     position: relative;
     width: 200px;
@@ -86,7 +82,6 @@
     font-size: 16px;
     color: #383bcf;
     border: none;
-
     &:before {
       position: absolute;
       content: "+";
@@ -98,7 +93,6 @@
       line-height: 20px;
       border-radius: 50%;
       background: #383bcf ;
-
     }
   }
   @media screen and (max-width: 767px)  {
@@ -110,8 +104,6 @@
     display: flex;
     justify-content: flex-end;
     margin-top: auto;
-
     outline: 1px solid lime;
   }
-
 </style>
