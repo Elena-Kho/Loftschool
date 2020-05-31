@@ -19,13 +19,13 @@
 </template>
 
 <script>
+
   import axios from 'axios'
+  import requests from '../../requests'
   import aboutAddComp from './aboutAdd'
   import aboutItemComp from './aboutItem'
-  const baseUrl = 'https://webdev-api.loftschool.com';
-  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3Njc0NTQsImV4cCI6MTU5MDc2NzUxNCwibmJmIjoxNTkwNzY3NDU0LCJqdGkiOiJpQ1k3NjdqTFI3RjJ4R3FwIn0.4t58RS1kSfp53EcNUB4dUC9YgCDXXPX2AWYQ2AHWQrI"
-  axios.defaults.baseUrl = baseUrl;
-  axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+
+
   export default {
     components: {
       aboutAddComp,
@@ -45,18 +45,18 @@
         this.ShowAddBlock = !this.ShowAddBlock
       },
       addCategory(category) {
-        axios.post(baseUrl + '/categories', category).then(response => {
+        requests.post('/categories', category).then(response => {
           this.categories.unshift(response.data)
         })
         this.ShowAddBlock = false
       },
       getCategories() {
-        axios.get(baseUrl + '/categories/339').then(response => {
+        requests.get('/categories/339').then(response => {
           this.categories = response.data
         })
       },
       addSkill(skill) {
-        axios.post(baseUrl + '/skills', skill).then(response => {
+        requests.post('/skills', skill).then(response => {
           console.log(skill)
         })
       }

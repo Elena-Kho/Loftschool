@@ -37,7 +37,7 @@
         skill: {
           title: '',
           percent: 0,
-          category: 0
+          category: this.category.id
         }
       }
     },

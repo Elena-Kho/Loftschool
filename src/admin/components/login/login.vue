@@ -15,10 +15,13 @@
 
 <script>
   import axios from 'axios'
+
   const baseUrl = 'https://webdev-api.loftschool.com';
-  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTA3Njc0NTQsImV4cCI6MTU5MDc2NzUxNCwibmJmIjoxNTkwNzY3NDU0LCJqdGkiOiJpQ1k3NjdqTFI3RjJ4R3FwIn0.4t58RS1kSfp53EcNUB4dUC9YgCDXXPX2AWYQ2AHWQrI"
+  const token = localStorage.getItem('token') || '';
+
   axios.defaults.baseUrl = baseUrl
   axios.defaults.headers['Authorization'] = `Bearer ${token}`
+
   export default {
     components: {
     },
@@ -33,8 +36,12 @@
     },
     methods: {
       login() {
-        axios.post(baseUrl +'/login', this.user).then(response => {
+        axios.post(baseUrl + '/login', this.user).then(response => {
+          const token = response.data.token;
+          axios.defaults.headers['Authorization'] = `Bearer ${token}`
+          localStorage.setItem('token', token);
           console.log(response.data)
+
         }).catch(error => {
             console.log(error.response.data)
           })

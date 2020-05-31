@@ -18,6 +18,7 @@
     "acorn": "^6.0.5",
     "acorn-dynamic-import": "^4.0.0",
     "autoprefixer": "^9.4.8",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.10",
@@ -40,6 +41,7 @@
     "svg-transform-loader": "^2.0.7",
     "svgo-loader": "^2.2.0",
     "terser-webpack-plugin": "^1.2.3",
+    "vue-jest": "^3.0.5",
     "vue-loader": "^15.6.4",
     "vue-template-compiler": "^2.6.7",
     "webpack": "^4.43.0",
@@ -49,7 +51,22 @@
   "browserslist": [
     "last 2 versions"
   ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
+  },
   "dependencies": {
+    "@babel/polyfill": "^7.10.1",
     "axios": "^0.19.2",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
