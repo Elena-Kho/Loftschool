@@ -15,6 +15,7 @@
           aboutItemComp(
             :category='category'
             @addSkill='addSkill'
+            @delCategory='delCategory'
           )
 </template>
 
@@ -55,9 +56,24 @@
           this.categories = response.data
         })
       },
+      delCategory(categoryID) {
+        requests.delete(`/categories/${categoryID}`).then(response => {
+          console.log(response.data)
+        })
+      },
       addSkill(skill) {
         requests.post('/skills', skill).then(response => {
-          console.log(skill)
+          this.categories = this.categories.map(category => {
+            if (category.id == skill.category) {
+              category.skills.push(skill);
+            }
+            return category;
+          })
+        })
+      },
+      getSkills() {
+        requests.get('/skills/339').then(response => {
+          this.categories = response.data
         })
       }
     }

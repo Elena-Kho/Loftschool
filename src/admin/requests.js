@@ -14,12 +14,12 @@ const requests = axios.create({
 
 requests.interceptors.response.use(
   response => response,
-  error => {
+  async error => {
 
   const originalRequest = error.config;
 
     if(error.response.status == 401) {
-      const {data} = requests.post('/refreshToken');
+      const {data} = await requests.post('/refreshToken');
       const token = data.token;
 
       localStorage.setItem('token', token);

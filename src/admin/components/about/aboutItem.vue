@@ -10,7 +10,7 @@
         input.new-skill__header-title.section__item-title(type='text', name='newgroup', value='', :placeholder='category.category', disabled)
         .new-skill__header-btns.section__header-btns
           button.new-skill__header-btn.section__item-btn.section__item-btn--pencil(type='button' @click.prevent='groupEditBtn = true')
-          button.new-skill__header-btn.section__item-btn.section__item-btn--trash(type='button')
+          button.new-skill__header-btn.section__item-btn.section__item-btn--trash(type='button' @click.prevent='removeCurrentCategory')
     .new-skill__main.container--skill
       ul.new-skill__main-list
         li.new-skill__main-item(v-for='skill in category.skills' :key='skill.id')
@@ -43,7 +43,10 @@
     },
     methods: {
       createNewSkill() {
-        this.$emit('addSkill', this.skill)
+        this.$emit('addSkill', this.skill);
+      },
+      removeCurrentCategory() {
+        this.$emit('delCategory', this.category.id);
       }
     }
   }
