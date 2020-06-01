@@ -5,7 +5,7 @@ const token = localStorage.getItem('token');
 if (!token) alert('Отсутствует токен')
 
 const requests = axios.create({
-  baseUrl: 'https://webdev-api.loftschool.com',
+  baseURL: 'https://webdev-api.loftschool.com',
   headers: {
     'Authorization': `Bearer ${token}`
   }

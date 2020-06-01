@@ -21,9 +21,9 @@
 <script>
 
   import axios from 'axios'
-  import requests from '../../requests'
   import aboutAddComp from './aboutAdd'
   import aboutItemComp from './aboutItem'
+  import requests from '../../requests'
 
 
   export default {

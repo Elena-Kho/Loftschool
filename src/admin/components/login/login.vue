@@ -16,10 +16,10 @@
 <script>
   import axios from 'axios'
 
-  const baseUrl = 'https://webdev-api.loftschool.com';
+  const baseURL = 'https://webdev-api.loftschool.com';
   const token = localStorage.getItem('token') || '';
 
-  axios.defaults.baseUrl = baseUrl
+  axios.defaults.baseURL = baseURL
   axios.defaults.headers['Authorization'] = `Bearer ${token}`
 
   export default {
@@ -36,7 +36,7 @@
     },
     methods: {
       login() {
-        axios.post(baseUrl + '/login', this.user).then(response => {
+        axios.post(baseURL + '/login', this.user).then(response => {
           const token = response.data.token;
           axios.defaults.headers['Authorization'] = `Bearer ${token}`
           localStorage.setItem('token', token);
