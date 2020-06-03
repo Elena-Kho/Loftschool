@@ -38,13 +38,16 @@
       login() {
         axios.post(baseURL + '/login', this.user).then(response => {
           const token = response.data.token;
+
           axios.defaults.headers['Authorization'] = `Bearer ${token}`
           localStorage.setItem('token', token);
+
           console.log(response.data)
 
         }).catch(error => {
             console.log(error.response.data)
           })
+        this.activeForm = false;
       }
     }
   }

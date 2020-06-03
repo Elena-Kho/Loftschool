@@ -14,8 +14,12 @@
         li.skills__item.new-skill.section__item(v-for='category in categories' :key='category.id' )
           aboutItemComp(
             :category='category'
-            @addSkill='addSkill'
+            :editedCategory='editedCategory'
             @delCategory='delCategory'
+            @editCategory='editCategory'
+            @addSkill='addSkill'
+            @delSkill='delSkill'
+            @editSkill='editSkill'
           )
 </template>
 
@@ -31,6 +35,10 @@
     components: {
       aboutAddComp,
       aboutItemComp
+    },
+    props: {
+      groupEditBtn: Boolean,
+      editedCategory: Object
     },
     data() {
       return {
@@ -58,7 +66,18 @@
       },
       delCategory(categoryID) {
         requests.delete(`/categories/${categoryID}`).then(response => {
-          console.log(response.data)
+          this.categories = this.categories.filter(item => item.id !== categoryID)
+        })
+      },
+      editCategory(editedCategory) {
+        requests.post(`/categories/${editedCategory.id}`, editedCategory).then(response => {
+          console.log(editedCategory)
+          this.categories = this.categories.map(category => {
+            if(category.id == editedCategory.id) {
+              category = editedCategory
+            }
+            return category;
+          })
         })
       },
       addSkill(skill) {
@@ -74,6 +93,28 @@
       getSkills() {
         requests.get('/skills/339').then(response => {
           this.categories = response.data
+        })
+      },
+      delSkill(deletedSkill) {
+        requests.delete(`/skills/${deletedSkill.id}`, deletedSkill).then(response => {
+          this.categories = this.categories.map(category => {
+            if (category.id == deletedSkill.category) {
+              category.skills = category.skills.filter(item => item.id !== deletedSkill.id)
+            }
+            return category;
+          })
+        })
+      },
+      editSkill(editedSkill) {
+        requests.post(`/skills/${editedSkill.id}`, editedSkill).then(response => {
+          this.categories = this.categories.map(category => {
+            if (category.id == editedSkill.category) {
+              category.skills = category.skills.map(skill => {
+                return skill.category == editedSkill.category ? editedSkill : skill
+              })
+            }
+            return category;
+          })
         })
       }
     }
