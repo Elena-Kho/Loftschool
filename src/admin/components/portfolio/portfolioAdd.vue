@@ -3,39 +3,32 @@
     .portfolio__item-header.section__item-header.container--header
       h3.portfolio__item-title.section__item-title Добавление работы
     .portfolio__item-main.container--item
-      form.portfolio__upload(action='#', method='post', enctype='multipart/form-data')
-        p.portfolio__upload-text Перетащите или загрузите для загрузки изображения
+      form.portfolio__upload(action='#', method='post', enctype='multipart/form-data' ref='inputFile')
+        p.portfolio__upload-text Загрузите изображение
         .portfolio__upload-wrapper
-          label.portfolio__upload-label.button(for='img') Загрузить
-          input(type='file', name='img', value='', placeholder='')
+          label.portfolio__upload-label
+            span.portfolio__upload-btn.button Загрузить
+            input(type='file', name='img', value='', placeholder='' @input='loadFile')
       .portfolio__desc
         form.portfolio__form.form(action='#', method='post')
           p.form__input
-            label.form__input-label(for='name') Название
-            br
-            input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required='')
+            label.form__input-label Название
+              input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required v-model='work.title')
           p.form__input
-            label.form__input-label(for='link') Ссылка
-            br
-            input#link.form__input-input(type='text', name='sitelink', value='', placeholder='', required='')
+            label.form__input-label Ссылка
+              input#link.form__input-input(type='text', name='sitelink', value='', placeholder='', required v-model='work.link')
           p.form__input
-            label.form__input-label(for='message') Описание
-            br
-            textarea#message.form__input-text(name='message', rows='5', placeholder='', required='')
+            label.form__input-label Описание
+              textarea#message.form__input-text(name='message', rows='5', placeholder='', required v-model='work.description')
           p.form__input
-            label.form__input-label(for='tags') Добавление тега
-            br
-            input#tags.form__input-input(type='text', name='tags', value='', placeholder='', required='')
-          .form__tags
-            .button.form__tag HTML
-              button.form__tag-btn(type='button')
-            .button.form__tag CSS
-              button.form__tag-btn(type='button')
-            .button.form__tag Javascript
-              button.form__tag-btn(type='button')
+            label.form__input-label Добавление тега
+              input#tags.form__input-input(type='text', name='tags', value='', placeholder='', required v-model='work.techs' @input='createNewTag')
+          ul.form__tags
+            li.form__tag(v-for='tag in tags' :key="tag.id")
+              button.form__tag-btn(type='button' @click.prevent='delTag') {{tag}}
           .form__btns
-            button.form__btn.form__btn--no(type='reset') Отмена
-            button.form__btn.button(type='submit') Сохранить
+            button.form__btn.form__btn--no(type='reset' @click.prevent='$emit("toggleShow")') Отмена
+            button.form__btn.button(type='submit' @click.prevent='createNewWork') Сохранить
 </template>
 
 
@@ -46,8 +39,68 @@
     },
     data() {
       return {
-
+        work: {
+          title: '',
+          techs: '',
+          photo: {},
+          link: '',
+          description: ""
+        },
+        tags: []
       }
+    },
+    methods: {
+      validForm() {
+        for (let i in this.work) {
+          if (!this.work[i]) {
+            return false
+          }
+          if (!this.work.photo.name) {
+            return false
+          }
+        return true
+        }
+      },
+      loadFile(e) {
+        const file = e.target.files[0];
+        this.work.photo = file;
+        const img = this.$refs.inputFile;
+
+        const reader = new FileReader();
+        return new Promise((resolve, reject) => {
+          try {
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+              resolve(reader.result);
+            };
+          } catch (error) {
+              throw new Error('Ошибка при чтении файла')
+            }
+        })
+        .then(result => img.style.background = `url(${result})`)
+      },
+      createNewWork() {
+        if (this.validForm()) {
+          const formData = new FormData();
+          formData.set('title', this.work.title);
+          formData.set('techs', this.work.techs);
+          formData.set('photo', this.work.photo);
+          formData.set('link', this.work.link);
+          formData.set('description', this.work.description);
+          this.$emit('addWork', formData)
+        } else {
+            alert("Заполните все данные формы")
+          }
+      },
+      createNewTag() {
+        this.tags = this.work.techs.split(' ');
+      },
+      delTag(tag) {
+        let index = parseInt(this.tags.indexOf(tag));
+
+        this.tags.splice(index, 1);
+        this.work.techs = this.tags.join(' ')
+      },
     }
   }
 </script>

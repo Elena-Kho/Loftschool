@@ -1,7 +1,9 @@
 <template lang="pug">
-  .login(v-if='activeForm')
+  .login(v-if='activeLog')
     .login__wrapper
-      form.login__form.form-login(@submit.prevent='login')
+      button.form-login__button-log(type='button' @click.prevent='activeForm = true') Авторизоваться
+      form.login__form.form-login(v-if='activeForm == true' @submit.prevent='login')
+        button.form-login__button-close(type='button' @click.prevent='activeForm = false')
         h2.form-login__heading Авторизация
         label.form-login__label
           span.form-login__input-text Логин
@@ -9,7 +11,7 @@
         label.form-login__label
           span.form-login__input-text Пароль
           input.form-login__input.form-login__input--pass(type='password' placeholder='Введите пароль' required v-model='user.password')
-        button.form-login__button(type='submit') Авторизоваться
+        button.form-login__button-send(type='submit') Авторизоваться
 </template>
 
 
@@ -27,6 +29,7 @@
     },
     data() {
       return {
+        activeLog: false,
         activeForm: false,
         user: {
           name: '',
@@ -36,18 +39,29 @@
     },
     methods: {
       login() {
-        axios.post(baseURL + '/login', this.user).then(response => {
-          const token = response.data.token;
+        if (this.validForm()) {
+          try {
+            axios.post(baseURL + '/login', this.user).then(response => {
+              const token = response.data.token;
 
-          axios.defaults.headers['Authorization'] = `Bearer ${token}`
-          localStorage.setItem('token', token);
+              axios.defaults.headers['Authorization'] = `Bearer ${token}`
+              localStorage.setItem('token', token);
 
-          console.log(response.data)
-
-        }).catch(error => {
-            console.log(error.response.data)
-          })
-        this.activeForm = false;
+              console.log(response.data)
+            })
+          }
+          catch(error) {
+            console.log(error.message)
+          }
+        this.activeLog = false;
+      }
+    },
+      validForm() {
+        if (!this.user.name || !this.user.password) {
+          return false
+        } else {
+          return true
+        }
       }
     }
   }
@@ -63,6 +77,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
   }
+
   .form-login {
     position: fixed;
     display: flex;
@@ -107,7 +122,14 @@
       background: svg-load('key.svg', width: 25, height: 25, fill: #c9cbd3) no-repeat 0 0;
     }
   }
-  .form-login__button {
+  .form-login__button-close {
+    align-self: flex-end;
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+    background: svg-load('remove.svg', width: 12, height: 12, fill: grey) no-repeat 0 0;
+  }
+  .form-login__button-send {
     margin-top: 30px;
     padding: 30px 100px;
     border-radius: 40px 5px;
@@ -116,6 +138,23 @@
     font-weight: 700;
     color: #ffffff;
     background: linear-gradient(to right, #bb00ff, #5900ff);
+
+    &:hover {
+      background: linear-gradient(to right, #5900ff, #bb00ff);
+    }
+  }
+  .form-login__button-log {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    padding: 30px 100px;
+    border-radius: 40px 5px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(to right, #bb00ff, #5900ff);
+
     &:hover {
       background: linear-gradient(to right, #5900ff, #bb00ff);
     }

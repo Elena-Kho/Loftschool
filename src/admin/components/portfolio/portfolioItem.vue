@@ -3,22 +3,24 @@
     .portfolio__new-img
       img.portfolio__new-pic(src='')
     ul.portfolio__new-tags
-      li.portfolio__new-tag HTML
-      li.portfolio__new-tag CSS
-      li.portfolio__new-tag Javascript
+      li.portfolio__new-tag(v-for='tag in tags' :key='tag.id') {{tag}}
     .portfolio__new-info.container--skill
-      h3.portfolio__new-info-title.section__new-info-title Сайт школы образования
+      h3.portfolio__new-info-title.section__new-info-title {{work.title}}
       p.portfolio__new-info-text.section__new-info-text
-        | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-      a(href='http://loftschool.ru').portfolio__new-info-link http://loftschool.ru
+        | {{work.description}}
+      a(href='http://loftschool.ru').portfolio__new-info-link {{work.link}}
       .portfolio__new-btns.section__new-btns
         button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-        button.portfolio__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
+        button.portfolio__new-btn.section__new-btn.section__new-btn--trash(type='button' @click.prevent='removeCurrentWork') Удалить
 </template>
 
 
 <script>
   export default {
+    props: {
+      work: Object,
+      tags: Array
+    },
     components: {
 
     },
@@ -26,6 +28,11 @@
       return {
 
       }
+    },
+    methods:{
+      removeCurrentWork() {
+        this.$emit('delWork', this.work.id);
+      },
     }
   }
 </script>

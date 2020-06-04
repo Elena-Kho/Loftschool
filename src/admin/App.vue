@@ -72,6 +72,7 @@
     color: #ffffff;
     border: none;
     border-radius: 25px;
+    cursor: pointer;
   }
 
   .container {
@@ -213,6 +214,7 @@
   .section__add-item {
     width: 30%;
     margin-bottom: 30px;
+    padding-bottom: 50px;
     text-align: center;
     background-color: #1d52dd;
   }
@@ -254,8 +256,8 @@
     background-color: transparent;
     border: none;
 
-    &--remove {
-      background: svg-load('remove.svg', width: 12, height: 12, fill: red) no-repeat 78px 6px;
+    &--trash {
+      background: svg-load('trash.svg', width: 12, height: 12, fill: grey) no-repeat 78px 6px;
     }
 
     &--pencil {
@@ -310,19 +312,17 @@
 
   .form__tag {
     margin-right: 10px;
-    padding: 5px 10px;
-    background-color: #f4f4f4;
-    border: none;
-    border-radius: 20px;
-    text-transform: none;
-    color: #414c63;
   }
 
   .form__tag-btn {
-    width: 12px;
-    height: 12px;
-    margin-left: 20px;
-    background: svg-load('remove.svg', width: 10, height: 10, fill: grey) no-repeat 0 0;
+    padding: 5px 35px 5px 15px;
+    border: none;
+    border-radius: 20px;
+    font: inherit;
+    text-transform: uppercase;
+    text-align: left;
+    color: #414c63;
+    background:#f4f4f4 svg-load('remove.svg', width: 10, height: 10, fill: grey) no-repeat 90% 5px;
   }
 
   .form__btns {

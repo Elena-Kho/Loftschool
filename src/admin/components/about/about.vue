@@ -71,10 +71,10 @@
       },
       editCategory(editedCategory) {
         requests.post(`/categories/${editedCategory.id}`, editedCategory).then(response => {
-          console.log(editedCategory)
+          console.log(response.data.category)
           this.categories = this.categories.map(category => {
-            if(category.id == editedCategory.id) {
-              category = editedCategory
+            if(category.id == response.data.category.id) {
+              category.category = response.data.category.category
             }
             return category;
           })
@@ -84,7 +84,7 @@
         requests.post('/skills', skill).then(response => {
           this.categories = this.categories.map(category => {
             if (category.id == skill.category) {
-              category.skills.push(skill);
+              category.skills.push(response.data);
             }
             return category;
           })
@@ -110,7 +110,7 @@
           this.categories = this.categories.map(category => {
             if (category.id == editedSkill.category) {
               category.skills = category.skills.map(skill => {
-                return skill.category == editedSkill.category ? editedSkill : skill
+                return skill.id == editedSkill.id ? editedSkill : skill
               })
             }
             return category;

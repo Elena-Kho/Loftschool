@@ -11,21 +11,17 @@
       .portfolio__desc
         form.portfolio__form.form(action='#', method='post')
           p.form__input
-            label.form__input-label(for='name') Название
-            br
-            input#name.form__input-input(type='text', name='sitename', value='', placeholder='Дизайн сайта для автосалона Porsche', required='')
+            label.form__input-label Название
+              input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required='')
           p.form__input
-            label.form__input-label(for='link') Ссылка
-            br
-            input#link.form__input-input(type='text', name='sitelink', value='', placeholder='https://www.porsche-pulkovo.ru', required='')
+            label.form__input-label Ссылка
+              input#link.form__input-input(type='text', name='sitelink', value='', placeholder='https://www.porsche-pulkovo.ru', required='')
           p.form__input
-            label.form__input-label(for='message') Описание
-            br
-            textarea#message.form__input-text(name='message', rows='5', placeholder='Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей', required='')
+            label.form__input-label Описание
+              textarea#message.form__input-text(name='message', rows='5', placeholder='Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей', required='')
           p.form__input
-            label.form__input-label(for='tags') Добавление тега
-            br
-            input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required='')
+            label.form__input-label Добавление тега
+              input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required='')
           .form__tags
             .button.form__tag HTML
               button.form__tag-btn(type='button')
@@ -41,6 +37,9 @@
 
 <script>
   export default {
+    props: {
+      work: Object
+    },
     components: {
 
     },
