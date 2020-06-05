@@ -58,7 +58,7 @@
           if (!this.work.photo.name) {
             return false
           }
-        return true
+          return true
         }
       },
       loadFile(e) {

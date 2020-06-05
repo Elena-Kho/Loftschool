@@ -3,50 +3,113 @@
     .portfolio__item-header.section__item-header.container--header
       h3.portfolio__item-title.section__item-title Редактирование работы
     .portfolio__item-main.container--item
-      form.portfolio__upload(action='#', method='post', enctype='multipart/form-data')
-        p.portfolio__upload-text Перетащите или загрузите для загрузки изображения
+      form.portfolio__upload(action='#', method='post', enctype='multipart/form-data' ref='inputFile')
+        p.portfolio__upload-text Загрузите изображение
         .portfolio__upload-wrapper
-          label.portfolio__upload-label.button(for='img') Загрузить
-          input(type='file', name='img', value='', placeholder='')
+          label.portfolio__upload-label
+            span.portfolio__upload-btn.button Загрузить
+            input(type='file', name='img', value='', placeholder='' @input='loadFile')
       .portfolio__desc
         form.portfolio__form.form(action='#', method='post')
           p.form__input
             label.form__input-label Название
-              input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required='')
+              input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required v-model='CurrentWork.title')
           p.form__input
             label.form__input-label Ссылка
-              input#link.form__input-input(type='text', name='sitelink', value='', placeholder='https://www.porsche-pulkovo.ru', required='')
+              input#link.form__input-input(type='text', name='sitelink', value='', placeholder='https://www.porsche-pulkovo.ru', required v-model='CurrentWork.link')
           p.form__input
             label.form__input-label Описание
-              textarea#message.form__input-text(name='message', rows='5', placeholder='Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей', required='')
+              textarea#message.form__input-text(name='message', rows='5', placeholder='Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей', required v-model='CurrentWork.description')
           p.form__input
             label.form__input-label Добавление тега
-              input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required='')
-          .form__tags
-            .button.form__tag HTML
-              button.form__tag-btn(type='button')
-            .button.form__tag CSS
-              button.form__tag-btn(type='button')
-            .button.form__tag Javascript
-              button.form__tag-btn(type='button')
+              input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required v-model='CurrentWork.techs' @input='createNewTag')
+          ul.form__tags
+            li.form__tag(v-for='tag in tags' :key="tag.id")
+              button.form__tag-btn(type='button' @click.prevent='delTag') {{tag}}
           .form__btns
-            button.form__btn.form__btn--no(type='reset') Отмена
-            button.form__btn.button(type='submit') Сохранить
+            button.form__btn.form__btn--no(type='reset' @click.prevent='toggleShowEdit') Отмена
+            button.form__btn.button(type='submit' @click.prevent='editCurrentWork') Сохранить
 </template>
 
 
 <script>
   export default {
-    props: {
-      work: Object
-    },
     components: {
 
     },
+    props: {
+      workToEdit: Object,
+    },
     data() {
       return {
-
+        CurrentWork: [],
+        tags: []
       }
+    },
+    created() {
+      this.CurrentWork = this.workToEdit;
+    },
+    methods: {
+      toggleShowEdit() {
+        this.$emit('toggleShowEdit');
+      },
+      validForm() {
+        for (let i in this.CurrentWork) {
+          if (!this.CurrentWork[i]) {
+            return false
+          }
+          return true
+        }
+      },
+      loadFile(e) {
+        const file = e.target.files[0];
+        this.CurrentWork.photo = file;
+        const img = this.$refs.inputFile;
+
+        const reader = new FileReader();
+        return new Promise((resolve, reject) => {
+          try {
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+              resolve(reader.result);
+            };
+          } catch (error) {
+              throw new Error('Ошибка при чтении файла')
+            }
+        })
+        .then(result => img.style.background = `url(${result})`)
+      },
+      createNewTag() {
+        this.tags = this.CurrentWork.techs.split(' ');
+      },
+      delTag(tag) {
+        let index = parseInt(this.tags.indexOf(tag));
+
+        this.tags.splice(index, 1);
+        this.CurrentWork.techs = this.tags.join(' ')
+      },
+      editCurrentWork() {
+        if (this.validForm()) {
+          const formData = new FormData();
+          formData.set('title', this.CurrentWork.title);
+          formData.set('techs', this.CurrentWork.techs);
+          formData.set('link', this.CurrentWork.link);
+          formData.set('description', this.CurrentWork.description);
+
+          if (this.CurrentWork.photo.name) {
+            formData.set('photo', this.CurrentWork.photo);
+          }
+
+          const sendData = {
+            id: this.CurrentWork.id,
+            data: formData
+          }
+
+          this.$emit('editWork', sendData)
+        } else {
+            alert("Заполните все данные формы")
+          }
+      },
     }
   }
 </script>

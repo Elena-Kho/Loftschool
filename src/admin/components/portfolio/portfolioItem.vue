@@ -1,7 +1,7 @@
 <template lang="pug">
   .portfolio__new-preview
     .portfolio__new-img
-      img.portfolio__new-pic(src='')
+      img.portfolio__new-pic(:src='work.photo')
     ul.portfolio__new-tags
       li.portfolio__new-tag(v-for='tag in tags' :key='tag.id') {{tag}}
     .portfolio__new-info.container--skill
@@ -10,7 +10,7 @@
         | {{work.description}}
       a(href='http://loftschool.ru').portfolio__new-info-link {{work.link}}
       .portfolio__new-btns.section__new-btns
-        button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
+        button.portfolio__new-btn.section__new-btn.section__new-btn--pencil(type='button' @click.prevent='getWorkToEdit') Править
         button.portfolio__new-btn.section__new-btn.section__new-btn--trash(type='button' @click.prevent='removeCurrentWork') Удалить
 </template>
 
@@ -19,7 +19,7 @@
   export default {
     props: {
       work: Object,
-      tags: Array
+      tags: Array,
     },
     components: {
 
@@ -32,6 +32,9 @@
     methods:{
       removeCurrentWork() {
         this.$emit('delWork', this.work.id);
+      },
+      getWorkToEdit() {
+        this.$emit('getWorkToEdit', this.work);
       },
     }
   }

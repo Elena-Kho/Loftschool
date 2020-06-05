@@ -71,7 +71,6 @@
       },
       editCategory(editedCategory) {
         requests.post(`/categories/${editedCategory.id}`, editedCategory).then(response => {
-          console.log(response.data.category)
           this.categories = this.categories.map(category => {
             if(category.id == response.data.category.id) {
               category.category = response.data.category.category
