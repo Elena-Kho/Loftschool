@@ -81,7 +81,6 @@
       getWorkToEdit(work) {
         this.ShowEditBlock = !this.ShowEditBlock
         this.workToEdit = this.works.find(item => item.id == work.id)
-        console.log(this.workToEdit)
       },
       editWork(sendData) {
         requests.post(`/works/${sendData.id}`, sendData.data).then(response => {

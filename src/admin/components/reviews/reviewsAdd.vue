@@ -4,26 +4,24 @@
       h3.reviews__item-title.section__item-title Новый отзыв
     .reviews__item-main.container--skill
       form.reviews__upload(action='#', method='post', enctype='multipart/form-data')
-        .reviews__upload-wrapper
-          label.reviews__upload-label(for='ava') Добавить фото
-          input(type='file', name='ava', value='', placeholder='')
+        .reviews__upload-wrapper(ref='inputFile')
+          label.reviews__upload-label
+            span.reviews__upload-text Добавить фото
+            input(type='file', name='ava', value='', placeholder='' @input='loadFile')
       .reviews__desc
         form.reviews__form.form.form--rev(action='#', method='post')
           p.form__input.form__input--rev
-            label.form__input-label(for='name') Имя автора
-            br
-            input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required='')
+            label.form__input-label Имя автора
+              input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required v-model='review.author')
           p.form__input.form__input--rev
-            label.form__input-label(for='title') Титул автора
-            br
-            input#title.form__input-input(type='text', name='sitelink', value='', placeholder='', required='')
+            label.form__input-label Титул автора
+              input#title.form__input-input(type='text', name='sitelink', value='', placeholder='', required v-model='review.occ')
           p.form__input.form__input--area
-            label.form__input-label(for='message') Отзыв
-            br
-            textarea#message.form__input-text(name='message', rows='5', placeholder='', required='')
+            label.form__input-label Отзыв
+              textarea#message.form__input-text(name='message', rows='5', placeholder='', required v-model='review.text')
           .form__btns.form__btns--rev
-            button.form__btn.form__btn--no(type='reset') Отмена
-            button.form__btn.button(type='submit') Сохранить
+            button.form__btn.form__btn--no(type='reset' @click.prevent='$emit("toggleShow")') Отмена
+            button.form__btn.button(type='submit' @click.prevent='createNewReview') Сохранить
 </template>
 
 
@@ -34,8 +32,56 @@
     },
     data() {
       return {
-
+        review: {
+          photo: {},
+          author: '',
+          occ: '',
+          text: ''
+        },
       }
+    },
+    methods: {
+      validForm() {
+        for (let i in this.review) {
+          if (!this.review[i]) {
+            return false
+          }
+          if (!this.review.photo.name) {
+            return false
+          }
+          return true
+        }
+      },
+      loadFile(e) {
+        const file = e.target.files[0];
+        this.review.photo = file;
+        const img = this.$refs.inputFile;
+
+        const reader = new FileReader();
+        return new Promise((resolve, reject) => {
+          try {
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+              resolve(reader.result);
+            };
+          } catch (error) {
+              throw new Error('Ошибка при чтении файла')
+            }
+        })
+        .then(result => img.style.background = `url(${result})`)
+      },
+      createNewReview() {
+        if (this.validForm()) {
+          const formData = new FormData();
+          formData.set('author', this.review.author);
+          formData.set('photo', this.review.photo);
+          formData.set('occ', this.review.occ);
+          formData.set('text', this.review.text);
+          this.$emit('addReview', formData)
+        } else {
+            alert("Заполните все данные формы")
+          }
+      },
     }
   }
 </script>
@@ -68,7 +114,7 @@
     border-radius: 50%;
     background: #dee4ed svg-load('man-user.svg', width: 110, height: 145, fill: white) no-repeat 50% 50%;
   }
-  .reviews__upload-label {
+  .reviews__upload-text {
     display: block;
     width: 200px;
     height: 200px;
@@ -76,6 +122,7 @@
     font-size: 16px;
     font-weight: 700;
     color: #1d52dd;
+    cursor: pointer;
   }
   @media screen and (max-width: 1199px) {
     .reviews__upload {

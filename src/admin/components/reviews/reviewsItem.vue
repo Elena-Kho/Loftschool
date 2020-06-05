@@ -4,15 +4,15 @@
       .reviews__new-img
         img.reviews__new-pic(src='')
       .reviews__new-pers
-        h3.reviews__new-name Владимир Сабанцев
-        p.reviews__new-pos Преподаватель
+        h3.reviews__new-name {{review.author}}
+        p.reviews__new-pos {{review.occ}}
     .reviews__new-info.container--skill
-      h3.reviews__new-info-title.section__new-info-title Сайт школы образования
+      h3.reviews__new-info-title.section__new-info-title
       p.reviews__new-info-text.section__new-info-text
-        | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+        | {{review.text}}
       .reviews__new-btns.section__new-btns
-        button.reviews__new-btn.section__new-btn.section__new-btn--pencil(type='button') Править
-        button.reviews__new-btn.section__new-btn.section__new-btn--remove(type='button') Удалить
+        button.reviews__new-btn.section__new-btn.section__new-btn--pencil(type='button' @click.prevent='getReviewToEdit') Править
+        button.reviews__new-btn.section__new-btn.section__new-btn--trash(type='button' @click.prevent='removeCurrentReview') Удалить
 </template>
 
 
@@ -21,10 +21,21 @@
     components: {
 
     },
+    props: {
+      review: Object,
+    },
     data() {
       return {
 
       }
+    },
+    methods: {
+      removeCurrentReview() {
+        this.$emit('delReview', this.review.id);
+      },
+      getReviewToEdit() {
+        this.$emit('getReviewToEdit', this.review);
+      },
     }
   }
 </script>
