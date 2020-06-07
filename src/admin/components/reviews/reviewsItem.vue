@@ -1,8 +1,8 @@
 <template lang="pug">
   .section__new-wrapper
-    .reviews__new-header
+    .reviews__new-header.container--skill
       .reviews__new-img
-        img.reviews__new-pic(src='')
+        img.reviews__new-pic(:src='BasePath + review.photo')
       .reviews__new-pers
         h3.reviews__new-name {{review.author}}
         p.reviews__new-pos {{review.occ}}
@@ -26,7 +26,7 @@
     },
     data() {
       return {
-
+        BasePath: 'https://webdev-api.loftschool.com/'
       }
     },
     methods: {
@@ -45,6 +45,7 @@
   .reviews__new-header {
     display: flex;
     justify-content: space-between;
+    margin-top: 30px;
   }
   .reviews__new-img {
     width: 20%;
@@ -60,6 +61,8 @@
     margin-left: 20px;
   }
   .reviews__new-name {
+    margin: 0;
+    padding: 0;
     font-weight: 900;
   }
 </style>

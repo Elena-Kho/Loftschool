@@ -1,7 +1,7 @@
 <template lang="pug">
   .portfolio__new-preview
     .portfolio__new-img
-      img.portfolio__new-pic(:src='work.photo')
+      img.portfolio__new-pic(:src='BasePath + work.photo')
     ul.portfolio__new-tags
       li.portfolio__new-tag(v-for='tag in tags' :key='tag.id') {{tag}}
     .portfolio__new-info.container--skill
@@ -19,15 +19,18 @@
   export default {
     props: {
       work: Object,
-      tags: Array,
     },
     components: {
 
     },
     data() {
       return {
-
+        tags: [],
+        BasePath: 'https://webdev-api.loftschool.com/'
       }
+    },
+    created() {
+      this.tags = this.work.techs.split(' ')
     },
     methods:{
       removeCurrentWork() {

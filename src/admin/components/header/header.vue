@@ -4,15 +4,17 @@
       .header__user.container
         .header__user-info
           .header__user-ava
-            img.header__user-img(src='')
+            img.header__user-img(:src='require(`images/content/user.jpg`)')
           .header__user-name Елена Ходанович
         .header__panel Панель администрирования
         .header__login
-          button.header__login-btn(type='button') Выйти
+          button.header__login-btn(type='button' @click.prevent='logout') Выйти
 </template>
 
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     components: {
 
@@ -21,7 +23,16 @@
       return {
 
       }
-    }
+    },
+    methods: {
+      ...mapActions({
+        logoutUser: 'user/logout'
+      }),
+      logout() {
+        this.logoutUser();
+        this.$router.replace('/login')
+      }
+    },
   }
 </script>
 
@@ -35,14 +46,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 20px;
   }
   .header__user-info {
     display: flex;
-    margin-top: 20px;
+    align-items: center;
   }
   .header__user-ava {
     width: 45px;
     height: 45px;
+    margin-right: 20px;
+  }
+  .header__user-img {
     border-radius: 50%;
   }
   .header__user-name {
@@ -71,7 +86,7 @@
       display: none;
     }
     .header__login-btn {
-      margin-left: 40px;
+      margin-left: 60px;
       margin-top: -20px;
     }
   }

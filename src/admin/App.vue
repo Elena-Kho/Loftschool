@@ -1,18 +1,15 @@
 <template lang="pug">
   .wrap-admin
-    loginComp
     headerComp
     mainComp
 </template>
 
 <script>
-  import loginComp from './components/login/login'
   import headerComp from './components/header/header'
   import mainComp from './components/main/main'
 
   export default {
     components: {
-      loginComp,
       headerComp,
       mainComp
     },

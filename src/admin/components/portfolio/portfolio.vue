@@ -24,7 +24,6 @@
           li.portfolio__new-item.section__new-item(v-for='work in works' :key='work.id')
             portfolioItemComp(
             :work='work'
-            :tags='tags'
             @delWork='delWork'
             @getWorkToEdit='getWorkToEdit'
             )

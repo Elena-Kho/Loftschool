@@ -6,19 +6,19 @@
           router-link(
             tag='a',
             class='nav__link',
-            to='/admin'
+            to='/'
           ) Обо мне
         li.nav__item
           router-link(
             tag='a',
             class='nav__link',
-            to='/admin/portfolio'
+            to='/portfolio'
           ) Работы
         li.nav__item
           router-link(
             tag='a',
             class='nav__link',
-            to='/admin/reviews'
+            to='/reviews'
           ) Отзывы
     .main__block
       router-view

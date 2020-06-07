@@ -29,7 +29,7 @@
     },
     data() {
       return {
-        activeLog: false,
+        activeLog: true,
         activeForm: false,
         user: {
           name: '',
@@ -47,7 +47,7 @@
               axios.defaults.headers['Authorization'] = `Bearer ${token}`
               localStorage.setItem('token', token);
 
-              console.log(response.data)
+              this.$router.replace('/')
             })
           }
           catch(error) {
@@ -62,7 +62,7 @@
         } else {
           return true
         }
-      }
+      },
     }
   }
 </script>
