@@ -1,4 +1,9 @@
 import Vue from 'vue';
+import axios from 'axios'
+
+const request = axios.create({
+  baseURL: 'https://webdev-api.loftschool.com'
+});
 
 const diagram = {
   template: '#diagram',
@@ -9,7 +14,8 @@ const diagram = {
       const dashArray  = parseInt(getComputedStyle(circle).getPropertyValue('stroke-dasharray'));
       const percent = (dashArray / 100) * (100 - this.skill.percent);
 
-      circle.style.strokeDashoffset = percent;
+      circle.style.strokeDashoffset = percent
+      console.log(this.skill.percent)
     }
   },
   mounted() {
@@ -37,8 +43,8 @@ new Vue({
     }
 
   },
-  created() {
-    const data = require('../data/skills.json');
+  async created() {
+    const {data} = await request.get('/categories/339');
     this.skills = data;
   }
 });

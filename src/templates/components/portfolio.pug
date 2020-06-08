@@ -1,12 +1,14 @@
 script(type='text/x-template')#portfolio-container
   .portfolio__slider
     display(
-      :currentWork='currentWork'
       :works='works'
+      :currentWork='currentWork'
+      :currentIndex='currentIndex'
       @slide='handleSlide'
     )
     num(
       :currentWork='currentWork'
+      :currentIndex='currentIndex'
     )
     info(
       :currentWork='currentWork'
@@ -15,7 +17,7 @@ script(type='text/x-template')#portfolio-container
 script(type='text/x-template')#portfolio-display
   .portfolio__slider-img(data-slider="1")
     .portfolio__big-img
-      img(:src='currentWork.img').portfolio__preview-big
+      img(:src='"https://webdev-api.loftschool.com/" + currentWork.photo').portfolio__preview-big
       thumbs(
         :works='reversedWorks'
         :currentWork='currentWork'
@@ -24,6 +26,7 @@ script(type='text/x-template')#portfolio-display
         @slide='$emit("slide", $event)'
         :works='works'
         :currentWork='currentWork'
+        :currentIndex='currentIndex'
       )
 
 
@@ -35,22 +38,22 @@ script(type='text/x-template')#portfolio-thumbs
       :class='{active: currentWork.id  == work.id}'
     )
       a(href='')
-        img(:src='work.img').portfolio__preview-small
+        img(:src='"https://webdev-api.loftschool.com/" + work.photo').portfolio__preview-small
 
 
 script(type='text/x-template')#portfolio-btns
   .portfolio__arrows-list
     button(
       @click.prevent='$emit("slide", "next")'
-      :class='{active: currentWork.id  < works.length}'
+      :class='{active: currentIndex  < works.length - 1}'
     ).portfolio__arrows-item(type='button', aria-label='Вверх')
     button(
       @click.prevent='$emit("slide", "prev")'
-      :class='{active: currentWork.id  > 1}'
+      :class='{active: currentIndex  > 0}'
     ).portfolio__arrows-item(type='button', aria-label='Вниз')
 
 script(type='text/x-template')#portfolio-num
-  .portfolio__num {{currentWork.id}}
+  .portfolio__num {{currentIndex + 1}}
 
 script(type='text/x-template')#portfolio-info
   .portfolio__text
@@ -58,12 +61,12 @@ script(type='text/x-template')#portfolio-info
       :tags='tagsArray'
     )
     h3.portfolio__text-heading {{currentWork.title}}
-    p.portfolio__text-intro {{currentWork.desc}}
+    p.portfolio__text-intro {{currentWork.description}}
     a(:href='currentWork.link').portfolio__text-link Посмотреть сайт
 
 script(type='text/x-template')#portfolio-tags
   ul.portfolio__tags
-    li.portfolio__tag(v-for='tag in tags' :key='tag') {{tag}}
+    li.portfolio__tag(v-for='tag in tags' :key='tag.id') {{tag}}
 
 
 

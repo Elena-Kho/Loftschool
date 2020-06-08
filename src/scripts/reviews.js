@@ -1,10 +1,15 @@
 import Vue from 'vue';
+import axios from 'axios';
+
+const request = axios.create({
+  baseURL: 'https://webdev-api.loftschool.com'
+});
 
 const reviewsSlide = {
   template: '#reviews-slide',
   data() {
     return {
-      imgUrl: 'https://raw.githubusercontent.com/Elena-Kho/Loftschool/master/src/images/content/'
+      imgUrl: 'https://webdev-api.loftschool.com'
     }
   },
   props: ['slide']
@@ -36,8 +41,8 @@ new Vue({
     }
   },
 
-  created() {
-    const data = require('../data/reviews.json');
+  async created() {
+    const {data} = await request.get('/reviews/339');
     this.slides = data;
   },
 

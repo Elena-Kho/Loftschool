@@ -1,13 +1,18 @@
 import Vue from 'vue';
+import axios from 'axios';
+
+const request = axios.create({
+  baseURL: 'https://webdev-api.loftschool.com'
+});
 
 const num = {
   template: '#portfolio-num',
-  props: ['currentWork'],
+  props: ['currentWork', 'currentIndex']
 };
 
 const btns = {
   template: '#portfolio-btns',
-  props: ['works', 'currentWork'],
+  props: ['works', 'currentWork', 'currentIndex'],
 };
 
 const thumbs = {
@@ -27,7 +32,7 @@ const display = {
     thumbs,
     btns
   },
-  props: ['currentWork', 'works'],
+  props: ['works', 'currentWork', 'currentIndex'],
   computed: {
     reversedWorks() {
       const works = [...this.works];
@@ -44,7 +49,7 @@ const info = {
   props: ['currentWork'],
   computed: {
     tagsArray() {
-      return this.currentWork.skills.split(',');
+      return this.currentWork.techs.split(' ');
     }
   }
 };
@@ -87,17 +92,18 @@ new Vue({
           break;
       }
     },
-    makeArrReqImg(array) {
+    /*makeArrReqImg(array) {
       return array.map(item => {
         const requirePic = require(`../images/content/${item.img}`);
         item.img = requirePic;
 
         return item;
       })
-    }
+    }*/
   },
-  created() {
-    const data = require('../data/portfolio.json');
-    this.works = this.makeArrReqImg(data);
+  async created() {
+    const {data}  = await request.get('/works/339');
+    //this.works = this.makeArrReqImg(response.data);
+    this.works = data
   }
 });
