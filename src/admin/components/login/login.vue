@@ -159,4 +159,27 @@
       background: linear-gradient(to right, #5900ff, #bb00ff);
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .form-login__button-log {
+      left: 20%;
+      padding: 15px 60px;
+      font-size: 12px;
+    }
+    .form-login {
+      left: 50%;
+      width: 320px;
+      margin-left: -160px;
+    }
+    .form-login__heading {
+      font-size: 24px;
+    }
+    .form-login__input {
+      width: 200px;
+    }
+    .form-login__button-send {
+      padding: 15px 60px;
+      font-size: 12px;
+    }
+  }
 </style>

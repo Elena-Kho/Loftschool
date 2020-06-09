@@ -23,6 +23,11 @@ const thumbs = {
 const tags = {
   template: '#portfolio-tags',
   props: ['tags'],
+  computed: {
+    tagsArray() {
+      return this.tags.techs.split(' ');
+    }
+  }
 };
 
 
@@ -46,12 +51,7 @@ const info = {
   components: {
     tags
   },
-  props: ['currentWork'],
-  computed: {
-    tagsArray() {
-      return this.currentWork.techs.split(' ');
-    }
-  }
+  props: ['currentWork']
 };
 
 

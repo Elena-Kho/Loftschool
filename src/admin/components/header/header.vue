@@ -87,7 +87,7 @@
     }
     .header__login-btn {
       margin-left: 60px;
-      margin-top: -20px;
+      margin-top: -10px;
     }
   }
 </style>

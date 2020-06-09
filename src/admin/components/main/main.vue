@@ -53,6 +53,12 @@
     font-size: 16px;
     color: #414c63;
     text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: #383bcf;
+      border-bottom: 1px solid #383bcf;
+    }
   }
   @media screen and (max-width: 479px) {
     .nav__item {
