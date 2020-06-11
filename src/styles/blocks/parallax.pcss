@@ -18,6 +18,7 @@
       width: 100%;
       height: 100%;
       top: -200px;
+      clip-path: polygon(0 0, 100% 0, 100% 93%, 50% 100%, 0 93%);
     }
   }
 
@@ -54,6 +55,7 @@
     .parallax__img {
       right: 0;
       bottom: -250px;
+      clip-path: polygon(0 0, 100% 0, 100% 93%, 50% 100%, 0 93%);
     }
   }
 }
@@ -62,14 +64,28 @@
   position: absolute;
 }
 
+.parallax__img-bg {
+  clip-path: polygon(0 0, 100% 0, 100% 97%, 50% 100%, 0 97%);
+}
+
 @include desktop {
   .parallax {
+    position: relative;
     height: 1750px;
+  }
+
+  .parallax__img-bg {
+    width: auto;
+    height: 1750px;
+    object-fit: cover;
   }
 }
 
-@include tablets {
+@include 1080 {
   .parallax {
     height: 1400px;
+  }
+  .parallax__img-bg {
+    height: 1450px;
   }
 }

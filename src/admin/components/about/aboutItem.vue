@@ -94,8 +94,6 @@
     display: flex;
     justify-content: flex-end;
     margin-top: auto;
-
-    outline: 1px solid lime;
   }
   @media screen and (max-width: 1199px) {
     .new-skill__header-title.section__item-title {

@@ -16,13 +16,13 @@
               input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required v-model='CurrentWork.title')
           p.form__input
             label.form__input-label Ссылка
-              input#link.form__input-input(type='text', name='sitelink', value='', placeholder='https://www.porsche-pulkovo.ru', required v-model='CurrentWork.link')
+              input#link.form__input-input(type='text', name='sitelink', value='', placeholder='', required v-model='CurrentWork.link')
           p.form__input
             label.form__input-label Описание
-              textarea#message.form__input-text(name='message', rows='5', placeholder='Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей', required v-model='CurrentWork.description')
+              textarea#message.form__input-text(name='message', rows='5', placeholder='', required v-model='CurrentWork.description')
           p.form__input
             label.form__input-label Добавление тега
-              input#tags.form__input-input(type='text', name='tags', value='', placeholder='Jquery, Vue.js, HTML5', required v-model='CurrentWork.techs' @input='createNewTag')
+              input#tags.form__input-input(type='text', name='tags', value='', placeholder='', required v-model='CurrentWork.techs' @input='createNewTag')
           ul.form__tags
             li.form__tag(v-for='tag in tags' :key="tag.id")
               button.form__tag-btn(type='button' @click.prevent='delTag') {{tag}}

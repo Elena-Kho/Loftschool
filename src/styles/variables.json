@@ -5,7 +5,9 @@
   "bp-1300": "1300px",
   "bp-desktop": "1200px",
   "bp-1080": "1080px",
+  "bp-950": "950px",
   "bp-tablets": "768px",
+  "bp-600": "600px",
   "bp-phones": "480px",
   "nav-color": "#464d62",
   "nodesktop": "767px"

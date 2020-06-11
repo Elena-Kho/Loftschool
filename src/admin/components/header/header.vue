@@ -8,7 +8,7 @@
           .header__user-name Елена Ходанович
         .header__panel Панель администрирования
         .header__login
-          button.header__login-btn(type='button' @click.prevent='logout') Выйти
+          button.header__login-btn(type='button' @click.prevent='logoutUser') Выйти
 </template>
 
 
@@ -25,11 +25,9 @@
       }
     },
     methods: {
-      ...mapActions({
-        logoutUser: 'user/logout'
-      }),
-      logout() {
-        this.logoutUser();
+      ...mapActions('user', ['logout']),
+      logoutUser() {
+        this.logout();
         this.$router.replace('/login')
       }
     },

@@ -16,7 +16,7 @@
 
 
 <script>
-  import axios from 'axios'
+  import axios from 'axios';
 
   const baseURL = 'https://webdev-api.loftschool.com';
   const token = localStorage.getItem('token') || '';

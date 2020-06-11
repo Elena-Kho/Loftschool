@@ -22,8 +22,20 @@
   }
 }
 
+@mixin 950() {
+  @media screen and (max-width: $bp-950) {
+    @content;
+  }
+}
+
 @mixin tablets() {
   @media screen and (max-width: $bp-tablets) {
+    @content;
+  }
+}
+
+@mixin 600() {
+  @media screen and (max-width: $bp-600) {
     @content;
   }
 }

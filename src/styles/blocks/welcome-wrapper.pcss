@@ -1,12 +1,12 @@
 .welcome-wrapper {
   padding-bottom: 150px;
-  /*background: #f0eff5 url("../images/content/bg-mountain-desktopHd.jpg") no-repeat 50% 0;
-  background-size: cover;*/
+  /*background: #f0eff5 no-repeat 0 100%;
+  background-size: 500px 500px;*/
   clip-path: polygon(0 0, 100% 0, 100% 93%, 50% 100%, 0 93%);
 }
 
 .welcome-wrapper__about {
-  margin-top: 390px;
+  margin-top: 300px;
   margin-bottom: 100px;
 }
 
@@ -23,17 +23,17 @@
     clip-path: polygon(0 0, 100% 0, 100% 96%, 50% 100%, 0 96%);
   }
   .welcome-wrapper__about {
-    margin-top: 200px;
+    margin-top: 100px;
   }
 }
 
-@include phones {
+@include 600 {
   .welcome-wrapper {
     padding-bottom: 20px;
     clip-path: polygon(0 0, 100% 0, 100% 98%, 50% 100%, 0 98%);
   }
 
   .welcome-wrapper__about {
-    margin-top: 90px;
+    margin-top: 0;
   }
 }

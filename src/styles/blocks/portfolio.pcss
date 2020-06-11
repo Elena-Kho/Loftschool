@@ -10,7 +10,6 @@
 
 .portfolio__slider {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
 }
@@ -174,6 +173,10 @@
 }
 
 @include tablets {
+  .portfolio__slider {
+    flex-wrap: wrap;
+  }
+
   .portfolio__heading {
     margin-top: 70px;
     margin-bottom: 50px;
@@ -213,6 +216,7 @@
 
   .portfolio__text-intro {
     font-size: 14px;
+    text-align: left;
   }
 
   .portfolio__text-link {

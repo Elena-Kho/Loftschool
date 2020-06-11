@@ -15,7 +15,7 @@ html(lang="en")
       .parallax__layer(data-speed='0.1')
         picture
           source(media='(min-width: 1200px)', srcset=require('images/content/1.jpg'))
-          +image('content/bg-mountain-desktopHd.jpg', 'parallax__img')
+          +image('content/bg-mountain-desktopHd.jpg', 'parallax__img-bg')
       .parallax__layer(data-speed='0.25')
         picture
           source(media='(min-width: 1200px)', srcset=require('images/content/2.png'))
@@ -37,7 +37,7 @@ html(lang="en")
           source.parallax__img(media='(min-width: 1200px)', srcset=require('images/content/white.png'))
           img.parallax__img(src='')
     .wrapper
-      .welcome-wrapper
+      .welcome-wrapper#main
         section.welcome-wrapper__intro.intro
           header.header.container
             .header__logo
@@ -124,11 +124,11 @@ html(lang="en")
           .footer__content
             .footer__nav
               nav.nav.nav--footer
-                - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                - var items = [{title:'Главная', href:'#main'}, {title:'Обо мне', href:'#about'}, {title:'Навыки', href:'#skills'}, {title:'Работы', href:'#portfolio'}, {title:'Отзывы', href:'#reviews'}, {title:'Связаться', href:'#contacts'}];
                 ul.nav__list.nav__list--footer
                   each item in items
                     li.nav__item
-                      a.nav__link #{item}
+                      a.nav__link(href=`${item.href}`) #{item.title}
             .footer__intro
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
               .footer__intro-socials
