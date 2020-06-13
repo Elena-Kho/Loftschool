@@ -65,6 +65,7 @@
         const file = e.target.files[0];
         this.CurrentWork.photo = file;
         const img = this.$refs.inputFile;
+        console.log(this.$refs.inputFile)
 
         const reader = new FileReader();
         return new Promise((resolve, reject) => {

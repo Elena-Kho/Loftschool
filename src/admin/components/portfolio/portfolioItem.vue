@@ -50,8 +50,13 @@
   }
   .portfolio__new-img {
     width: 100%;
-    min-height: 190px;
+    height: 250px;
+    overflow: hidden;
     background-color: lightgrey;
+  }
+  .portfolio__new-pic {
+    width: 100%;
+    height: 100%;
   }
   .portfolio__new-tags {
     display: flex;
