@@ -30,7 +30,7 @@
 }
 
 .about__school {
-  margin-top: 100px;
+  margin-top: 50px;
   font-style: italic;
   line-height: 1.8;
 }
@@ -42,6 +42,12 @@
 
   .about__text {
     padding-left: 7.7vw;
+  }
+}
+
+@include 950 {
+  .about__text {
+    font-size: 14px;
   }
 }
 
@@ -68,6 +74,24 @@
 
   .about__school {
     margin-top: 30px;
+  }
+}
+
+@include 600 {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+  }
+
+  .about__user {
+    width: 450px;
+  }
+
+  .about__text {
+    width: 450px;
+    margin-top: 40px;
+    padding: 0;
   }
 }
 

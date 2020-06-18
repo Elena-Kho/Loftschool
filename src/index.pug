@@ -15,7 +15,7 @@ html(lang="en")
       .parallax__layer(data-speed='0.1')
         picture
           source(media='(min-width: 1200px)', srcset=require('images/content/1.jpg'))
-          +image('content/bg-mountain-desktopHd.jpg', 'parallax__img-bg')
+          +image('content/bg-mobile.jpg', 'parallax__img-bg')
       .parallax__layer(data-speed='0.25')
         picture
           source(media='(min-width: 1200px)', srcset=require('images/content/2.png'))
@@ -59,10 +59,8 @@ html(lang="en")
                       a(href='').socials__link
                         +icon(item, socials__item)
           .intro__main.main.container
-            p.main__text Личный сайт веб-разработчика
+            p.main__text Личный сайт <br> веб-разработчика
             h1.main__heading Елена Ходанович
-          .intro__scroll.scroll
-            a(href='#').scroll__button Скролл
         section.welcome-wrapper__about.about#about.container
           h2.visually-hidden Обо мне
           .about__user.user-card
@@ -84,14 +82,14 @@ html(lang="en")
             .about__hello Привет, меня зовут
             h3.about__name Елена Ходанович
             .about__prof
-              p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+              p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать удобные, современные и интересные проекты. Больше всего я люблю строить сетки, очень уважительно отношусь к разметке и добиваюсь практически идеального соответствия макету. Front-end для меня — это идеальное сочетание логики и творчества.
             .about__school
-              p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              p Этот сайт я сделала, обучаясь в школе программирования LoftSchool. Он сверстан на HTML5 и CSS3 по БЭМ, с применением Pug и PostCSS. Формы и меню-бургер выполнены на Javascript, блоки с навыками, примерами работ и отзывами - на Vue.js. На сайте реализован parallax-эффект.
       section.skills#skills
         .skills__wrapper.container
           h2.skills__heading Чем я могу быть полезен вам
           .skills__intro
-            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            p Я создаю сайты и SPA-приложения на HTML5, CSS3, Javasript и Vue.js. Верстаю адаптивно и резиново, семантично, доступно, в том числе для клавиатуры и скринридеров. Работаю с Git через консоль. В разработке использую методологию БЭМ, CSS-препроцессоры LESS/SASS, PostCSS, Pug, автоматизацию на Gulp и Webpack.
           #diagrams-component
       section.portfolio#portfolio
         .portfolio__wrapper.container.fullscreen
@@ -117,10 +115,10 @@ html(lang="en")
       footer.footer
         .footer__wrapper.container
           .footer__copyright.copyright
-            .copyright__year © 2019
+            .copyright__year © 2020
             .copyright__info
               .copyright__name Елена Ходанович
-              .copyright__site Личный сайт веб-разработчика
+              .copyright__site Личный сайт <br> веб-разработчика
           .footer__content
             .footer__nav
               nav.nav.nav--footer
@@ -130,7 +128,7 @@ html(lang="en")
                     li.nav__item
                       a.nav__link(href=`${item.href}`) #{item.title}
             .footer__intro
-              p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+              p Этот сайт я сделала в рамках обучения на курсе "Vue.js, продвинутая веб-разработка" школы программирования Loftschool
               .footer__intro-socials
                 - var icons = ["insta", "vk", "github"];
                 ul.socials.socials--footer
@@ -139,8 +137,7 @@ html(lang="en")
                       a(href='').socials__link
                         +icon(item, socials__item)
             .footer__quote
-              p.footer__quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-              p.footer__quote-name Martin Golding
+              p.footer__quote-text Осуществляешь ли ты свое предназначение, определяется не тем, что ты делаешь, а тем — как. Eckhart Tolle
       section.modal.modal-sent
         .container
             h2.modal__heading Письмо отправлено

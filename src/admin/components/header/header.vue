@@ -80,11 +80,14 @@
       flex-direction: column;
       align-items: flex-start;
     }
+    .header__user-info {
+      margin-left: 20px;
+    }
     .header__panel {
       display: none;
     }
     .header__login-btn {
-      margin-left: 60px;
+      margin-left: 80px;
       margin-top: -10px;
     }
   }

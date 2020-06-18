@@ -267,6 +267,7 @@
     font-weight: 900;
   }
   .section__new-info-text {
+    font-size: 14px;
     font-weight: 300;
     line-height: 30px;
     color: #818181;

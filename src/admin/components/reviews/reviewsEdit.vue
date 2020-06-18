@@ -6,7 +6,7 @@
       form.reviews__upload(action='#', method='post', enctype='multipart/form-data')
         .reviews__upload-wrapper(ref='inputFile')
           label.reviews__upload-label
-          span.reviews__upload-text Добавить фото
+            span.reviews__upload-text Добавить фото
             input(type='file', name='ava', value='', placeholder='' @input='loadFile')
       .reviews__desc
         form.reviews__form.form.form--rev(action='#', method='post')
@@ -137,6 +137,7 @@
     font-size: 16px;
     font-weight: 700;
     color: #1d52dd;
+    cursor: pointer;
   }
   @media screen and (max-width: 1199px) {
     .reviews__upload {

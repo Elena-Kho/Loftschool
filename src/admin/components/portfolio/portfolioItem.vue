@@ -51,12 +51,13 @@
   .portfolio__new-img {
     width: 100%;
     height: 250px;
-    overflow: hidden;
     background-color: lightgrey;
   }
   .portfolio__new-pic {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   .portfolio__new-tags {
     display: flex;
@@ -64,12 +65,14 @@
     padding: 0;
     margin-top: -50px;
     list-style: none;
+    font-size: 14px;
   }
   .portfolio__new-tag {
     margin-right: 10px;
     padding: 7px 12px;
     background-color: #ffffff;
     border-radius: 20px;
+    border: 1px solid grey;
   }
   .portfolio__new-info-link {
     display: block;

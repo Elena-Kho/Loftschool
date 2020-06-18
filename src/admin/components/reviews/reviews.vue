@@ -2,7 +2,7 @@
   section.reviews.section
     .container
       .reviews__header.section__header.container--block
-          h2.reviews__title.section__title Блок Отзывы
+          h2.reviews__title.section__title(ref='ScrollToBlock') Блок Отзывы
       .reviews.section-main
         ul.reviews__list.section__list.container
           li.reviews__item.section__item(v-if='ShowAddBlock')
@@ -56,6 +56,7 @@
     methods: {
       toggleShow() {
         this.ShowAddBlock = !this.ShowAddBlock
+        this.$refs.ScrollToBlock.scrollIntoView()
       },
       toggleShowEdit () {
         this.ShowEditBlock = !this.ShowEditBlock
@@ -79,6 +80,7 @@
       getReviewToEdit(review) {
         this.ShowEditBlock = !this.ShowEditBlock
         this.reviewToEdit = this.reviews.find(item => item.id == review.id)
+        this.$refs.ScrollToBlock.scrollIntoView()
       },
       editReview(sendData) {
         requests.post(`/reviews/${sendData.id}`, sendData.data).then(response => {

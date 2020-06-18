@@ -15,7 +15,6 @@ const diagram = {
       const percent = (dashArray / 100) * (100 - this.skill.percent);
 
       circle.style.strokeDashoffset = percent
-      console.log(this.skill.percent)
     }
   },
   mounted() {

@@ -2,7 +2,7 @@
   section.portfolio.section
     .container
       .portfolio__header.section__header.container--block
-          h2.portfolio__title.section__title(ref='EditBlock') Блок Работы
+          h2.portfolio__title.section__title(ref='ScrollToBlock') Блок Работы
       .portfolio.section-main
         ul.portfolio__list.section__list.container
           li.portfolio__item.section__item(v-if='ShowAddBlock')
@@ -56,6 +56,7 @@
     methods: {
       toggleShow() {
         this.ShowAddBlock = !this.ShowAddBlock
+        this.$refs.ScrollToBlock.scrollIntoView()
       },
       toggleShowEdit () {
         this.ShowEditBlock = !this.ShowEditBlock
@@ -79,8 +80,7 @@
       getWorkToEdit(work) {
         this.ShowEditBlock = !this.ShowEditBlock
         this.workToEdit = this.works.find(item => item.id == work.id)
-        console.log(this.$refs.EditBlock)
-        this.$refs.EditBlock.scrollIntoView()
+        this.$refs.ScrollToBlock.scrollIntoView()
       },
       editWork(sendData) {
         requests.post(`/works/${sendData.id}`, sendData.data).then(response => {
