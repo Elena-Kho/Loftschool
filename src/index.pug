@@ -52,12 +52,12 @@ html(lang="en")
                       li.nav__item
                         a.nav__link(href=`${item.href}`) #{item.title}
               .header__socials.header__socials--header
-                - var icons = ["insta", "vk", "github"];
+                - var icons = [{title:'insta', href:'#'}, {title:'facebook', href:'https://www.facebook.com/elena.khodanovich.58'}, {title:'github', href:'https://github.com/Elena-Kho'}];
                 ul.socials.socials--header
                   each item in icons
                     li.socials__item.socials__item--header
-                      a(href='').socials__link
-                        +icon(item, socials__item)
+                      a.socials__link(href=`${item.href}`)
+                        +icon(item.title, 'socials__img')
           .intro__main.main.container
             p.main__text Личный сайт <br> веб-разработчика
             h1.main__heading Елена Ходанович
@@ -82,12 +82,12 @@ html(lang="en")
             .about__hello Привет, меня зовут
             h3.about__name Елена Ходанович
             .about__prof
-              p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать удобные, современные и интересные проекты. Больше всего я люблю строить сетки, очень уважительно отношусь к разметке и добиваюсь практически идеального соответствия макету. Front-end для меня — это идеальное сочетание логики и творчества.
+              p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать удобные, современные и интересные проекты. Больше всего я люблю строить сетки, очень уважительно отношусь к разметке и PixelPerfect. Front-end для меня — это идеальное сочетание логики и творчества.
             .about__school
               p Этот сайт я сделала, обучаясь в школе программирования LoftSchool. Он сверстан на HTML5 и CSS3 по БЭМ, с применением Pug и PostCSS. Формы и меню-бургер выполнены на Javascript, блоки с навыками, примерами работ и отзывами - на Vue.js. На сайте реализован parallax-эффект.
       section.skills#skills
         .skills__wrapper.container
-          h2.skills__heading Чем я могу быть полезен вам
+          h2.skills__heading Чем я могу быть полезна вам
           .skills__intro
             p Я создаю сайты и SPA-приложения на HTML5, CSS3, Javasript и Vue.js. Верстаю адаптивно и резиново, семантично, доступно, в том числе для клавиатуры и скринридеров. Работаю с Git через консоль. В разработке использую методологию БЭМ, CSS-препроцессоры LESS/SASS, PostCSS, Pug, автоматизацию на Gulp и Webpack.
           #diagrams-component
@@ -130,12 +130,12 @@ html(lang="en")
             .footer__intro
               p Этот сайт я сделала в рамках обучения на курсе "Vue.js, продвинутая веб-разработка" школы программирования Loftschool
               .footer__intro-socials
-                - var icons = ["insta", "vk", "github"];
+                - var icons = [{title:'insta', href:'#'}, {title:'facebook', href:'https://www.facebook.com/elena.khodanovich.58'}, {title:'github', href:'https://github.com/Elena-Kho'}];
                 ul.socials.socials--footer
                   each item in icons
                     li.socials__item.socials__item--footer
-                      a(href='').socials__link
-                        +icon(item, socials__item)
+                      a.socials__link(href=`${item.href}`)
+                        +icon(item.title, 'socials__img')
             .footer__quote
               p.footer__quote-text Осуществляешь ли ты свое предназначение, определяется не тем, что ты делаешь, а тем — как. Eckhart Tolle
       section.modal.modal-sent

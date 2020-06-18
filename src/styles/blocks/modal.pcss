@@ -1,12 +1,12 @@
 .modal {
   position: fixed;
-  width: 35.3125rem;
-  height: 16.5625rem;
-  top: 50%;
+  width: 100%;
+  top: 40%;
   left: 50%;
-  margin-left: -265px;
+  transform: translateX(-50%);
   padding: 0;
   padding-top: 60px;
+  padding-bottom: 60px;
   font-size: 14px;
   line-height: 24px;
   text-align: center;
@@ -39,4 +39,10 @@
 
 .modal--show {
   display: block;
+}
+
+@include phones {
+  .modal__heading {
+    font-size: 24px;
+  }
 }

@@ -203,8 +203,8 @@
     justify-content: center;
     justify-content: space-between;
     width: 100%;
-    margin-top: 50px;
-    margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 50px;
     padding: 0;
     list-style: none;
   }
