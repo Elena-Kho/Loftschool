@@ -29,6 +29,9 @@
           .form__btns
             button.form__btn.form__btn--no(type='reset' @click.prevent='$emit("toggleShow")') Отмена
             button.form__btn.button(type='submit' @click.prevent='createNewWork') Сохранить
+    .modal(v-if='activeModal')
+      button.modal__button-close(type='button' @click.prevent='activeModal = false')
+      p.modal__text Заполните все данные формы
 </template>
 
 
@@ -46,7 +49,8 @@
           link: '',
           description: ""
         },
-        tags: []
+        tags: [],
+        activeModal: false
       }
     },
     methods: {
@@ -89,13 +93,14 @@
           formData.set('description', this.work.description);
           this.$emit('addWork', formData)
         } else {
-            alert("Заполните все данные формы")
+            this.activeModal = true;
           }
       },
       createNewTag() {
         this.tags = this.work.techs.split(' ');
       },
-      delTag(tag) {
+      delTag(e) {
+        let tag = e.target.textContent;
         let index = parseInt(this.tags.indexOf(tag));
 
         this.tags.splice(index, 1);
@@ -133,6 +138,37 @@
   .portfolio__desc {
     width: 50%;
   }
+    .modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100px;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 0px;
+  }
+  .modal__button-close {
+    align-self: flex-end;
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background: svg-load('remove.svg', width: 12, height: 12, fill: grey) no-repeat 0 0;
+  }
+  .modal__text {
+    display: block;
+    margin-top: 10px;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: red;
+  }
   @media screen and (max-width: 1199px)  {
     .portfolio__item-main {
       flex-direction: column;
@@ -142,6 +178,14 @@
       width: 100%;
     }
     .portfolio__desc {
+      width: 100%;
+    }
+    .modal {
+      width: 50%;
+    }
+  }
+  @media screen and (max-width: 479px) {
+    .modal {
       width: 100%;
     }
   }

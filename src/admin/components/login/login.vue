@@ -87,7 +87,7 @@
     height: 345px;
     top: 30%;
     left: 50%;
-    margin-left: -265px;
+    transform: translateX(-50%);
     padding: 0;
     padding-top: 60px;
     font-size: 14px;
@@ -146,7 +146,8 @@
   .form-login__button-log {
     position: fixed;
     top: 40%;
-    left: 40%;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 30px 100px;
     border-radius: 40px 5px;
     text-transform: uppercase;
@@ -162,14 +163,11 @@
 
   @media screen and (max-width: 767px) {
     .form-login__button-log {
-      left: 20%;
       padding: 15px 60px;
       font-size: 12px;
     }
     .form-login {
-      left: 50%;
       width: 320px;
-      margin-left: -160px;
     }
     .form-login__heading {
       font-size: 24px;

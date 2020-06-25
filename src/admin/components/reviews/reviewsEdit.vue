@@ -12,13 +12,13 @@
         form.reviews__form.form.form--rev(action='#', method='post')
           p.form__input.form__input--rev
             label.form__input-label Имя автора
-              input#name.form__input-input(type='text', name='sitename', value='', placeholder='Ковальчук Дмитрий', required v-model='CurrentReview.author')
+              input#name.form__input-input(type='text', name='sitename', value='', placeholder='', required v-model='CurrentReview.author')
           p.form__input.form__input--rev
             label.form__input-label Титул автора
-              input#title.form__input-input(type='text', name='sitelink', value='', placeholder='Основатель Loftschool', required v-model='CurrentReview.occ')
+              input#title.form__input-input(type='text', name='sitelink', value='', placeholder='', required v-model='CurrentReview.occ')
           p.form__input.form__input--area
             label.form__input-label Отзыв
-              textarea#message.form__input-text(name='message', rows='5', placeholder='Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!', required v-model='CurrentReview.text')
+              textarea#message.form__input-text(name='message', rows='5', placeholder='', required v-model='CurrentReview.text')
           .form__btns.form__btns--rev
             button.form__btn.form__btn--no(type='reset' @click.prevent='toggleShowEdit') Отмена
             button.form__btn.button(type='submit' @click.prevent='editCurrentReview') Сохранить

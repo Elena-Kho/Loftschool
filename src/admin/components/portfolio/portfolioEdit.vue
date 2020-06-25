@@ -24,7 +24,7 @@
             label.form__input-label Добавление тега
               input#tags.form__input-input(type='text', name='tags', value='', placeholder='', required v-model='CurrentWork.techs' @input='createNewTag')
           ul.form__tags
-            li.form__tag(v-for='tag in tags' :key="tag.id")
+            li.form__tag(v-for='tag in tags' :key='tag.id')
               button.form__tag-btn(type='button' @click.prevent='delTag') {{tag}}
           .form__btns
             button.form__btn.form__btn--no(type='reset' @click.prevent='toggleShowEdit') Отмена
@@ -83,7 +83,8 @@
       createNewTag() {
         this.tags = this.CurrentWork.techs.split(' ');
       },
-      delTag(tag) {
+      delTag(e) {
+        let tag = e.target.textContent;
         let index = parseInt(this.tags.indexOf(tag));
 
         this.tags.splice(index, 1);
